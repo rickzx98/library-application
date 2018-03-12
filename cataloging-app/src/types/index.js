@@ -1,0 +1,61 @@
+
+export const MPUser = {
+  USER_ID: 'userId',
+  USERNAME: 'username',
+  DEPARTMENT_ID: 'departmentId'
+};
+
+export const Pages = {
+  home: '/',
+  collection: '/collection',
+  titles: '/titles'
+};
+
+export const Record = {
+  BLOCK_NO: 'blockNo',
+  OWNER: 'owner',
+  COMPANY: 'company',
+  RECORD_TYPE: 'recordType',
+  ITEM_TYPE: 'itemType',
+  DESCRIPTION: 'description',
+  ITEM: 'item',
+  DATE_CREATED: 'dateCreated'
+};
+
+
+export const Collection = {
+  NAME: 'name'
+};
+
+export const Title = {
+  AUTHOR: 'author',
+  TITLE: 'title',
+  SUB_TITLE: 'subTitle',
+  STATEMENT_OF_RESPONSIBILITY: 'statementOfResponsibility',
+  EDITION: 'edition',
+  SERIES_TITLE: 'seriesTitle',
+  ISBN: 'isbn',
+  LCCN: 'lccn',
+  ISSN: 'issn',
+  PLACE_OF_PUBLICATION: 'placeOfPublication',
+  PUBLISHER: 'publisher',
+  DATE: 'date',
+  PAGES: 'pages',
+  SUBJECTS: 'subjects',
+  SUMMARY: 'summary',
+  GENERAL_NOTE: 'generalNote',
+  STUDY_PROGRAM: 'studyProgram',
+  READING_LEVEL: 'readingLevel',
+  TITLE_POINTS: 'titlePoints',
+  INTERNET_RESOURCE: 'internetResource',
+  RESOURCE_TYPE: 'resourceType',
+  BARCODE: 'barcode',
+  CALL_NUMBER: 'callNumber',
+  LOCATION: 'location',
+  FORMAT: 'format',
+  COST: 'cost',
+  VENDOR: 'vendor',
+  CURRENCY: 'currency',
+  FUND: 'fund',
+  PUBLIC_NOTE: 'publicNote'
+};
