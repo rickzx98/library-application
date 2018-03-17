@@ -1,13 +1,26 @@
 .table {
-    &.table-hover {
-        tbody {
-            background: $table-background-color;
-            tr {
-                &:hover {
-                    cursor: pointer !important;
-                    background-color: $table-hover-background;
-                }
-            }
-        }
+  tbody {
+    background: $table-background-color;
+  }
+  thead {
+    th {
+      background: $table-header-bg-color;
+      color: $table-header-font-color;
+      font-weight: 500;
+      font-size: 16px;
     }
+  }
+  .fluid-table-filter-row {
+    display: none;
+  }
+  &.table-hover {
+    tbody {
+      tr.fluid-row {
+        &:hover {
+          cursor: pointer !important;
+          background-color: $table-hover-background;
+        }
+      }
+    }
+  }
 }

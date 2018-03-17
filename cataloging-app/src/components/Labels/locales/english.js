@@ -58,7 +58,10 @@ export const LABEL_ITEM = 'Item';
 export const LABEL_RECORD = 'Record';
 export const LABEL_ITEM_DETAIL = 'Item detail';
 export const LABEL_ITEM_HISTORY = 'Item history';
+export const LABEL_CURRENT_COLLECTIONS = 'Current collections';
+export const LABEL_NAME = 'Name';
 // validation
+export const LABEL_VALIDATION_NAME_REQUIRED = 'Name is required';
 export const LABEL_VALIDATION_POLICY_NUMBER_REQUIRED = 'Policy number is required';
 export const LABEL_VALIDATION_CUSTOMER_NUMBER_REQUIRED = 'Customer number is required';
 export const LABEL_VALIDATION_CUSTOMER_NAME_REQUIRED = 'Customer name is required';
@@ -82,6 +85,10 @@ export const LABEL_LOADING_MP_FAILED = 'Failed to load MP record';
 export const LABEL_UPDATE_SUCCESS = 'Record has been updated';
 export const LABEL_UPDATE_FAILED = 'Updating failed';
 export const LABEL_FAILED_LOADING_RECORDS = 'Failed to load records';
+export const LABEL_FAILED_TO_CREATE_COLLECTION = 'Failed to create collection';
+export const LABEL_FAILED_TO_UPDATE_COLLECTION = 'Failed to update collection';
+export const LABEL_CREATE_COLLECTION_SUCCESS = 'A new collection has been saved';
+export const LABEL_UPDATED_COLLECTION_SUCCESS = 'Collection has been updated';
 // Confirmation
 export const LABEL_CANCEL_CONFIRMATION_TITLE = 'Cancel Confirmation';
 export const LABEL_CANCEL_CONFIRMATION = 'Do you want to cancel your changes?';

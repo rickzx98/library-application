@@ -1,5 +1,4 @@
 /* eslint-disable import/default */
-
 import './index.scss';
 
 import configureStore, { history } from './store/configureStore';
@@ -15,7 +14,7 @@ const store = configureStore();
 store.dispatch(SecurityActions.loadCurrentUser()); // load authenticated user
 render(
   <AppContainer>
-    <Root store={store} history={history} />
+    <Root store={store} history={history}/>
   </AppContainer>,
   document.getElementById('app')
 );
@@ -25,7 +24,7 @@ if (module.hot) {
     const NewRoot = require('./components/RootPage/Root').default;
     render(
       <AppContainer>
-        <NewRoot store={store} history={history} />
+        <NewRoot store={store} history={history}/>
       </AppContainer>,
       document.getElementById('app')
     );

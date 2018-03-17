@@ -1,6 +1,6 @@
 import 'react-datepicker/dist/react-datepicker.css';
-
 import Lb from './LoadingBalls';
+
 import ReactDatePicker from 'react-datepicker';
 import ReactFontAwesome from 'react-fontawesome';
 
@@ -20,3 +20,5 @@ export { HiddenButton } from './HiddenButton';
 export { Page } from './Page';
 export { FieldView } from './FieldView';
 export const LoadingBalls = Lb;
+export {Label} from './Label';
+

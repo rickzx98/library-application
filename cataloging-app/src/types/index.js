@@ -1,4 +1,3 @@
-
 export const MPUser = {
   USER_ID: 'userId',
   USERNAME: 'username',
@@ -8,6 +7,8 @@ export const MPUser = {
 export const Pages = {
   home: '/',
   collection: '/collection',
+  newCollection: '/collection/new',
+  viewCollection: '/collection/view/',
   titles: '/titles'
 };
 
@@ -24,6 +25,7 @@ export const Record = {
 
 
 export const Collection = {
+  ID: '_id',
   NAME: 'name'
 };
 

@@ -1,0 +1,13 @@
+form {
+    label {
+        &.control-label {
+            font-weight: 500;
+            font-size: 14px;
+            color: $hd-text-color;
+        }
+    }
+    input {
+      font-weight: 400;
+      font-size: 12px;
+    }
+}
