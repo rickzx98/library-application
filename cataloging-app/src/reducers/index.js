@@ -1,4 +1,5 @@
 import { AjaxStatusReducer as ajaxStatus } from '../components/AjaxStatus/';
+import { CatalogingCollectionReducer as collections } from '../components/CatalogingCollection/';
 import { combineReducers } from 'redux';
 import { DialogReducer as dialog } from '../components/Dialog/';
 import { FluidFormReducer as fluidForm } from 'fluid-commons';
@@ -16,6 +17,6 @@ const rootReducer = combineReducers({
   headers, security,
   notifications, ajaxStatus,
   fluidForm, dialog, labels, search,
-  searchResult, record
+  searchResult, record, collections
 });
 export default rootReducer;
