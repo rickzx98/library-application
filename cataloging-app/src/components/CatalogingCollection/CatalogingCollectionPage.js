@@ -42,19 +42,11 @@ class CatalogingCollectionPage extends React.Component {
     }
   }
   createHeaders() {
-    const { pathname } = this.props.location;
-    const { params } = this.props.match;
-    switch (pathname) {
-      case Pages.viewCollection + (params ? params.id : ''):
-        this.props.actions.createHeaders(createHeadersForUpdateForm(this.thisRefresh, this.thisIsActive, this.thisOnCancel));
-        break;
-      case Pages.newCollection:
-        this.props.actions.createHeaders(createHeadersForCreateForm(this.thisIsActive));
-        break;
-      default:
-        this.props.actions.createHeaders(createHeadersForTable(this.thisAdd, this.thisRefresh, this.thisIsActive));
-        break;
-    }
+    this.router(() => {
+      this.props.actions.createHeaders(createHeadersForUpdateForm(this.thisRefresh, this.thisIsActive, this.thisOnCancel));
+    },
+      () => { this.props.actions.createHeaders(createHeadersForCreateForm(this.thisIsActive)); },
+      () => { this.props.actions.createHeaders(createHeadersForTable(this.thisAdd, this.thisRefresh, this.thisIsActive)); });
   }
 
   isActive() {
@@ -62,18 +54,9 @@ class CatalogingCollectionPage extends React.Component {
   }
 
   refresh() {
-    const { pathname } = this.props.location;
-    const { params } = this.props.match;
-    switch (pathname) {
-      case Pages.viewCollection + (params ? params.id : ''):
-        this.props.actions.loadCollection(params.id);
-        break;
-      case Pages.newCollection:
-        break;
-      default:
-        this.props.actions.loadCollections();
-        break;
-    }
+    this.router(({ params }) => {
+      this.props.actions.loadCollection(params.id);
+    }, () => { }, () => { this.props.actions.loadCollections(); });
   }
 
   add() {
@@ -85,16 +68,10 @@ class CatalogingCollectionPage extends React.Component {
   }
 
   onSubmit(collection) {
-    const { pathname } = this.props.location;
-    const { params } = this.props.match;
-    switch (pathname) {
-      case Pages.viewCollection + (params ? params.id : ''):
-        this.props.actions.updateCollection(collection);
-        break;
-      case Pages.newCollection:
-        this.props.actions.createCollection(collection);
-        break;
-    }
+    this.router(({ params }) => {
+      this.props.actions.updateCollection(params.id, collection);
+    }, () => { this.props.actions.createCollection(collection); },
+      () => { });
   }
 
   onSelect(collection) {
@@ -103,35 +80,43 @@ class CatalogingCollectionPage extends React.Component {
   onCancel() {
 
   }
-  render() {
-    let viewElement;
-    const { params } = this.props.match;
+  router(updateView, createView, listView) {
     const { pathname } = this.props.location;
+    const { params } = this.props.match;
     switch (pathname) {
-      case Pages.newCollection:
-        viewElement = (<CatalogingCollectionForm
-          onSubmit={this.thisOnSubmit}
-          onFailed={this.thisOnFailed}
-          ajax={this.props.ajax}
-          data={this.props.collectionForm.data} />);
-        break;
       case Pages.viewCollection + (params ? params.id : ''):
-        viewElement = (<CatalogingCollectionForm
-          onSubmit={this.thisOnSubmit}
-          onFailed={this.thisOnFailed}
-          ajax={this.props.ajax}
-          data={this.props.collectionForm.data} />);
+        updateView({ params, pathname });
+        break;
+      case Pages.newCollection:
+        createView({ params, pathname });
         break;
       default:
-        viewElement = (<CatalogingCollectionList
-          onSelect={this.thisOnSelect}
-          collections={this.props.collections} />);
+        listView({ params, pathname });
         break;
     }
+  }
+  render() {
+    let viewElement;
+    this.router(() => {
+      viewElement = (<CatalogingCollectionForm
+        onSubmit={this.thisOnSubmit}
+        onFailed={this.thisOnFailed}
+        ajax={this.props.ajax}
+        data={this.props.collectionForm.data} />);
+    }, () => {
+      viewElement = (<CatalogingCollectionForm
+        onSubmit={this.thisOnSubmit}
+        onFailed={this.thisOnFailed}
+        ajax={this.props.ajax}
+        data={this.props.collectionForm.data} />);
+    }, () => {
+      viewElement = (<CatalogingCollectionList
+        onSelect={this.thisOnSelect}
+        collections={this.props.collections} />);
+    });
     return viewElement;
   }
 }
-
 const mapStateToProps = ({ collections, ajaxStatus, routing, fluidForm: { collectionForm } }) => ({
   collections,
   ajax: ajaxStatus,

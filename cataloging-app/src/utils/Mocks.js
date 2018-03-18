@@ -1,4 +1,4 @@
-export const collections = [{
+export let collections = [{
   _id: '0001',
   name: 'GS Library'
 },

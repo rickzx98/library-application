@@ -57,10 +57,10 @@ export const createCollection = (collection) => {
   };
 };
 
-export const updateCollection = (collection) => {
+export const updateCollection = (id, collection) => {
   return dispatch => {
     dispatch(AjaxStatusActions.beginAjaxCall());
-    FluidApi.execute('updateCollection', { input: collection })
+    FluidApi.execute('updateCollection', { id, input: collection })
       .then(() => {
         dispatch(NotificationActions.alertSuccess(getLabel('LABEL_UPDATED_COLLECTION_SUCCESS')));
         dispatch(AjaxStatusActions.ajaxCallSuccess());
