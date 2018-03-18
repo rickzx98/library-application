@@ -32,7 +32,7 @@ export const createHeadersForCreateForm = (isActive) => {
 };
 
 
-export const createHeadersForUpdateForm = (refresh, isActive, cancel) => {
+export const createHeadersForUpdateForm = (refresh, isActive, cancel, remove) => {
   const headers = {};
   headers['update'] = {
     label: getLabel('LABEL_UPDATE'),
@@ -41,6 +41,12 @@ export const createHeadersForUpdateForm = (refresh, isActive, cancel) => {
     },
     isActive: isActive,
     fontIcon: 'save'
+  };
+  headers['delete'] = {
+    label: getLabel('LABEL_DELETE'),
+    onClick: remove,
+    isActive: isActive,
+    fontIcon: 'trash'
   };
   headers['refresh'] = {
     label: getLabel('LABEL_REFRESH'),

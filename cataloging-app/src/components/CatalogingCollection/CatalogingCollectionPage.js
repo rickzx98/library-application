@@ -23,6 +23,7 @@ class CatalogingCollectionPage extends React.Component {
     this.thisOnFailed = this.onFailed.bind(this);
     this.thisOnSelect = this.onSelect.bind(this);
     this.thisOnCancel = this.onCancel.bind(this);
+    this.thisOnDelete = this.onDelete.bind(this);
   }
 
   componentWillMount() {
@@ -43,7 +44,7 @@ class CatalogingCollectionPage extends React.Component {
   }
   createHeaders() {
     this.router(() => {
-      this.props.actions.createHeaders(createHeadersForUpdateForm(this.thisRefresh, this.thisIsActive, this.thisOnCancel));
+      this.props.actions.createHeaders(createHeadersForUpdateForm(this.thisRefresh, this.thisIsActive, this.thisOnCancel, this.thisOnDelete));
     },
       () => { this.props.actions.createHeaders(createHeadersForCreateForm(this.thisIsActive)); },
       () => { this.props.actions.createHeaders(createHeadersForTable(this.thisAdd, this.thisRefresh, this.thisIsActive)); });
@@ -77,9 +78,19 @@ class CatalogingCollectionPage extends React.Component {
   onSelect(collection) {
     this.props.actions.openCollection(collection);
   }
-  onCancel() {
 
+  onCancel() {
+    this.router(() => {
+      this.props.actions.confirmCancel();
+    });
   }
+
+  onDelete() {
+    this.router(() => {
+      this.props.actions.confirmDelete();
+    });
+  }
+
   router(updateView, createView, listView) {
     const { pathname } = this.props.location;
     const { params } = this.props.match;

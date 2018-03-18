@@ -6,6 +6,7 @@ import { getLabel, getRequireMessage } from '../../../utils/';
 import { goBack, push } from 'react-router-redux';
 
 import { AjaxStatusActions } from '../../AjaxStatus/';
+import { DialogActions } from '../../Dialog/';
 import { FORM_NAME } from '../constants';
 import { HeaderActions } from '../../Headers/';
 import { NotificationActions } from '../../Notification/';
@@ -108,5 +109,38 @@ export const onFailed = (stack) => {
 export const openCollection = (collection) => {
   return dispatch => {
     dispatch(push(Pages.viewCollection + collection[Collection.ID]));
+  };
+};
+
+export const confirmCancel = () => {
+  return (dispatch, state) => {
+    const { fluidForm: { collectionForm } } = state();
+    if (collectionForm && collectionForm.touched) {
+      dispatch(DialogActions.openCancelConfirmation(() => {
+        dispatch(goBack());
+      }));
+    }
+    else {
+      dispatch(goBack());
+    }
+  };
+};
+
+export const confirmDelete = (id) => {
+  return (dispatch, state) => {
+    const { fluidForm: { collectionForm: { data } } } = state();
+    dispatch(DialogActions.openDeleteConfirmation(() => {
+      dispatch(AjaxStatusActions.beginAjaxCall());
+      FluidApi.execute('deleteCollection', { id })
+        .then(() => {
+          dispatch(AjaxStatusActions.ajaxCallSuccess());
+          dispatch(goBack());
+          dispatch(NotificationActions.alertSuccess(getLabel('LABEL_DELETE_COLLECTION_SUCCESS')));
+        })
+        .catch((error) => {
+          dispatch(AjaxStatusActions.ajaxCallError(error));
+          dispatch(NotificationActions.alertDanger(getLabel('LABEL_DELETE_FAILED')));
+        });
+    }, undefined, data[Collection.NAME]));
   };
 };

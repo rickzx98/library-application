@@ -1,5 +1,7 @@
 export const appName = 'Library';
 export const welcome = 'Welcome, ';
+export const LABEL_YES = 'Yes';
+export const LABEL_NO = 'No';
 export const LABEL_CATALOGING = 'Cataloging';
 export const LABEL_TITLES = 'Titles';
 export const LABEL_COLLECTION = 'Collection';
@@ -89,6 +91,8 @@ export const LABEL_FAILED_TO_CREATE_COLLECTION = 'Failed to create collection';
 export const LABEL_FAILED_TO_UPDATE_COLLECTION = 'Failed to update collection';
 export const LABEL_CREATE_COLLECTION_SUCCESS = 'A new collection has been saved';
 export const LABEL_UPDATED_COLLECTION_SUCCESS = 'Collection has been updated';
+export const LABEL_DELETE_COLLECTION_SUCCESS = 'Collection has been deleted';
+export const LABEL_DELETE_FAILED = 'Deleting failed';
 // Confirmation
 export const LABEL_CANCEL_CONFIRMATION_TITLE = 'Cancel Confirmation';
 export const LABEL_CANCEL_CONFIRMATION = 'Do you want to cancel your changes?';
