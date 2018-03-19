@@ -1,5 +1,4 @@
 import { FormGroup, HiddenButton } from '../../common/';
-import { getLabel, getValue } from '../../../utils/';
 
 import { CatalogingCollectionPageBody } from './CatalogingCollectionPageBody';
 import { Collection } from '../../../types/';
@@ -8,12 +7,13 @@ import { FORM_NAME } from '../constants';
 import { FluidForm } from 'fluid-commons';
 import PropTypes from 'prop-types';
 import React from 'react';
+import { getValue } from '../../../utils/';
 
 export const CatalogingCollectionForm = ({ data, ajax, onSubmit, onFailed }) => (
   <CatalogingCollectionPageBody>
     <FluidForm name={FORM_NAME} specs={CollectionForm} onSubmit={onSubmit} onFailed={onFailed}>
-      <FormGroup label={getLabel('LABEL_NAME')} className="col-sm-4">
-        <input placeholder={getLabel('LABEL_NAME')}
+      <FormGroup label={data[Collection.NAME].label} className="col-sm-4">
+        <input placeholder={data[Collection.NAME].label}
           value={getValue(data, Collection.NAME)}
           disabled={ajax.started} className="form-control"
           name={Collection.NAME} />

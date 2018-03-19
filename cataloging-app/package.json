@@ -35,7 +35,7 @@
     "animate.css": "3.6.1",
     "bootstrap": "3.3.7",
     "event-source-polyfill": "0.0.12",
-    "fluid-commons": "^0.5.5",
+    "fluid-commons": "^0.6.6",
     "fluid-func": "0.2.3",
     "font-awesome": "4.7.0",
     "moment": "^2.20.1",

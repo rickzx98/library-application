@@ -132,7 +132,7 @@ const mapStateToProps = ({ collections, ajaxStatus, routing, fluidForm: { collec
   collections,
   ajax: ajaxStatus,
   location: routing.location,
-  collectionForm: collectionForm || { data: {} }
+  collectionForm: collectionForm || { data: { name: {} } }
 });
 const mapDispatchToProps = dispatch => ({
   actions: bindActionCreators(actions, dispatch)

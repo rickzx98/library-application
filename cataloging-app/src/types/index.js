@@ -1,3 +1,18 @@
+export const Library = {
+  NAME: 'name',
+  ADDRESS: 'address',
+  CITY: 'city',
+  ZIPCODE: 'zipcode',
+  PHONE: 'phone',
+  FAX: 'fax',
+  MODEM: 'modem',
+  EMAIL: 'email',
+  LIBRARIAN: 'librarian',
+  LIBRARIAN_TITLE: 'librarianTitle',
+  CONTACT_PERSON: 'contactPerson',
+  ALERT_INFO: 'alertInfo',
+  DISCUSSION: 'discussion'
+};
 export const MPUser = {
   USER_ID: 'userId',
   USERNAME: 'username',
