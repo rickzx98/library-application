@@ -107,3 +107,16 @@ export const LABEL_OWNER = 'Owner';
 export const LABEL_RECORD_TYPE = 'Record Type';
 export const LABEL_ITEM_TYPE = 'Item Type';
 export const LABEL_DESCRIPTION = 'Description';
+
+// Library
+export const LABEL_LIBRARY_NAME = 'Library name';
+export const LABEL_ADDRESS = 'Address';
+export const LABEL_ZIPCODE = 'Zipcode';
+export const LABEL_LIBRARIAN = 'Librarian';
+export const LABEL_LIBRARIAN_TITLE = 'Librarian title';
+export const LABEL_CONTACT_PERSON = 'Contact person';
+export const LABEL_ALERT_INFO = 'Alert info';
+export const LABEL_FAX = 'Fax';
+export const LABEL_MODEM = 'Modem';
+export const LABEL_DISCUSSION = 'Discussion';
+export const LABEL_LIBRARY = 'Library';
