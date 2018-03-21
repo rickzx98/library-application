@@ -2,19 +2,25 @@ import CatalogingLibrary from '../api/CatalogingLibrary';
 import { CatalogingLibraryPageBody } from './CatalogingLibraryPageBody';
 import { FluidForm } from 'fluid-commons';
 import { FormGroup } from '../../common/';
-import { Library } from '../../../types/';
 import PropTypes from 'prop-types';
 import React from 'react';
-import { getValue } from '../../../utils/';
-export const CatalogingLibraryForm = ({ data }) => {
+export const CatalogingLibraryForm = ({ catalogingLibrary }) => {
   return (<CatalogingLibraryPageBody>
     <FluidForm name="catalogingLibrary" specs={CatalogingLibrary}>
-      <FormGroup required={true} className="col-sm-6" label={data[Library.NAME].label}>
-        <input name={Library.NAME} value={getValue(data, Library.NAME)} className="form-control" />
-      </FormGroup>
+      {catalogingLibrary && catalogingLibrary.data && Object.keys(catalogingLibrary.data).map((field, index)=> {
+        return (<FormGroup label={FluidForm.getLabel(catalogingLibrary, field)} name={field}
+                           className={`${ index === 1 ? 'col-sm-12' :
+                            index > 1 && index < 4 ? 'col-sm-3':
+                            index === 4 ? 'col-sm-offset-2 col-sm-4':
+                            index > 4 && index < 7 ? 'col-sm-4' : 'col-sm-4'}`}>
+          <input placeholder={FluidForm.getLabel(catalogingLibrary, field)} name={field}
+                 value={FluidForm.getValue(catalogingLibrary,field)}
+                 className="form-control"/>
+        </FormGroup>);
+      })}
     </FluidForm></CatalogingLibraryPageBody>);
 };
 
 CatalogingLibraryForm.propTypes = {
-  data: PropTypes.object.isRequired
+  catalogingLibrary: PropTypes.object.isRequired
 };

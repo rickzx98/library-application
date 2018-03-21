@@ -120,3 +120,4 @@ export const LABEL_FAX = 'Fax';
 export const LABEL_MODEM = 'Modem';
 export const LABEL_DISCUSSION = 'Discussion';
 export const LABEL_LIBRARY = 'Library';
+export const LABEL_PHONE = 'Phone';

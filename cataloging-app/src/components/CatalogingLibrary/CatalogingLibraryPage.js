@@ -7,7 +7,7 @@ import { connect } from 'react-redux';
 
 class CatalogingLibraryPage extends React.Component {
   render() {
-    return (<CatalogingLibraryForm catalogingLibrary={this.props.catalogingLibrary.data} />);
+    return (<CatalogingLibraryForm catalogingLibrary={this.props.catalogingLibrary}/>);
   }
 }
 
@@ -16,7 +16,7 @@ CatalogingLibraryPage.propTypes = {
 };
 
 const mapStateToProps = ({ fluidForm: { catalogingLibrary } }) => ({
-  catalogingLibrary: catalogingLibrary || { data: {} }
+  catalogingLibrary: catalogingLibrary
 });
 
 export const ConnectedCatalogingLibraryPage = connect(mapStateToProps)(CatalogingLibraryPage);
