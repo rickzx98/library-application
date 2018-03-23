@@ -1,5 +1,7 @@
 /* eslint-disable import/default */
+
 import './index.scss';
+import './images/bg-pattern.png';
 
 import configureStore, { history } from './store/configureStore';
 

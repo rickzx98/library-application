@@ -1,13 +1,21 @@
 import { Library } from '../../../types/';
 import { getLabel } from '../../../utils/';
+
 export default () => ([
   {
     field: Library.NAME,
-    label: getLabel('LABEL_LIBRARY_NAME')
+    label: getLabel('LABEL_LIBRARY_NAME'),
+    data: {
+      require: true
+    }
   },
   {
     field: Library.ADDRESS,
     label: getLabel('LABEL_ADDRESS')
+  },
+  {
+    field: Library.EMAIL,
+    label: getLabel('LABEL_EMAIL')
   },
   {
     field: Library.CITY,
@@ -30,12 +38,11 @@ export default () => ([
     label: getLabel('LABEL_MODEM')
   },
   {
-    field: Library.EMAIL,
-    label: getLabel('LABEL_EMAIL')
-  },
-  {
     field: Library.LIBRARIAN,
-    label: getLabel('LABEL_LIBRARIAN')
+    label: getLabel('LABEL_LIBRARIAN'),
+    data: {
+      require: true
+    }
   },
   {
     field: Library.LIBRARIAN_TITLE,

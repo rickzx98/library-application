@@ -12,6 +12,8 @@ export default class RouteBlocker extends PureComponent {
     return (<Switch>
       <Route exact path={Pages.home} component={HomePage} />
       <Route exact path={Pages.library} component={CatalogingLibraryPage} />
+      <Route exact path={Pages.newLibrary} component={CatalogingLibraryPage} />
+      <Route exact path={Pages.viewLibrary + ':id'} component={CatalogingLibraryPage} />
       <Route exact path={Pages.collection} component={CatalogingCollectionPage} />
       <Route exact path={Pages.newCollection} component={CatalogingCollectionPage} />
       <Route exact path={Pages.viewCollection + ':id'} component={CatalogingCollectionPage} />

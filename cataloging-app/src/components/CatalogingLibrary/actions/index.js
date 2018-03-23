@@ -1,0 +1,1 @@
+export const SET_LIBRARIES = 'CatalogingLibrary.SET_LIBRARIES';

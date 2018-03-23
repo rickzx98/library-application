@@ -10,3 +10,5 @@ export const collections = [{
   _id: '0003',
   name: 'CS Library'
 }];
+
+export const libraries = [];

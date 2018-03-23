@@ -1,14 +1,13 @@
-@media(min-width: $screen-sm-min){
-    
-    .navbar.navbar-default.navbar-fixed-top{
-        background: $awe-blue;
+@media(min-width: $screen-sm-min) {
+    .navbar.navbar-default.navbar-fixed-top {
+        background: $nav-header-background;
     }
-    .navbar-default{
-        color:$hd-text-color !important;
-        .navbar-header{    
+    .navbar-default {
+        color: $hd-text-color !important;
+        .navbar-header {
             padding-left: 5px;
             margin-top: 2px;
-            background: $awe-blue-left !important;
+            background: $nav-header-control-background !important;
             .navbar-brand {
                 font-weight: bold;
                 padding-left: 25px;
@@ -17,17 +16,17 @@
         .navbar-nav {
             &.navbar-left {
                 margin-top: 2px;
-                background: $awe-blue-left !important;
+                background: $nav-header-control-background !important;
             }
             &.navbar-right {
                 margin-top: 2px;
-                background: $awe-blue-left !important;
+                background: $nav-header-control-background !important;
             }
             li {
                 a {
                     &:hover {
                         background: $awe-blueH !important;
-                        color:$hd-text-color !important;
+                        color: $hd-text-color !important;
                     }
                     &:focus {
                         background: $awe-blueH !important;
@@ -36,5 +35,5 @@
                 }
             }
         }
-    }    
+    }
 }

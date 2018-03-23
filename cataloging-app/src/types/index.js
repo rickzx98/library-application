@@ -25,7 +25,9 @@ export const Pages = {
   newCollection: '/collection/new',
   viewCollection: '/collection/view/',
   titles: '/titles',
-  library: '/library'
+  library: '/library',
+  newLibrary: '/library/new',
+  viewLibrary: '/libirary/view/'
 };
 
 export const Record = {

@@ -3,41 +3,57 @@ import { FormGroup, HiddenButton } from '../../common/';
 import CatalogingLibrary from '../api/CatalogingLibrary';
 import { CatalogingLibraryPageBody } from './CatalogingLibraryPageBody';
 import { FluidForm } from 'fluid-commons';
-import { Library } from '../../../types/';
+import { Library } from '../../../types';
 import PropTypes from 'prop-types';
 import React from 'react';
 
-const isRequired = (field) => (field === Library.NAME ||
-  field === Library.LIBRARIAN);
+const className = (field) => {
+  switch (field) {
+    case Library.NAME:
+      return 'col-sm-6 col-md-5 col-md-offset-right-1';
+    case Library.ADDRESS:
+      return 'col-sm-12 col-md-6';
+    case Library.EMAIL:
+      return 'col-sm-6 col-md-5 col-md-offset-right-1';
+    case Library.CITY:
+      return 'col-sm-3';
+    case Library.ZIPCODE:
+      return 'col-sm-3';
+    case Library.PHONE:
+    case Library.FAX:
+    case Library.MODEM:
+      return 'col-sm-4';
+    case Library.DISCUSSION:
+    case Library.ALERT_INFO:
+      return 'col-sm-12';
+    case Library.LIBRARIAN:
+    case Library.LIBRARIAN_TITLE:
+    case Library.CONTACT_PERSON:
+      return 'col-sm-4';
+    default:
+      return 'col-sm-6';
+  }
+};
 
-const className = (field, index) =>
-  (`${index === 1 ? 'col-sm-12' :
-    index > 1 && index < 4 ? 'col-sm-6' :
-      index > 2 && index < 7 ? 'col-sm-4' :
-        index === 7 ? 'col-sm-6 col-sm-offset-right-6' :
-          index >= 8 && index <= 9 ? 'col-sm-6' :
-            index > 10 && index < 13 ? 'col-sm-12' :
-              'col-sm-6'}`);
-
-export const CatalogingLibraryForm = ({ catalogingLibrary }) => {
+export const CatalogingLibraryForm = ({ catalogingLibrary, readOnly }) => {
   return (<CatalogingLibraryPageBody>
-    <div className="col-md-7">
-      <FluidForm name="catalogingLibrary" specs={CatalogingLibrary}>
-        {catalogingLibrary && catalogingLibrary.data && Object.keys(catalogingLibrary.data).map((field, index) => {
-          const required = isRequired(field);
-          return (<FormGroup required={required} key={field} label={FluidForm.getLabel(catalogingLibrary, field)} name={field}
-            className={className(field, index)}>
-            <input required={required} placeholder={FluidForm.getLabel(catalogingLibrary, field)} name={field}
-              value={FluidForm.getValue(catalogingLibrary, field)}
-              className="form-control" />
-          </FormGroup>);
-        })}
-        <HiddenButton />
-      </FluidForm>
-    </div>
+    <FluidForm name="catalogingLibrary" specs={CatalogingLibrary}
+      fieldNode={(field, index) => {
+        return (<FormGroup required={field.require}
+          key={field.name} label={field.label}
+          name={field.name} className={className(field.name, index)}>
+          <input required={field.require}
+            placeholder={field.label} name={field.name}
+            value={FluidForm.getValue(catalogingLibrary, field.name)}
+            className="form-control" />
+        </FormGroup>);
+      }}>
+      <HiddenButton />
+    </FluidForm>
   </CatalogingLibraryPageBody>);
 };
 
 CatalogingLibraryForm.propTypes = {
-  catalogingLibrary: PropTypes.object.isRequired
+  catalogingLibrary: PropTypes.object.isRequired,
+  readOnly: PropTypes.bool
 };
