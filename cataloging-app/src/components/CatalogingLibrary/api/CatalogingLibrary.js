@@ -1,12 +1,14 @@
+import { getLabel, requireMessage } from '../../../utils/';
+
 import { Library } from '../../../types/';
-import { getLabel } from '../../../utils/';
 
 export default () => ([
   {
     field: Library.NAME,
     label: getLabel('LABEL_LIBRARY_NAME'),
     data: {
-      require: true
+      require: true,
+      requireMessage: requireMessage(Library.NAME, getLabel('LABEL_VALIDATION_LIBRARY_NAME_REQUIRED'))
     }
   },
   {

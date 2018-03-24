@@ -35,7 +35,7 @@
     "animate.css": "3.6.1",
     "bootstrap": "3.3.7",
     "event-source-polyfill": "0.0.12",
-    "fluid-commons": "^0.6.8",
+    "fluid-commons": "^0.6.9",
     "fluid-func": "0.3.0",
     "font-awesome": "4.7.0",
     "moment": "^2.20.1",
@@ -54,6 +54,7 @@
     "react-router-redux": "^5.0.0-alpha.7",
     "redux": "3.6.0",
     "redux-thunk": "2.1.0",
+    "url-pattern": "^1.0.3",
     "whatwg-fetch": "^2.0.3"
   },
   "devDependencies": {

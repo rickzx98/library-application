@@ -1,11 +1,13 @@
-import { FormGroup, HiddenButton } from '../../common/';
+import { FieldView, FormGroup, HiddenButton } from '../../common/';
 
 import CatalogingLibrary from '../api/CatalogingLibrary';
 import { CatalogingLibraryPageBody } from './CatalogingLibraryPageBody';
+import { FORM_NAME } from '../constants';
 import { FluidForm } from 'fluid-commons';
 import { Library } from '../../../types';
 import PropTypes from 'prop-types';
 import React from 'react';
+import { readOnlyWrapper } from '../../../utils/';
 
 const className = (field) => {
   switch (field) {
@@ -35,17 +37,18 @@ const className = (field) => {
   }
 };
 
-export const CatalogingLibraryForm = ({ catalogingLibrary, readOnly }) => {
+export const CatalogingLibraryForm = ({ catalogingLibrary, readOnly, onSubmit, onFailed }) => {
   return (<CatalogingLibraryPageBody>
-    <FluidForm name="catalogingLibrary" specs={CatalogingLibrary}
+    <FluidForm name={FORM_NAME} specs={CatalogingLibrary}
+      onSubmit={onSubmit} onFailed={onFailed}
       fieldNode={(field, index) => {
         return (<FormGroup required={field.require}
           key={field.name} label={field.label}
           name={field.name} className={className(field.name, index)}>
-          <input required={field.require}
+          {readOnlyWrapper(<FieldView>{FluidForm.getValue(catalogingLibrary, field.name)}</FieldView>, (<input
             placeholder={field.label} name={field.name}
             value={FluidForm.getValue(catalogingLibrary, field.name)}
-            className="form-control" />
+            className="form-control" />), readOnly)}
         </FormGroup>);
       }}>
       <HiddenButton />
@@ -54,6 +57,8 @@ export const CatalogingLibraryForm = ({ catalogingLibrary, readOnly }) => {
 };
 
 CatalogingLibraryForm.propTypes = {
+  onSubmit: PropTypes.func.isRequired,
+  onFailed: PropTypes.func.isRequired,
   catalogingLibrary: PropTypes.object.isRequired,
   readOnly: PropTypes.bool
 };

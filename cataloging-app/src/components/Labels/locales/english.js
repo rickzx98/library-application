@@ -80,6 +80,7 @@ export const LABEL_VALIDATION_INVALID_CLAIMANT_CPR = 'Invalid claimant cpr numbe
 export const LABEL_VALIDATION_TRAVEL_DATE_FROM = 'Please specify travel date from';
 export const LABEL_VALIDATION_TRAVEL_DATE_TO = 'Please specify travel date to';
 export const LABEL_VALIDATION_INVALID_TRAVEL_DATE_TO = 'Travel date to should be greater than Travel date from';
+export const LABEL_VALIDATION_LIBRARY_NAME_REQUIRED = 'Library name is required';
 // api messages
 export const LABEL_CREATE_SUCCESS = 'A new record has been saved';
 export const LABEL_CREATE_FAILED = 'Saving failed';
@@ -93,6 +94,7 @@ export const LABEL_CREATE_COLLECTION_SUCCESS = 'A new collection has been saved'
 export const LABEL_UPDATED_COLLECTION_SUCCESS = 'Collection has been updated';
 export const LABEL_DELETE_COLLECTION_SUCCESS = 'Collection has been deleted';
 export const LABEL_DELETE_FAILED = 'Deleting failed';
+export const LABEL_LOADING_LIBRARY_FAILED = 'Failed to load libraries';
 // Confirmation
 export const LABEL_CANCEL_CONFIRMATION_TITLE = 'Cancel Confirmation';
 export const LABEL_CANCEL_CONFIRMATION = 'Do you want to cancel your changes?';

@@ -1,4 +1,5 @@
 export const Library = {
+  ID: '_id',
   NAME: 'name',
   ADDRESS: 'address',
   CITY: 'city',
@@ -27,7 +28,7 @@ export const Pages = {
   titles: '/titles',
   library: '/library',
   newLibrary: '/library/new',
-  viewLibrary: '/libirary/view/'
+  viewLibrary: '/library/view/'
 };
 
 export const Record = {

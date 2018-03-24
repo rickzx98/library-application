@@ -2,7 +2,6 @@ import * as types from './';
 
 import { Collection, Pages } from '../../../types';
 import { FluidApi, FluidForm } from 'fluid-commons';
-import { getLabel, getRequireMessage } from '../../../utils/';
 import { goBack, push } from 'react-router-redux';
 
 import { AjaxStatusActions } from '../../AjaxStatus/';
@@ -10,6 +9,8 @@ import { DialogActions } from '../../Dialog/';
 import { FORM_NAME } from '../constants';
 import { HeaderActions } from '../../Headers/';
 import { NotificationActions } from '../../Notification/';
+import { PageActions } from '../../Page/';
+import { getLabel } from '../../../utils/';
 
 export const loadCollection = (id) => {
   return dispatch => {
@@ -101,8 +102,7 @@ export const goToNewCollection = () => {
 
 export const onFailed = (stack) => {
   return dispatch => {
-    const { message } = getRequireMessage(stack.error.message);
-    dispatch(NotificationActions.alertDanger(message));
+    dispatch(PageActions.onFailed(stack));
   };
 };
 
