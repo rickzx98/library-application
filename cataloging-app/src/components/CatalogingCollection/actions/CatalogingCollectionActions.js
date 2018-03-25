@@ -2,7 +2,6 @@ import * as types from './';
 
 import { Collection, Pages } from '../../../types';
 import { FluidApi, FluidForm } from 'fluid-commons';
-import { goBack, push } from 'react-router-redux';
 
 import { AjaxStatusActions } from '../../AjaxStatus/';
 import { DialogActions } from '../../Dialog/';
@@ -11,6 +10,7 @@ import { HeaderActions } from '../../Headers/';
 import { NotificationActions } from '../../Notification/';
 import { PageActions } from '../../Page/';
 import { getLabel } from '../../../utils/';
+import { push } from 'react-router-redux';
 
 export const loadCollection = (id) => {
   return dispatch => {
@@ -50,7 +50,7 @@ export const createCollection = (collection) => {
         dispatch(addCollection(data));
         dispatch(NotificationActions.alertSuccess(getLabel('LABEL_CREATE_COLLECTION_SUCCESS')));
         dispatch(AjaxStatusActions.ajaxCallSuccess());
-        dispatch(goBack());
+        dispatch(PageActions.prevPage());
       })
       .catch(error => {
         dispatch(AjaxStatusActions.ajaxCallError(error));
@@ -66,7 +66,7 @@ export const updateCollection = (id, collection) => {
       .then(() => {
         dispatch(NotificationActions.alertSuccess(getLabel('LABEL_UPDATED_COLLECTION_SUCCESS')));
         dispatch(AjaxStatusActions.ajaxCallSuccess());
-        dispatch(goBack());
+        dispatch(PageActions.prevPage());
       })
       .catch(error => {
         dispatch(AjaxStatusActions.ajaxCallError(error));
@@ -102,7 +102,7 @@ export const goToNewCollection = () => {
 
 export const onFailed = (stack) => {
   return dispatch => {
-    dispatch(PageActions.onFailed(stack));
+    dispatch(PageActions.onFailed(stack, FORM_NAME));
   };
 };
 
@@ -117,11 +117,11 @@ export const confirmCancel = () => {
     const { fluidForm: { collectionForm } } = state();
     if (collectionForm && collectionForm.touched) {
       dispatch(DialogActions.openCancelConfirmation(() => {
-        dispatch(goBack());
+        dispatch(PageActions.prevPage());
       }));
     }
     else {
-      dispatch(goBack());
+      dispatch(PageActions.prevPage());
     }
   };
 };
@@ -134,7 +134,7 @@ export const confirmDelete = (id) => {
       FluidApi.execute('deleteCollection', { id })
         .then(() => {
           dispatch(AjaxStatusActions.ajaxCallSuccess());
-          dispatch(goBack());
+          dispatch(PageActions.prevPage());
           dispatch(NotificationActions.alertSuccess(getLabel('LABEL_DELETE_COLLECTION_SUCCESS')));
         })
         .catch((error) => {
@@ -142,5 +142,11 @@ export const confirmDelete = (id) => {
           dispatch(NotificationActions.alertDanger(getLabel('LABEL_DELETE_FAILED')));
         });
     }, undefined, data[Collection.NAME]));
+  };
+};
+
+export const prevPage = () => {
+  return dispatch => {
+    dispatch(PageActions.prevPage());
   };
 };

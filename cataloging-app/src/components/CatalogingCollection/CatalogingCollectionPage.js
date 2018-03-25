@@ -46,7 +46,7 @@ class CatalogingCollectionPage extends React.Component {
     this.router(() => {
       this.props.actions.createHeaders(createHeadersForUpdateForm(this.thisRefresh, this.thisIsActive, this.thisOnCancel, this.thisOnDelete));
     },
-      () => { this.props.actions.createHeaders(createHeadersForCreateForm(this.thisIsActive)); },
+      () => { this.props.actions.createHeaders(createHeadersForCreateForm(this.props.actions.prevPage, this.thisIsActive)); },
       () => { this.props.actions.createHeaders(createHeadersForTable(this.thisAdd, this.thisRefresh, this.thisIsActive)); });
   }
 
@@ -113,13 +113,13 @@ class CatalogingCollectionPage extends React.Component {
         onSubmit={this.thisOnSubmit}
         onFailed={this.thisOnFailed}
         ajax={this.props.ajax}
-        data={this.props.collectionForm.data} />);
+        data={this.props.collectionForm} />);
     }, () => {
       viewElement = (<CatalogingCollectionForm
         onSubmit={this.thisOnSubmit}
         onFailed={this.thisOnFailed}
         ajax={this.props.ajax}
-        data={this.props.collectionForm.data} />);
+        data={this.props.collectionForm} />);
     }, () => {
       viewElement = (<CatalogingCollectionList
         onSelect={this.thisOnSelect}

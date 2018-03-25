@@ -1,10 +1,15 @@
+import { Collection } from '../../../../types/';
+import { FluidApi } from 'fluid-commons';
+import { generateUID } from '../../../../utils/';
 export default {
   development: ({ input }) => new Promise((resolve, reject) => {
-    let collections = require('../../../../utils/Mocks').collections;
     setTimeout(() => {
       try {
-        const newData = { ...input(), _id: collections.length + 1 };
-        collections.push(newData);
+        const newData = { ...input() };
+        newData[Collection.ID] = generateUID();
+        FluidApi.storage('collections', {
+          value: newData
+        });
         resolve({
           data: newData
         });

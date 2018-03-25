@@ -43,7 +43,8 @@ export default () => ([
     field: Library.LIBRARIAN,
     label: getLabel('LABEL_LIBRARIAN'),
     data: {
-      require: true
+      require: true,
+      requireMessage: requireMessage(Library.LIBRARIAN, getLabel('LABEL_VALIDATION_LIBRARIAN_REQUIRED'))
     }
   },
   {

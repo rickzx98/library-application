@@ -42,7 +42,9 @@ export const CatalogingLibraryForm = ({ catalogingLibrary, readOnly, onSubmit, o
     <FluidForm name={FORM_NAME} specs={CatalogingLibrary}
       onSubmit={onSubmit} onFailed={onFailed}
       fieldNode={(field, index) => {
-        return (<FormGroup required={field.require}
+        return (<FormGroup
+          invalid={catalogingLibrary.invalid && catalogingLibrary.field === field.name}
+          required={field.require}
           key={field.name} label={field.label}
           name={field.name} className={className(field.name, index)}>
           {readOnlyWrapper(<FieldView>{FluidForm.getValue(catalogingLibrary, field.name)}</FieldView>, (<input

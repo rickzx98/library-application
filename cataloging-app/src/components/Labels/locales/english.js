@@ -81,6 +81,7 @@ export const LABEL_VALIDATION_TRAVEL_DATE_FROM = 'Please specify travel date fro
 export const LABEL_VALIDATION_TRAVEL_DATE_TO = 'Please specify travel date to';
 export const LABEL_VALIDATION_INVALID_TRAVEL_DATE_TO = 'Travel date to should be greater than Travel date from';
 export const LABEL_VALIDATION_LIBRARY_NAME_REQUIRED = 'Library name is required';
+export const LABEL_VALIDATION_LIBRARIAN_REQUIRED = 'Librarian is required';
 // api messages
 export const LABEL_CREATE_SUCCESS = 'A new record has been saved';
 export const LABEL_CREATE_FAILED = 'Saving failed';
@@ -95,6 +96,13 @@ export const LABEL_UPDATED_COLLECTION_SUCCESS = 'Collection has been updated';
 export const LABEL_DELETE_COLLECTION_SUCCESS = 'Collection has been deleted';
 export const LABEL_DELETE_FAILED = 'Deleting failed';
 export const LABEL_LOADING_LIBRARY_FAILED = 'Failed to load libraries';
+// library
+export const LABEL_FAILED_TO_CREATE_LIBRARY = 'Failed to create library';
+export const LABEL_FAILED_TO_UPDATE_LIBRARY = 'Failed to update library';
+export const LABEL_FAILED_TO_DELETE_LIBRARY = 'Failed to delete library';
+export const LABEL_DELETE_LIBRARY_SUCCESS = 'Library has been deleted';
+export const LABEL_CREATE_LIBRARY_SUCCESS = 'A new library has been saved';
+export const LABEL_UPDATE_LIBRARY_SUCCESS = 'Library has been updated';
 // Confirmation
 export const LABEL_CANCEL_CONFIRMATION_TITLE = 'Cancel Confirmation';
 export const LABEL_CANCEL_CONFIRMATION = 'Do you want to cancel your changes?';

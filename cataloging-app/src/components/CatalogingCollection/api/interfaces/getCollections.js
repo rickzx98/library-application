@@ -1,10 +1,11 @@
+import { FluidApi } from 'fluid-commons';
 export default {
   development: () => new Promise((resolve) => {
-    let collections = require('../../../../utils/Mocks').collections;
     setTimeout(() => {
-      resolve({
-        data: collections
-      });
+      FluidApi.storage('collections')
+        .then(({ data }) => resolve({
+          data: data()
+        }));
     }, 500);
   })
 };

@@ -1,6 +1,7 @@
 import { FORM_NAME } from '../constants';
 import { FluidForm } from 'fluid-commons';
 import { getLabel } from '../../../utils/';
+
 export const createHeadersForTable = (add, refresh, isActive) => {
   const headers = {};
   headers['add'] = {
@@ -18,8 +19,14 @@ export const createHeadersForTable = (add, refresh, isActive) => {
   return headers;
 };
 
-export const createHeadersForCreateForm = (isActive) => {
+export const createHeadersForCreateForm = (back, isActive) => {
   const headers = {};
+  headers['back'] = {
+    label: getLabel('LABEL_BACK'),
+    fontIcon: 'arrow-left',
+    onClick: back,
+    isActive: isActive,
+  };
   headers['create'] = {
     label: getLabel('LABEL_SAVE'),
     onClick: () => {
