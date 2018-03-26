@@ -1,0 +1,19 @@
+import { Page } from '../../common/';
+import PropTypes from 'prop-types';
+import React from 'react';
+import { getLabel } from '../../../utils/';
+
+export const PageBody = ({ children }) => {
+  return (<Page icon="%iconName%" label={getLabel('%LABEL_COMPONENT_NAME%')} banner="/%imageName%.jpg">
+    {children}
+  </Page>);
+};
+
+PageBody.propTypes = {
+  children: PropTypes.oneOfType([
+    PropTypes.element,
+    PropTypes.array,
+    PropTypes.object,
+    PropTypes.string
+  ]).isRequired
+};

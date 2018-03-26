@@ -1,0 +1,1 @@
+export { CatalogingLibrarianPage } from './page/';

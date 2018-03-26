@@ -1,0 +1,7 @@
+import PropTypes from 'prop-types';
+export default {
+  actions: PropTypes.object.isRequired,
+  %listName%: PropTypes.array.isRequired,
+  %formName%: PropTypes.object.isRequired,
+  ajax: PropTypes.object.isRequired
+};

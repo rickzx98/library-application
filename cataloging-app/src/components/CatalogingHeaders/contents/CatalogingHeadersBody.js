@@ -7,6 +7,7 @@ import { getLabel } from '../../../utils/';
 export const CatalogingHeadersBody = ({ eventKey, actions }) => {
   return (<NavDropdown eventKey={eventKey} title={getLabel('LABEL_CATALOGING')} id="catalogingDropDown">
     <MenuItem onClick={actions.goToLibrary} eventKey={eventKey + 0.1}>{getLabel('LABEL_LIBRARY')}</MenuItem>
+    <MenuItem onClick={actions.goToLibrarian} eventKey={eventKey + 0.3}>{getLabel('LABEL_LIBRARIAN')}</MenuItem>
     <MenuItem onClick={actions.goToCollection} eventKey={eventKey + 0.2}>{getLabel('LABEL_COLLECTION')}</MenuItem>
     <MenuItem onClick={actions.goToTitles} eventKey={eventKey + 0.3}>{getLabel('LABEL_TITLES')}</MenuItem>
   </NavDropdown>);

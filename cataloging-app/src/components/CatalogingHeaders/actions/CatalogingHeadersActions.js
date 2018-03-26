@@ -17,3 +17,9 @@ export function goToLibrary() {
     dispatch(push(Pages.library));
   };
 }
+
+export function goToLibrarian() {
+  return dispatch => {
+    dispatch(push(Pages.librarian));
+  };
+}

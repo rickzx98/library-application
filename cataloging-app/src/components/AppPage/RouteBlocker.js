@@ -2,6 +2,7 @@ import React, { PureComponent } from 'react';
 import { Route, Switch } from 'react-router-dom';
 
 import { CatalogingCollectionPage } from '../CatalogingCollection/';
+import { CatalogingLibrarianPage } from '../CatalogingLibrarian/';
 import { CatalogingLibraryPage } from '../CatalogingLibrary/';
 import { HomePage } from '../Home/';
 import { Pages } from '../../types/';
@@ -17,6 +18,9 @@ export default class RouteBlocker extends PureComponent {
       <Route exact path={Pages.collection} component={CatalogingCollectionPage} />
       <Route exact path={Pages.newCollection} component={CatalogingCollectionPage} />
       <Route exact path={Pages.viewCollection + ':id'} component={CatalogingCollectionPage} />
+      <Route exact path={Pages.librarian} component={CatalogingLibrarianPage} />
+      <Route exact path={Pages.newLibrarian} component={CatalogingLibrarianPage} />
+      <Route exact path={Pages.viewLibrarian + ':id'} component={CatalogingLibrarianPage} />
     </Switch>);
   }
 }

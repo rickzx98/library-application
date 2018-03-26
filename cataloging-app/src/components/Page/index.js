@@ -10,3 +10,6 @@ export function CreatePage(lifeCycle, propTypes, pages) {
 
 export { CreateReduxPage } from './ReduxPage';
 export const PageActions = actions;
+export { PageForm } from './PageForm/PageForm';
+export { PageList } from './PageList/PageList';
+export { PageHeaders } from './PageHeaders/PageHeaders';

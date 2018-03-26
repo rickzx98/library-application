@@ -1,0 +1,1 @@
+export { ConnectedPage as %COMPONENT_NAME%Page } from './ConnectedPage';
