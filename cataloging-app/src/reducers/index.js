@@ -12,11 +12,13 @@ import { routerReducer } from 'react-router-redux';
 import { SearchReducer as search } from '../components/Search/';
 import { SearchResultReducer as searchResult } from '../components/SearchResult/';
 import { SecurityReducer as security } from '../components/Security/';
+import {CrudPageReducer as pageListData} from '../components/Page/';
 const rootReducer = combineReducers({
   routing: routerReducer,
   headers, security,
   notifications, ajaxStatus,
   fluidForm, dialog, labels, search,
-  searchResult, record, collections, library
+  searchResult, record, collections, library,
+  pageListData
 });
 export default rootReducer;

@@ -1,1 +1,1 @@
-export { CatalogingLibrarianPage } from './page/';
+export { CatalogingLibrarianPage } from './CatalogingLibrarianPage';

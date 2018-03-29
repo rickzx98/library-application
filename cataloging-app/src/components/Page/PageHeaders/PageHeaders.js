@@ -60,7 +60,7 @@ export class PageHeaders {
     };
     return headers;
   }
-  forManagedUpdateViwe(cancel, isActive) {
+  forManagedUpdateView(cancel, isActive) {
     const headers = {};
 
     headers['update'] = {
