@@ -3,8 +3,12 @@ import { getLabel } from '../../../utils/';
 export class PageHeaders {
   constructor(formName) {
     this.formName = formName;
+    this.forListView = this._forListView.bind(this);
+    this.forCreateView = this._forCreateView.bind(this);
+    this.forManagedUpdateView = this._forManagedUpdateView.bind(this);
+    this.forManagedView = this._forManagedView.bind(this);
   }
-  forListView(refresh, add, isActive) {
+  _forListView(refresh, add, isActive) {
     const headers = {};
     headers['create'] = {
       label: getLabel('LABEL_ADD'),
@@ -20,7 +24,7 @@ export class PageHeaders {
     };
     return headers;
   }
-  forCreateView(back, isActive) {
+  _forCreateView(back, isActive) {
     const headers = {};
     headers['back'] = {
       label: getLabel('LABEL_BACK'),
@@ -38,7 +42,7 @@ export class PageHeaders {
     };
     return headers;
   }
-  forManagedView(back, edit, remove, isActive) {
+  _forManagedView(back, edit, remove, refresh, isActive) {
     const headers = {};
     headers['back'] = {
       label: getLabel('LABEL_BACK'),
@@ -52,6 +56,12 @@ export class PageHeaders {
       isActive: isActive,
       fontIcon: 'pencil'
     };
+    headers['refresh'] = {
+      label: getLabel('LABEL_REFRESH'),
+      fontIcon: 'refresh',
+      onClick: refresh,
+      isActive
+    };
     headers['delete'] = {
       label: getLabel('LABEL_DELETE'),
       fontIcon: 'trash',
@@ -60,7 +70,7 @@ export class PageHeaders {
     };
     return headers;
   }
-  forManagedUpdateView(cancel, isActive) {
+  _forManagedUpdateView(cancel, isActive) {
     const headers = {};
 
     headers['update'] = {

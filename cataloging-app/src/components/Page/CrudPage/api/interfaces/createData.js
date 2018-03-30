@@ -1,18 +1,18 @@
 import { FluidApi } from 'fluid-commons';
 import FluidFunc from 'fluid-func';
+import { generateUID } from '../../../../../utils/';
 export default {
-  development: ({ pageName }) => new Promise((resolve, reject) => {
+  development: ({ pageName, input }) => new Promise((resolve, reject) => {
     setTimeout(() => {
-      FluidApi.storage(pageName()).then(({ data }) => {
-        const result = {};
-        result[pageName()] = data();
+      const newData = { _id: generateUID(), ...input() };
+      FluidApi.storage(pageName(), {
+        value: newData
+      }).then(() => {
         resolve({
-          data: result
+          data: newData
         });
-      }).catch(error => {
-        reject(error);
-      });
-    }, 400);
+      }).catch(error => { reject(error); });
+    }, 500);
   }),
   production: (param) => new Promise((resolve, reject) => {
     let paramCopy = {};
@@ -24,7 +24,7 @@ export default {
           }
         }
       }
-      FluidFunc.start(param.pageName, { action: 'getListData', ...paramCopy })
+      FluidFunc.start(param.pageName, { action: 'createData', ...paramCopy })
         .then(({ data }) => {
           resolve({ data });
         })
@@ -34,4 +34,3 @@ export default {
     }
   })
 };
-

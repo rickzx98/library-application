@@ -3,9 +3,10 @@ import * as types from './types';
 import { FluidApi, FluidForm } from 'fluid-commons';
 import { getLabel, getRequireMessage } from '../../../utils/';
 import { goBack, push } from 'react-router-redux';
-import { HeaderActions } from '../../Headers/';
+
 import { AjaxStatusActions } from '../../AjaxStatus/';
 import { DialogActions } from '../../Dialog/';
+import { HeaderActions } from '../../Headers/';
 import { NotificationActions } from '../../Notification/';
 
 export const onFailed = (stack, formName) => {
@@ -40,7 +41,8 @@ export const view = (pageName, id) => dispatch => {
   dispatch(push(`${pageName}/view/${id}`));
 };
 export const load = (pageName, transformer) => dispatch => {
-  FluidApi.execute('getListData', {pageName})
+  dispatch(AjaxStatusActions.beginAjaxCall());
+  FluidApi.execute('getListData', { pageName })
     .then(({ getListData }) => {
       const data = getListData('data')()[pageName];
       if (transformer) {
@@ -68,16 +70,133 @@ export const load = (pageName, transformer) => dispatch => {
     });
 };
 
+export const create = (pageName, input) => dispatch => {
+  dispatch(AjaxStatusActions.beginAjaxCall());
+  FluidApi.execute('createData', { input, pageName })
+    .then(({ createData }) => {
+      const data = createData('data')();
+      dispatch(addData(data));
+      dispatch(NotificationActions.alertSuccess(getLabel(`LABEL_CREATE_${pageName}_SUCCESS`)));
+      dispatch(AjaxStatusActions.ajaxCallSuccess());
+      dispatch(prevPage(pageName));
+    })
+    .catch(error => {
+      dispatch(AjaxStatusActions.ajaxCallError(error));
+      dispatch(NotificationActions.alertDanger(getLabel(`LABEL_FAILED_TO_CREATE_${pageName}`)));
+    });
+};
+export const update = (pageName, id, input) => dispatch => {
+  const { _id, primaryField } = idSplitter(id);
+  dispatch(AjaxStatusActions.beginAjaxCall());
+  FluidApi.execute('updateData', { input, pageName, id: _id, primaryField })
+    .then(() => {
+      dispatch(NotificationActions.alertSuccess(getLabel(`LABEL_UPDATE_${pageName}_SUCCESS`)));
+      dispatch(AjaxStatusActions.ajaxCallSuccess());
+      dispatch(prevPage(pageName));
+    })
+    .catch(error => {
+      dispatch(AjaxStatusActions.ajaxCallError(error));
+      dispatch(NotificationActions.alertDanger(getLabel(`LABEL_FAILED_TO_UPDATE_${pageName}`)));
+    });
+};
+export const loadById = (pageName, id) => dispatch => {
+  const { _id, primaryField } = idSplitter(id);
+  dispatch(AjaxStatusActions.beginAjaxCall());
+  FluidApi.execute('getDataById', { pageName, id: _id, primaryField })
+    .then(({ getDataById }) => {
+      const data = getDataById('data')();
+      FluidForm.load(pageName, data);
+      dispatch(AjaxStatusActions.ajaxCallSuccess());
+    })
+    .catch(error => {
+      dispatch(AjaxStatusActions.ajaxCallError(error));
+      dispatch(NotificationActions.alertDanger(getLabel(`LABEL_LOADING_${pageName}_FAILED`)));
+    });
+};
 
+export const removeData = (pageName, id) => dispatch => {
+  const { _id, primaryField } = idSplitter(id);
+  dispatch(AjaxStatusActions.beginAjaxCall());
+  FluidApi.execute('deleteData', { pageName, id: _id, primaryField })
+    .then(() => {
+      dispatch(NotificationActions.alertSuccess(getLabel(`LABEL_DELETE_${pageName}_SUCCESS`)));
+      dispatch(AjaxStatusActions.ajaxCallSuccess());
+      dispatch(prevPage(pageName));
+    })
+    .catch(error => {
+      dispatch(AjaxStatusActions.ajaxCallError(error));
+      dispatch(NotificationActions.alertDanger(getLabel(`LABEL_FAILED_TO_DELETE_${pageName}`)));
+    });
+};
+export function goTo(pageName, data) {
+  return dispatch => {
+    dispatch(push(`/${pageName}/view/${data.getPrimaryField()}_f${data.getPrimaryKey()}`));
+  };
+}
 export const setListData = (pageName, listData) => ({
   type: types.SET_LIST_DATA,
   pageName,
   payload: listData
 });
 
+export const addData = (pageName, data) => ({
+  type: types.ADD_DATA,
+  payload: data
+});
 
 export function createHeaders(controls) {
   return dispatch => {
     dispatch(HeaderActions.setHeaderControls(controls));
+  };
+}
+
+
+export function goToNew(pageName) {
+  return dispatch => {
+    dispatch(push(`/${pageName}/new`));
+  };
+}
+
+
+export const cancelChanges = (pageName, id, cancel) => {
+  return (dispatch, state) => {
+    const { fluidForm } = state();
+    const form = fluidForm[pageName];
+    if (form.touched) {
+      dispatch(DialogActions.openCancelConfirmation(() => {
+        dispatch(cancelConfirm(pageName, id));
+        cancel();
+      }, () => {
+        dispatch(DialogActions.closeDialog());
+      }));
+    } else {
+      cancel();
+    }
+  };
+};
+
+export const cancelConfirm = (pageName, id) => {
+  return dispatch => {
+    dispatch(loadById(pageName, id));
+    dispatch(DialogActions.closeDialog());
+  };
+};
+
+export const deleteData = (pageName, id) => {
+  return dispatch => {
+    dispatch(DialogActions.openDeleteConfirmation(() => {
+      dispatch(removeData(pageName, id));
+      dispatch(DialogActions.closeDialog());
+    }, undefined, getLabel('LABEL_THIS_RECORD')));
+  };
+};
+
+
+function idSplitter(id) {
+  const splitted = id.split('_f');
+  const primaryField = splitted[0];
+  const _id = splitted[1];
+  return {
+    _id, primaryField
   };
 }

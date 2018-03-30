@@ -1,16 +1,13 @@
 import { FluidApi } from 'fluid-commons';
 import FluidFunc from 'fluid-func';
 export default {
-  development: ({ pageName }) => new Promise((resolve, reject) => {
+  development: ({ pageName, id, primaryField }) => new Promise((resolve) => {
     setTimeout(() => {
       FluidApi.storage(pageName()).then(({ data }) => {
-        const result = {};
-        result[pageName()] = data();
+        const result = data().filter(value => value[primaryField()] === id())[0];
         resolve({
           data: result
         });
-      }).catch(error => {
-        reject(error);
       });
     }, 400);
   }),
@@ -24,7 +21,7 @@ export default {
           }
         }
       }
-      FluidFunc.start(param.pageName, { action: 'getListData', ...paramCopy })
+      FluidFunc.start(param.pageName, { action: 'getDataById', ...paramCopy })
         .then(({ data }) => {
           resolve({ data });
         })
@@ -34,4 +31,3 @@ export default {
     }
   })
 };
-

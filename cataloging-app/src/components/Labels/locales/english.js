@@ -135,3 +135,6 @@ export const LABEL_PHONE = 'Phone';
 
 //Librarian
 export const LABEL_TITLE = 'Title';
+
+// options
+export const LABEL_THIS_RECORD = 'this record';

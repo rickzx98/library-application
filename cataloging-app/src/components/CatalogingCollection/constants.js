@@ -1,1 +1,1 @@
-export const FORM_NAME = 'collectionForm';
+export const PAGE_NAME = 'collection';

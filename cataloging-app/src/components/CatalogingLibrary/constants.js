@@ -1,1 +1,1 @@
-export const FORM_NAME = 'catalogingLibrary';
+export const PAGE_NAME = 'library';

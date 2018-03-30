@@ -4,6 +4,11 @@ import { Library } from '../../../types/';
 
 export default () => ([
   {
+    field: Library.ID,
+    primaryKey: true,
+    skipRender: true
+  },
+  {
     field: Library.NAME,
     label: getLabel('LABEL_LIBRARY_NAME'),
     data: {

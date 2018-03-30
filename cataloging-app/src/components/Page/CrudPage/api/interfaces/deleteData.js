@@ -1,18 +1,20 @@
 import { FluidApi } from 'fluid-commons';
 import FluidFunc from 'fluid-func';
 export default {
-  development: ({ pageName }) => new Promise((resolve, reject) => {
+  development: ({ id, primaryField, pageName }) => new Promise((resolve) => {
     setTimeout(() => {
       FluidApi.storage(pageName()).then(({ data }) => {
-        const result = {};
-        result[pageName()] = data();
-        resolve({
-          data: result
+        data().forEach((value, index) => {
+          if (value[primaryField()] === id()) {
+            FluidApi.storage(pageName(), {
+              remove: index
+            }).then(() => {
+              resolve();
+            });
+          }
         });
-      }).catch(error => {
-        reject(error);
       });
-    }, 400);
+    }, 500);
   }),
   production: (param) => new Promise((resolve, reject) => {
     let paramCopy = {};
@@ -24,7 +26,7 @@ export default {
           }
         }
       }
-      FluidFunc.start(param.pageName, { action: 'getListData', ...paramCopy })
+      FluidFunc.start(param.pageName, { action: 'deleteData', ...paramCopy })
         .then(({ data }) => {
           resolve({ data });
         })
@@ -34,4 +36,3 @@ export default {
     }
   })
 };
-

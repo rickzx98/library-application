@@ -10,7 +10,7 @@ export const FormInput = ({
     placeholder={field.label} name={field.name}
     value={FluidForm.getValue(formValue, field.name)}
     className="form-control" />);
-  if (element) {
+  if (FieldComponent) {
     element = FieldComponent()({ formValue, field });
   }
   return element;

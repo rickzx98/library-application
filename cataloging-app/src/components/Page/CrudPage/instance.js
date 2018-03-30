@@ -1,10 +1,10 @@
 import { PageForm, PageHeaders, PageList } from '../../Page/';
-import { Page } from '../../common/';
 
+import { Page } from '../../common/';
 import React from 'react';
 
-export default ({pageName, FormSpecs, TableColumns, page, formProps, listTransformer}) => (instance) => {
-  instance.state = {editable: false};
+export default ({ pageName, FormSpecs, TableColumns, page, formProps, listTransformer }) => (instance) => {
+  instance.state = { editable: false };
   const { forCreateView, forListView, forManagedUpdateView, forManagedView } = new PageHeaders(pageName);
   return {
     componentWillMount: () => {
@@ -22,67 +22,78 @@ export default ({pageName, FormSpecs, TableColumns, page, formProps, listTransfo
         instance.createHeaders();
       }
     },
-    onSelect: (pageValue) => {
-      instance.props.actions.goTo(pageValue);
+    onSelect: (rowValue) => {
+      instance.props.actions.goTo(pageName, rowValue);
     },
     onFormFailed: (stack) => {
       instance.props.actions.onFailed(stack);
     },
     onFormSubmit: (pageValue) => {
+      const raw = pageValue.getRaw();
       instance.create(() => {
-        instance.props.actions.create(pageValue);
+        instance.props.actions.create(pageName, raw);
+      });
+      instance.view(({ id }) => {
+        instance.props.actions.update(pageName, id, raw);
+        instance.setEditable(false);
       });
     },
     createHeaders: () => {
       instance.list(() => {
-        instance.props.actions.createHeaders(forListView(instance.refresh, instance.props.actions.goToNew, instance.isActive));
+        instance.props.actions.createHeaders(forListView(instance.refresh, instance.goToNew, instance.isActive));
       });
       instance.create(() => {
-        instance.props.actions.createHeaders(forCreateView(instance.props.actions.prevPage, instance.isActive));
+        instance.props.actions.createHeaders(forCreateView(instance.prevPage, instance.isActive));
       });
       instance.view(() => {
         if (!instance.state.editable) {
-          instance.props.actions.createHeaders(forManagedView(instance.props.actions.prevPage, () => {
+          instance.props.actions.createHeaders(forManagedView(instance.prevPage, () => {
             instance.setEditable(true);
-          }, instance.remove, instance.isActive));
+          }, instance.remove, instance.refresh, instance.isActive));
         } else {
           instance.props.actions.createHeaders(forManagedUpdateView(instance.cancelEdit, instance.isActive));
         }
       });
     },
     refresh: () => {
-      instance.list(()=> {
+      instance.list(() => {
         instance.props.actions.load(pageName, listTransformer);
       });
       instance.view(({ id }) => {
-        instance.props.actions.loadById(id);
+        instance.props.actions.loadById(pageName, id);
       });
     },
     isActive: () => !instance.props.ajax.started,
     setEditable: (value) => {
       instance.view(() => {
-        instance.setState({editable: value});
+        instance.setState({ editable: value });
       });
     },
     cancelEdit: () => {
       instance.view(({ id }) => {
-        instance.props.actions.cancelChanges(id, () => {
+        instance.props.actions.cancelChanges(pageName, id, () => {
           instance.setEditable(false);
         });
       });
     },
     remove: () => {
       instance.view(({ id }) => {
-        instance.props.actions.delete(id);
+        instance.props.actions.deleteData(pageName, id);
       });
     },
-    render: ()=> {
-      let element = (<div/>);
+    goToNew: () => {
+      instance.props.actions.goToNew(pageName);
+    },
+    prevPage: () => {
+      instance.props.actions.prevPage(pageName);
+    },
+    render: function Instance() {
+      let element = (<div />);
       instance.list(() => {
         element = (<PageList
           columns={TableColumns}
           data={instance.props.pageList}
-          onSelect={instance.onSelect}/>);
+          onSelect={instance.onSelect} />);
       });
       instance.create(() => {
         element = (<PageForm
@@ -92,7 +103,7 @@ export default ({pageName, FormSpecs, TableColumns, page, formProps, listTransfo
           formValue={instance.props.pageForm}
           onFailed={instance.onFormFailed}
           onSubmit={instance.onFormSubmit}
-          readOnly={false}/>);
+          readOnly={false} />);
       });
       instance.view(() => {
         element = (<PageForm
@@ -102,7 +113,7 @@ export default ({pageName, FormSpecs, TableColumns, page, formProps, listTransfo
           formValue={instance.props.pageForm}
           onFailed={instance.onFormFailed}
           onSubmit={instance.onFormSubmit}
-          readOnly={!instance.state.editable}/>);
+          readOnly={!instance.state.editable} />);
       });
       return <Page {...page}>{element}</Page>;
     }
