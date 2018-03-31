@@ -231,4 +231,7 @@
     font-weight: 500;
     height: 39px;
     padding: 8px 12px;
+    background: $field-view-bg-color;
+    border-top-left-radius: $border-field-radius;
+    border-bottom-left-radius: $border-field-radius;
 }

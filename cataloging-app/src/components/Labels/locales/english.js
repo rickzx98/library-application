@@ -135,6 +135,39 @@ export const LABEL_PHONE = 'Phone';
 
 //Librarian
 export const LABEL_TITLE = 'Title';
+export const LABEL_ACTIVE = 'Active';
 
 // options
 export const LABEL_THIS_RECORD = 'this record';
+export const LABEL_SELECT_OPTIONS = '--select--';
+export const LABEL_QUICK_LINKS = 'Quick links';
+
+
+// title
+export const LABEL_ADD_TITLE = 'Add title';
+export const LABEL_STATEMENT_OF_RESP = 'Statement of Responsibility';
+export const LABEL_SERIES_TITLE = 'Series Title';
+export const LABEL_ISBN = 'ISBN';
+export const LABEL_ISBN_13 = 'ISBN 13';
+export const LABEL_ISBN_10 = 'ISBN 10';
+export const LABEL_PUBLISHER = 'Publisher';
+export const LABEL_NUMBER_OF_PAGES = 'Number of Pages';
+export const LABEL_SUB_TITLE = 'Sub title';
+export const LABEL_EDITION = 'Edition';
+export const LABEL_AUTHOR = 'Author';
+export const LABEL_PUBLISHED_DATE = 'Year of publication';
+export const LABEL_SUMMARY = 'Summary';
+export const LABEL_STUDY_PROGRAM = 'Study Program';
+export const LABEL_TITLE_POINTS = 'Title Points';
+export const LABEL_INTERNET_RESOURCE = 'Internet Resource';
+export const LABEL_GENERAL_NOTE = 'General Note';
+export const LABEL_READING_LEVEL = 'Reading Level';
+export const LABEL_RESOURCE_TYPE = 'Resource Type';
+export const LABEL_BARCODE = 'Barcode';
+export const LABEL_LOCATION = 'Location';
+export const LABEL_COST = 'Cost';
+export const LABEL_VENDOR = 'Vendor';
+export const LABEL_DATE = 'Date';
+export const LABEL_CALL_NUMBER = 'Call Number';
+export const LABEL_CURRENCY = 'Currency';
+export const LABEL_FUND = 'Fund';

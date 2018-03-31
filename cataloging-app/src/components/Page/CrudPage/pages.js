@@ -1,5 +1,6 @@
-export default pageName => ({
+export default (pageName, overrideRoutes) => ({
   view: `/${pageName}/view/:id`,
   create: `/${pageName}/new`,
-  list: `/${pageName}`
+  list: `/${pageName}`,
+  ...overrideRoutes
 });

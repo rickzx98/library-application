@@ -1,5 +1,6 @@
 import '../../images/library-header.jpg';
 
+import { DropdownLibrarian, transformLibrarianEdit, transformLibrarianView } from '../CatalogingLibrarian/';
 import { FormSpecs, TableColumns } from './api/';
 
 import { CrudPage } from '../Page/';
@@ -37,12 +38,30 @@ export const CatalogingLibraryPage = CrudPage({
         case Library.ALERT_INFO:
           return 'col-sm-12';
         case Library.LIBRARIAN:
-        case Library.LIBRARIAN_TITLE:
         case Library.CONTACT_PERSON:
-          return 'col-sm-4';
+          return 'col-sm-6';
         default:
           return 'col-sm-6';
       }
-    }
+    },
+    fieldComponent: (field) => {
+      switch (field) {
+        case Library.LIBRARIAN:
+          return DropdownLibrarian;
+        default:
+          return false;
+      }
+    },
+    viewValueTransformer: (field) => {
+      switch (field) {
+        case Library.LIBRARIAN:
+          return transformLibrarianView;
+        default: return false;
+      }
+    },
+    modelValueTransformer: (formValue) => ({
+      ...formValue,
+      librarian: transformLibrarianEdit(formValue[Library.LIBRARIAN])
+    })
   }
 });

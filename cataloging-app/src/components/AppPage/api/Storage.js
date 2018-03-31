@@ -5,6 +5,7 @@ export default {
       collection: collections,
       library: libraries,
       app: {},
+      title: [],
       librarian
     };
   }

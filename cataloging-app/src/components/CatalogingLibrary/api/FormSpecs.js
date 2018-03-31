@@ -1,6 +1,7 @@
+import { Librarian, Library } from '../../../types/';
 import { getLabel, requireMessage } from '../../../utils/';
 
-import { Library } from '../../../types/';
+import { FluidApi } from 'fluid-commons';
 
 export default () => ([
   {
@@ -49,12 +50,19 @@ export default () => ([
     label: getLabel('LABEL_LIBRARIAN'),
     data: {
       require: true,
-      requireMessage: requireMessage(Library.LIBRARIAN, getLabel('LABEL_VALIDATION_LIBRARIAN_REQUIRED'))
+      requireMessage: requireMessage(Library.LIBRARIAN, getLabel('LABEL_VALIDATION_LIBRARIAN_REQUIRED')),
+      transform: (value) => new Promise((resolve, reject) => {
+        try {
+          if (!value[Librarian.ID]) {
+            FluidApi.storage('librarian').then(({ data }) => {
+              resolve(data().filter(librarian => librarian[Librarian.ID] === value)[0]);
+            }).catch(error => { reject(error); });
+          }
+        } catch (error) {
+          reject(error);
+        }
+      })
     }
-  },
-  {
-    field: Library.LIBRARIAN_TITLE,
-    label: getLabel('LABEL_LIBRARIAN_TITLE')
   },
   {
     field: Library.CONTACT_PERSON,

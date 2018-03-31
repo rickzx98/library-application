@@ -16,4 +16,5 @@ export const PageActions = actions;
 export { PageForm } from './PageForm/PageForm';
 export { PageList } from './PageList/PageList';
 export { PageHeaders } from './PageHeaders/PageHeaders';
-export { PageAPI, CrudPage, CrudPageReducer} from './CrudPage/';
+export { PageAPI, CrudPage, CrudPageReducer } from './CrudPage/';
+export { PageSubModules } from './PageSubModules/PageSubModules';

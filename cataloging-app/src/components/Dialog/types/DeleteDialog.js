@@ -6,7 +6,7 @@ import { getLabel } from '../../../utils/';
 export const DeleteDialog = (confirm, cancel, target) => ({
   title: getLabel('LABEL_DELETE_CONFIRMATION_TITLE'),
   body: (<p className="confirmation-message">{getLabel('LABEL_CONFIRM_DO_YOU_WANT_TO_DELETE')}{` ${target}?`}</p>),
-  footer: (<div className="btn-group btn-group-sm">
+  footer: (<div>
     <ResponsiveButton
       icon={<FontAwesome name="check" />}
       onClick={confirm} className="btn btn-primary" label={getLabel('LABEL_YES')} />

@@ -1,6 +1,6 @@
 import { Librarian } from '../../../types';
 import { getLabel } from '../../../utils';
-
+import { transformActiveField } from './Transfomer';
 export default [
   {
     field: Librarian.ID,
@@ -16,4 +16,8 @@ export default [
   }, {
     field: Librarian.EMAIL,
     label: getLabel('LABEL_EMAIL'),
+  }, {
+    field: Librarian.ACTIVE,
+    label: getLabel('LABEL_ACTIVE'),
+    transform: transformActiveField
   }];

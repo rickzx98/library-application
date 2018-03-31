@@ -5,6 +5,7 @@
     .navbar-default {
         color: $hd-text-color !important;
         .navbar-header {
+            border-top-left-radius: $border-menu-radius;
             padding-left: 5px;
             margin-top: 2px;
             background: $nav-header-control-background !important;
@@ -17,20 +18,25 @@
             &.navbar-left {
                 margin-top: 2px;
                 background: $nav-header-control-background !important;
+                border-top-right-radius: $border-menu-radius;
+                border-bottom-right-radius: $border-menu-radius;
             }
             &.navbar-right {
                 margin-top: 2px;
                 background: $nav-header-control-background !important;
+                border-radius: $border-menu-radius;
             }
             li {
                 a {
                     &:hover {
                         background: $awe-blueH !important;
                         color: $hd-text-color !important;
+                        border-radius: $border-menu-radius;
                     }
                     &:focus {
                         background: $awe-blueH !important;
                         color: $hd-text-color !important;
+                        border-radius: $border-menu-radius;
                     }
                 }
             }

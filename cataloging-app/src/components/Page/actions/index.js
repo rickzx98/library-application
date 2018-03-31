@@ -8,6 +8,7 @@ import { AjaxStatusActions } from '../../AjaxStatus/';
 import { DialogActions } from '../../Dialog/';
 import { HeaderActions } from '../../Headers/';
 import { NotificationActions } from '../../Notification/';
+import UrlPattern from 'url-pattern';
 
 export const onFailed = (stack, formName) => {
   return dispatch => {
@@ -16,7 +17,9 @@ export const onFailed = (stack, formName) => {
     dispatch(NotificationActions.alertDanger(message));
   };
 };
-
+export const back = () => dispatch => {
+  dispatch(goBack());
+};
 export const prevPage = (currentForm) => {
   return (dispatch, state) => {
     const { fluidForm } = state();
@@ -33,14 +36,13 @@ export const prevPage = (currentForm) => {
   };
 };
 
-
 export const add = pageName => dispatch => {
   dispatch(push(`${pageName}/new`));
 };
 export const view = (pageName, id) => dispatch => {
   dispatch(push(`${pageName}/view/${id}`));
 };
-export const load = (pageName, transformer) => dispatch => {
+export const load = (pageName, parent, transformer) => dispatch => {
   dispatch(AjaxStatusActions.beginAjaxCall());
   FluidApi.execute('getListData', { pageName })
     .then(({ getListData }) => {
@@ -128,9 +130,13 @@ export const removeData = (pageName, id) => dispatch => {
       dispatch(NotificationActions.alertDanger(getLabel(`LABEL_FAILED_TO_DELETE_${pageName}`)));
     });
 };
-export function goTo(pageName, data) {
+export function goTo(routes, data, parent) {
+  const urlPattern = new UrlPattern(routes.view);
   return dispatch => {
-    dispatch(push(`/${pageName}/view/${data.getPrimaryField()}_f${data.getPrimaryKey()}`));
+    dispatch(push(urlPattern.stringify({
+      id: `${data.getPrimaryField()}_f${data.getPrimaryKey()}`,
+      parent: parent || ''
+    })));
   };
 }
 export const setListData = (pageName, listData) => ({
@@ -151,9 +157,12 @@ export function createHeaders(controls) {
 }
 
 
-export function goToNew(pageName) {
+export function goToNew(routes, parent) {
+  const urlPattern = new UrlPattern(routes.create);
   return dispatch => {
-    dispatch(push(`/${pageName}/new`));
+    dispatch(push(urlPattern.stringify({
+      parent: parent || ''
+    })));
   };
 }
 
@@ -191,6 +200,10 @@ export const deleteData = (pageName, id) => {
   };
 };
 
+export const goToPage = (id, module) => dispatch => {
+  const pattern = new UrlPattern(module.pages.list);
+  dispatch(push(pattern.stringify({ parent: id })));
+};
 
 function idSplitter(id) {
   const splitted = id.split('_f');

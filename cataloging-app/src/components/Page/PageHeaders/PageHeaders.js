@@ -8,8 +8,16 @@ export class PageHeaders {
     this.forManagedUpdateView = this._forManagedUpdateView.bind(this);
     this.forManagedView = this._forManagedView.bind(this);
   }
-  _forListView(refresh, add, isActive) {
+  _forListView(refresh, add, back, isActive, parent) {
     const headers = {};
+    if (parent) {
+      headers['back'] = {
+        label: getLabel('LABEL_BACK'),
+        fontIcon: 'arrow-left',
+        onClick: back,
+        isActive: isActive,
+      };
+    }
     headers['create'] = {
       label: getLabel('LABEL_ADD'),
       fontIcon: 'plus',
