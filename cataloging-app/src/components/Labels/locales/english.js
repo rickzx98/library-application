@@ -182,3 +182,11 @@ export const LABLE_FINE_AMOUNT = 'Fine amount';
 export const LABEL_FEE_AMOUNT = 'Fee amount';
 export const LABEL_CAN_LEAVE = 'Item can leave library';
 export const LABEL_PER_HOUR = 'Loan by hour';
+
+// User
+export const LABEL_USERS = 'Users';
+export const LABEL_USERNAME = 'Username';
+export const LABEL_PASSWORD = 'Password';
+export const LABEL_CONFIRM_PASSWORD = 'Confirm password';
+export const LABEL_USER_GROUP = 'User group';
+export const LABEL_PASSWORD_DID_NOT_MATCH = 'Password did not match';

@@ -25,9 +25,6 @@ export default {
     publicPath: '/',
     filename: '[name].[chunkhash].js'
   },
-  exclude: [
-    'src/utils/Mocks.js'
-  ],
   plugins: [
     // Hash the files using MD5 so that their names change when the content changes.
     new WebpackMd5Hash(),
