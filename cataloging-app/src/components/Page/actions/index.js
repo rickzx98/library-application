@@ -205,6 +205,10 @@ export const goToPage = (id, module) => dispatch => {
   dispatch(push(pattern.stringify({ parent: id })));
 };
 
+export const goToUrl = (url) => dispatch => {
+  dispatch(push(url));
+};
+
 function idSplitter(id) {
   const splitted = id.split('_f');
   const primaryField = splitted[0];

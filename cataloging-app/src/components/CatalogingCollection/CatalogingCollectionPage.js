@@ -17,5 +17,15 @@ export const CatalogingCollectionPage = CrudPage({
   },
   formProps: {
     fieldClass: () => 'col-sm-6 col-sm-offset-right-6 col-md-4 col-md-offset-right-8'
-  }
+  },
+  modules: [
+    {
+      name: 'title',
+      icon: 'database',
+      label: getLabel('LABEL_TITLE'),
+      pages: {
+        list: '/collection/:parent/title'
+      }
+    }
+  ]
 });

@@ -18,3 +18,4 @@ export { PageList } from './PageList/PageList';
 export { PageHeaders } from './PageHeaders/PageHeaders';
 export { PageAPI, CrudPage, CrudPageReducer } from './CrudPage/';
 export { PageSubModules } from './PageSubModules/PageSubModules';
+export { PageListWithLinks } from './PageList/PageListWithLinks';

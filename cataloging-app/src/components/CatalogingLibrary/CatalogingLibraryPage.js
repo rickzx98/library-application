@@ -63,5 +63,24 @@ export const CatalogingLibraryPage = CrudPage({
       ...formValue,
       librarian: transformLibrarianEdit(formValue[Library.LIBRARIAN])
     })
-  }
+  },
+  links: [
+    {
+      label: getLabel('LABEL_COLLECTION'),
+      name: 'collection',
+      icon: 'tags',
+      url: '/collection'
+    },
+    {
+      label: getLabel('LABEL_LIBRARIAN'),
+      name: 'librarian',
+      icon: 'user-circle',
+      url: '/librarian'
+    },
+    {
+      label: getLabel('LABEL_LOAN_TYPE'),
+      name: 'loantype',
+      icon: 'bolt',
+      url: '/loantype'
+    }]
 });

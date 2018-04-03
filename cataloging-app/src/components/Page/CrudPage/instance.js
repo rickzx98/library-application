@@ -1,9 +1,9 @@
-import { PageForm, PageHeaders, PageList, PageSubModules } from '../../Page/';
+import { PageForm, PageHeaders, PageListWithLinks, PageSubModules } from '../../Page/';
 
 import { Page } from '../../common/';
 import React from 'react';
 
-export default ({ pageName, FormSpecs, TableColumns, page, formProps, listTransformer, modules, routes }) => (instance) => {
+export default ({ pageName, FormSpecs, TableColumns, page, formProps, listTransformer, modules, routes, links }) => (instance) => {
   instance.state = { editable: false };
   const { forCreateView, forListView, forManagedUpdateView, forManagedView } = new PageHeaders(pageName);
   return {
@@ -41,8 +41,8 @@ export default ({ pageName, FormSpecs, TableColumns, page, formProps, listTransf
       });
     },
     createHeaders: () => {
-      instance.list(({ parent }) => {
-        instance.props.actions.createHeaders(forListView(instance.refresh, instance.goToNew, instance.props.actions.back, instance.isActive, parent));
+      instance.list(() => {
+        instance.props.actions.createHeaders(forListView(instance.refresh, instance.goToNew, instance.props.actions.back, instance.isActive));
       });
       instance.create(() => {
         instance.props.actions.createHeaders(forCreateView(instance.prevPage, instance.isActive));
@@ -96,10 +96,19 @@ export default ({ pageName, FormSpecs, TableColumns, page, formProps, listTransf
         instance.props.actions.goToPage(id, module);
       });
     },
+    goToUrl: (url) => {
+      instance.list(() => {
+        instance.props.actions.goToUrl(url);
+      });
+    },
     render: function Instance() {
       let element = (<div />);
       instance.list(() => {
-        element = (<PageList
+        element = (<PageListWithLinks
+          goToUrl={instance.goToUrl}
+          state={instance.state}
+          props={instance.props}
+          links={links}
           columns={TableColumns}
           data={instance.props.pageList}
           onSelect={instance.onSelect} />);

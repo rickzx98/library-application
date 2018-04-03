@@ -1,5 +1,5 @@
-import { CatalogingHeaders } from '../CatalogingHeaders/';
+import { CatalogingLibraryNavItem } from '../CatalogingLibrary/';
 import React from 'react';
 
 export const NavComponents =
-    [<CatalogingHeaders key={'NV_0.1'} eventKey={1} />];
+  [<CatalogingLibraryNavItem key={'NV_0.1'} eventKey={1} />];

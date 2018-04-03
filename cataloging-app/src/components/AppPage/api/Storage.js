@@ -6,6 +6,7 @@ export default {
       library: libraries,
       app: {},
       title: [],
+      loantype: [],
       librarian
     };
   }

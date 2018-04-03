@@ -3,23 +3,26 @@ import { PageModules } from './PageModules';
 import PropTypes from 'prop-types';
 import React from 'react';
 export class PageSubModules extends React.Component {
-  state = {
-    hasModules: false
-  };
-  componentWillMount = () => {
+  constructor(props) {
+    super(props);
+    this.state = {
+      hasModules: false
+    };
+  }
+  componentWillMount() {
     this.refresh();
   }
-  refresh = () => {
+  refresh() {
     if (this.props.modules && this.props.modules.length > 0) {
       this.hasModules();
     }
   }
-  hasModules = () => {
+  hasModules() {
     this.setState({ hasModules: true });
   }
   render = () => (<div className="page-sub-modules clearfix">
     {this.state.hasModules && (<PageModules onClick={this.props.goToPage} formValue={this.props.formValue} modules={this.props.modules} />)}
-    <div className={`page-form ${this.state.hasModules ? 'col-sm-9' : 'no-sub-modules-links'}`}>
+    <div className={`page-form clearfix ${this.state.hasModules ? 'col-sm-9' : 'no-sub-modules-links'}`}>
       <PageForm {...this.props} />
     </div>
   </div>);

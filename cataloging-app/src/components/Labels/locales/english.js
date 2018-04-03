@@ -141,8 +141,9 @@ export const LABEL_ACTIVE = 'Active';
 export const LABEL_THIS_RECORD = 'this record';
 export const LABEL_SELECT_OPTIONS = '--select--';
 export const LABEL_QUICK_LINKS = 'Quick links';
-
-
+export const LABEL_OPTIONS = 'Options';
+export const LABEL_ASSOCIATIONS = 'Associations';
+export const LABEL_LOAN_TYPE = 'Loan type';
 // title
 export const LABEL_ADD_TITLE = 'Add title';
 export const LABEL_STATEMENT_OF_RESP = 'Statement of Responsibility';
@@ -171,3 +172,13 @@ export const LABEL_DATE = 'Date';
 export const LABEL_CALL_NUMBER = 'Call Number';
 export const LABEL_CURRENCY = 'Currency';
 export const LABEL_FUND = 'Fund';
+
+// loantype
+export const LABEL_LOAN_PERIOD = 'Loan period';
+export const LABEL_LOAN_GRACE_PERIOD = 'Grace period';
+export const LABEL_FINE_CYCLE = 'Fine cycle';
+export const LABEL_MAX_LOAN_AMOUNT = 'Max loan amount';
+export const LABLE_FINE_AMOUNT = 'Fine amount';
+export const LABEL_FEE_AMOUNT = 'Fee amount';
+export const LABEL_CAN_LEAVE = 'Item can leave library';
+export const LABEL_PER_HOUR = 'Loan by hour';
