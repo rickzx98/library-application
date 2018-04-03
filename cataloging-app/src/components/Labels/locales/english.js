@@ -190,3 +190,8 @@ export const LABEL_PASSWORD = 'Password';
 export const LABEL_CONFIRM_PASSWORD = 'Confirm password';
 export const LABEL_USER_GROUP = 'User group';
 export const LABEL_PASSWORD_DID_NOT_MATCH = 'Password did not match';
+
+
+// User group
+export const LABEL_ADMIN = 'Admin';
+export const LABEL_PATRON = 'Patron';

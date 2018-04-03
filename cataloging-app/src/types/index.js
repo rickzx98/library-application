@@ -1,3 +1,10 @@
+
+export const UserGroup = {
+  ADMIN: 'admin',
+  PATRON: 'patron',
+  LIBRARIAN: 'librarian'
+};
+
 export const User = {
   ID: '_id',
   USERNAME: 'username',
@@ -100,8 +107,8 @@ export const Pages = {
   newLibrarian: '/librarian/new',
   viewLibrarian: '/librarian/view/',
   user: '/user',
-  newUser:'/user/new',
-  viewUser:'/user/view/'
+  newUser: '/user/new',
+  viewUser: '/user/view/'
 };
 
 export const Record = {
