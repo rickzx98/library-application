@@ -1,12 +1,14 @@
 import { FluidForm } from 'fluid-commons';
 import PropTypes from 'prop-types';
 import React from 'react';
+
 export const FormInput = ({
   formValue,
   field,
   FieldComponent
 }) => {
   let element = (<input
+    disabled={field.isDisabled}
     placeholder={field.label} name={field.name}
     value={FluidForm.getValue(formValue, field.name)}
     className="form-control" />);

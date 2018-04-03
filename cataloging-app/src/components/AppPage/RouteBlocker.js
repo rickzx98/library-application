@@ -1,6 +1,7 @@
 import React, { PureComponent } from 'react';
 import { Route, Switch } from 'react-router-dom';
 
+import { AdminUserPage } from '../AdminUser/';
 import { CatalogingCollectionPage } from '../CatalogingCollection/';
 import { CatalogingLibrarianPage } from '../CatalogingLibrarian/';
 import { CatalogingLibraryPage } from '../CatalogingLibrary/';
@@ -21,6 +22,9 @@ export default class RouteBlocker extends PureComponent {
       <Route exact path={Pages.librarian} component={CatalogingLibrarianPage} />
       <Route exact path={Pages.newLibrarian} component={CatalogingLibrarianPage} />
       <Route exact path={Pages.viewLibrarian + ':id'} component={CatalogingLibrarianPage} />
+      <Route exact path={Pages.user} component={AdminUserPage} />
+      <Route exact path={Pages.newUser} component={AdminUserPage} />
+      <Route exact path={Pages.viewUser + ':id'} component={AdminUserPage} />
     </Switch>);
   }
 }

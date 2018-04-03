@@ -1,4 +1,12 @@
-
+export const User = {
+  ID: '_id',
+  USERNAME: 'username',
+  PASSWORD: 'password',
+  CONFIRM_PASSWORD: 'confirmPassword',
+  EMAIL: 'email',
+  FULL_NAME: 'fullName',
+  USER_GROUP: 'userGroup'
+};
 export const Librarian = {
   ID: '_id',
   NAME: 'name',
@@ -39,7 +47,10 @@ export const Pages = {
   viewLibrary: '/library/view/',
   librarian: '/librarian',
   newLibrarian: '/librarian/new',
-  viewLibrarian: '/librarian/view/'
+  viewLibrarian: '/librarian/view/',
+  user: '/user',
+  newUser:'/user/new',
+  viewUser:'/user/view/'
 };
 
 export const Record = {

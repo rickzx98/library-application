@@ -138,3 +138,11 @@ export const LABEL_TITLE = 'Title';
 
 // options
 export const LABEL_THIS_RECORD = 'this record';
+
+// User
+export const LABEL_USERS = 'Users';
+export const LABEL_USERNAME = 'Username';
+export const LABEL_PASSWORD = 'Password';
+export const LABEL_CONFIRM_PASSWORD = 'Confirm password';
+export const LABEL_USER_GROUP = 'User group';
+export const LABEL_PASSWORD_DID_NOT_MATCH = 'Password did not match';
