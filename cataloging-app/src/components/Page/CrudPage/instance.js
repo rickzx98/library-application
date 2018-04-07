@@ -3,7 +3,7 @@ import { PageForm, PageHeaders, PageListWithLinks, PageSubModules } from '../../
 import { Page } from '../../common/';
 import React from 'react';
 
-export default ({ pageName, FormSpecs, TableColumns, page, formProps, listTransformer, modules, routes, links }) => (instance) => {
+export default ({ pageName, FormSpecs, TableColumns, page, formProps, listTransformer, modules, routes, links, fieldKey }) => (instance) => {
   instance.state = { editable: false };
   const { forCreateView, forListView, forManagedUpdateView, forManagedView } = new PageHeaders(pageName);
   return {
@@ -51,7 +51,7 @@ export default ({ pageName, FormSpecs, TableColumns, page, formProps, listTransf
         if (!instance.state.editable) {
           instance.props.actions.createHeaders(forManagedView(instance.prevPage, () => {
             instance.setEditable(true);
-          }, instance.remove, instance.refresh, instance.isActive));
+          }, instance.remove, instance.refresh, instance.isActive, instance.isEditable, instance.isRemovable));
         } else {
           instance.props.actions.createHeaders(forManagedUpdateView(instance.cancelEdit, instance.isActive));
         }
@@ -66,6 +66,8 @@ export default ({ pageName, FormSpecs, TableColumns, page, formProps, listTransf
       });
     },
     isActive: () => !instance.props.ajax.started,
+    isEditable: () => instance.props.pageForm.data && instance.props.pageForm.data['isEditable'] !== undefined ? instance.props.pageForm.data['isEditable'] : true,
+    isRemovable: () => instance.props.pageForm.data && instance.props.pageForm.data['isRemovable'] !== undefined ? instance.props.pageForm.data['isRemovable'] : true,
     setEditable: (value) => {
       instance.view(() => {
         instance.setState({ editable: value });
@@ -105,6 +107,7 @@ export default ({ pageName, FormSpecs, TableColumns, page, formProps, listTransf
       let element = (<div />);
       instance.list(() => {
         element = (<PageListWithLinks
+          fieldKey={fieldKey}
           goToUrl={instance.goToUrl}
           state={instance.state}
           props={instance.props}

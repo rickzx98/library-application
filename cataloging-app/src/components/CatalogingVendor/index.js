@@ -1,0 +1,1 @@
+export { CatalogingVendorPage } from './CatalogingVendorPage';

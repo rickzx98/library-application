@@ -72,15 +72,21 @@ export const CatalogingLibraryPage = CrudPage({
       url: '/collection'
     },
     {
-      label: getLabel('LABEL_LIBRARIAN'),
-      name: 'librarian',
-      icon: 'user-circle',
-      url: '/librarian'
+      label: getLabel('LABEL_TITLE'),
+      name: 'title',
+      icon: 'book',
+      url: '/title'
     },
     {
       label: getLabel('LABEL_LOAN_TYPE'),
       name: 'loantype',
       icon: 'bolt',
       url: '/loantype'
+    },
+    {
+      label: getLabel('LABEL_BARCODE'),
+      name: 'barcode',
+      icon: 'barcode',
+      url: '/barcode'
     }]
 });

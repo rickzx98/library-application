@@ -17,7 +17,7 @@ export const PageForm = ({ formName, formValue,
     onSubmit={(formValue) => _modelValueTransformer(formValue, modelValueTransformer, onSubmit)} onFailed={onFailed}
     fieldNode={(field, index) => {
       return (<FormGroup
-        invalid={formValue.invalid && formValue.field === field.name}
+        invalid={field.isInvalid}
         required={field.require}
         key={field.name} label={field.label}
         name={field.name}

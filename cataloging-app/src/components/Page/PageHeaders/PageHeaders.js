@@ -48,7 +48,7 @@ export class PageHeaders {
     };
     return headers;
   }
-  _forManagedView(back, edit, remove, refresh, isActive) {
+  _forManagedView(back, edit, remove, refresh, isActive, isEditable, isRemovable) {
     const headers = {};
     headers['back'] = {
       label: getLabel('LABEL_BACK'),
@@ -56,24 +56,30 @@ export class PageHeaders {
       onClick: back,
       isActive: isActive,
     };
-    headers['edit'] = {
-      label: getLabel('LABEL_EDIT'),
-      onClick: edit,
-      isActive: isActive,
-      fontIcon: 'pencil'
-    };
+    if (isEditable()) {
+      headers['edit'] = {
+        label: getLabel('LABEL_EDIT'),
+        onClick: edit,
+        isActive: isActive,
+        fontIcon: 'pencil'
+      };
+    }
+
     headers['refresh'] = {
       label: getLabel('LABEL_REFRESH'),
       fontIcon: 'refresh',
       onClick: refresh,
       isActive
     };
-    headers['delete'] = {
-      label: getLabel('LABEL_DELETE'),
-      fontIcon: 'trash',
-      onClick: remove,
-      isActive: isActive,
-    };
+    if (isRemovable()) {
+      headers['delete'] = {
+        label: getLabel('LABEL_DELETE'),
+        fontIcon: 'trash',
+        onClick: remove,
+        isActive: isActive,
+      };
+    }
+
     return headers;
   }
   _forManagedUpdateView(cancel, isActive) {

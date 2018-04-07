@@ -1,0 +1,1 @@
+export { CatalogingCurrencyPage } from './CatalogingCurrencyPage';

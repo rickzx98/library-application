@@ -9,7 +9,7 @@ $hd-text-color: #ececed;
 $fd-bg-color: #3f5c73;
 $page-header-height: 160px;
 $app-title-color: #e2e2e2;
-$loading-color: #f16464;
+$loading-color: #ececed;
 $border-color: #cccccc;
 $screen-lg-min: 1200px;
 $screen-md-min: 992px;
@@ -21,8 +21,8 @@ Arial,
 sans-serif;
 /*table*/
 
-$table-hover-background: wheat !important;
-$table-background-color: #f5f5f5;
+$table-hover-background: rgba(172, 172, 172, 0.1) !important;
+$table-background-color: rgba(245, 245, 245, 1);
 $table-header-bg-color: #8f8f8f;
 $table-header-font-color: $hd-text-color;
 /*bootstrap-classes*/
@@ -45,4 +45,4 @@ $border-field-radius: 10px;
 /*module grid*/
 
 $module-grid-background: rgba(245, 245, 245, 1);
-$module-page-form-background: rgba(172, 172, 172, 0.1);
+$module-page-form-background: rgba(97, 89, 89, 0.6);

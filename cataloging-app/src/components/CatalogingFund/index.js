@@ -1,0 +1,1 @@
+export { CatalogingFundPage } from './CatalogingFundPage';

@@ -13,7 +13,7 @@ export const collections = [{
 
 export const libraries = [
   {
-    _id: '0001',
+    _id: '65501d79-6fa7-4ee5-932e-189374f3f534',
     name: 'GS Library',
     email: 'library@lib.com',
     librarian: '0001'

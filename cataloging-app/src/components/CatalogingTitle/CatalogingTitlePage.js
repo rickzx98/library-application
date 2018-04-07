@@ -17,5 +17,23 @@ export const CatalogingTitlePage = CrudPage({
   },
   formProps: {
     fieldClass: () => 'col-sm-6 col-sm-offset-right-6 col-md-4 col-md-offset-right-8'
-  }
+  },
+  links: [{
+    name: 'currency',
+    label: getLabel('LABEL_CURRENCY'),
+    icon: 'money',
+    url: '/currency'
+  },
+  {
+    name: 'vendor',
+    label: getLabel('LABEL_VENDOR'),
+    icon: 'users',
+    url: '/vendor'
+  },
+  {
+    name: 'fund',
+    label: getLabel('LABEL_FUND'),
+    icon: 'university',
+    url: '/fund'
+  }]
 });

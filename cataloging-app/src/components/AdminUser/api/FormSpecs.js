@@ -1,7 +1,8 @@
+import {APP_STORE, USER_GROUP} from '../constants';
+
+import {FluidApi} from 'fluid-commons';
 import { User } from '../../../types/';
 import { getLabel } from '../../../utils/';
-import {FluidApi} from 'fluid-commons';
-import {APP_STORE, USER_GROUP} from '../constants';
 let formState = {data: {}};
 export default ({
   state
@@ -90,7 +91,7 @@ export default ({
               })
               .catch(error=> {
                 reject(error);
-              })
+              });
           }
         })
       }

@@ -195,3 +195,11 @@ export const LABEL_PASSWORD_DID_NOT_MATCH = 'Password did not match';
 // User group
 export const LABEL_ADMIN = 'Admin';
 export const LABEL_PATRON = 'Patron';
+
+//Currency
+export const LABEL_NOTE = 'Note';
+export const LABEL_SYMBOL = 'Symbol';
+export const LABEL_PREFIX = 'Prefix';
+
+
+// Vendor

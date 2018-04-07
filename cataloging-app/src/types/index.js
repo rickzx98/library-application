@@ -1,3 +1,34 @@
+export const Fund = {
+  ID: '_id',
+  name: 'name',
+  new: function (name) {
+    const data = {};
+    data[this.NAME] = name;
+    return data;
+  }
+};
+export const Vendor = {
+  ID: '_id',
+  NAME: 'name',
+  new: function (name) {
+    const vendor = {};
+    vendor[this.NAME] = name;
+    return vendor;
+  }
+};
+export const Currency = {
+  ID: '_id',
+  NOTE: 'note',
+  PREFIX: 'prefix',
+  SYMBOL: 'symbol',
+  new: function (note, prefix, symbol) {
+    const newCurrency = {};
+    newCurrency[this.NOTE] = note;
+    newCurrency[this.PREFIX] = prefix;
+    newCurrency[this.SYMBOL] = symbol;
+    return newCurrency;
+  }
+};
 
 export const UserGroup = {
   ADMIN: 'admin',
@@ -99,7 +130,6 @@ export const Pages = {
   collection: '/collection',
   newCollection: '/collection/new',
   viewCollection: '/collection/view/',
-  titles: '/titles',
   library: '/library',
   newLibrary: '/library/new',
   viewLibrary: '/library/view/',
@@ -108,7 +138,19 @@ export const Pages = {
   viewLibrarian: '/librarian/view/',
   user: '/user',
   newUser: '/user/new',
-  viewUser: '/user/view/'
+  viewUser: '/user/view/',
+  title: '/title',
+  newTitle: '/title/new',
+  viewTitle: '/title/view/',
+  currency: '/currency',
+  newCurrency: '/currency/new',
+  viewCurrency: '/currency/view/',
+  vendor: '/vendor',
+  newVendor: '/vendor/new',
+  viewVendor: '/vendor/view/',
+  fund: '/fund',
+  newFund: '/fund/new',
+  viewFund: '/fund/view/'
 };
 
 export const Record = {

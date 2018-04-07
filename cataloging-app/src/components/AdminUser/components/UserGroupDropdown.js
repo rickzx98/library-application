@@ -1,7 +1,6 @@
+import { APP_STORE, USER_GROUP } from '../constants';
 import { FluidApi, FluidForm } from 'fluid-commons';
 
-import { Librarian } from '../../../types/';
-import { APP_STORE, USER_GROUP } from '../constants';
 import PropTypes from 'prop-types';
 import React from 'react';
 import { getLabel } from '../../../utils/';
@@ -27,25 +26,24 @@ export class UserGroupDropdown extends React.Component {
   }
 
   _setData(data) {
-    console.log('setData', data);
-    this.setState({data});
+    this.setState({ data });
   }
 
   _loadingOn() {
-    this.setState({loading: true});
+    this.setState({ loading: true });
   }
 
   _loadingOff() {
-    this.setState({loading: false});
+    this.setState({ loading: false });
   }
 
   _error(error) {
-    this.setState({error});
+    this.setState({ error });
   }
 
   _refresh() {
     this.loadingOn();
-    FluidApi.storage(APP_STORE, {field: USER_GROUP})
+    FluidApi.storage(APP_STORE, { field: USER_GROUP })
       .then(({ data }) => {
         this.setData(data());
         this.loadingOff();
@@ -66,7 +64,7 @@ export class UserGroupDropdown extends React.Component {
       {this.state.data && this.state.data.map(
         data => (<option key={data.field} value={data.field}>{data.label}</option>)
       )}
-    </select>)
+    </select>);
   }
 }
 
