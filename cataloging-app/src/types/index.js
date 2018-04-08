@@ -1,3 +1,19 @@
+export const Cutter = {
+  ID: '_id',
+  VALUE: 'value'
+};
+
+
+export const Suffix = {
+  ID: '_id',
+  VALUE: 'value'
+};
+
+export const Prefix = {
+  ID: '_id',
+  VALUE: 'value'
+};
+
 export const Fund = {
   ID: '_id',
   name: 'name',
@@ -150,7 +166,19 @@ export const Pages = {
   viewVendor: '/vendor/view/',
   fund: '/fund',
   newFund: '/fund/new',
-  viewFund: '/fund/view/'
+  viewFund: '/fund/view/',
+  barcode: '/barcode',
+  newBarcode: '/barcode/new',
+  viewBarcode: '/barcode/view/',
+  prefix: '/prefix',
+  newPrefix: '/prefix/new',
+  viewPrefix: '/prefix/view/',
+  suffix: '/suffix',
+  newSuffix: '/suffix/new',
+  viewSuffix: '/suffix/view/',
+  cutter: '/cutter',
+  newCutter: '/cutter/new',
+  viewCutter: '/cutter/view/'
 };
 
 export const Record = {

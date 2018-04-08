@@ -2,6 +2,10 @@ import React, { PureComponent } from 'react';
 import { Route, Switch } from 'react-router-dom';
 
 import { AdminUserPage } from '../AdminUser/';
+import { CallNumberCutterPage } from '../CallNumberCutter/';
+import { CallNumberPrefixPage } from '../CallNumberPrefix/';
+import { CallNumberSuffixPage } from '../CallNumberSuffix/';
+import { CatalogingBarcodePage } from '../CatalogingBarcode/';
 import { CatalogingCollectionPage } from '../CatalogingCollection/';
 import { CatalogingCurrencyPage } from '../CatalogingCurrency/';
 import { CatalogingFundPage } from '../CatalogingFund/';
@@ -41,6 +45,18 @@ export default class RouteBlocker extends PureComponent {
       <Route exact path={Pages.fund} component={CatalogingFundPage} />
       <Route exact path={Pages.newFund} component={CatalogingFundPage} />
       <Route exact path={Pages.viewFund + ':id'} component={CatalogingFundPage} />
+      <Route exact path={Pages.barcode} component={CatalogingBarcodePage} />
+      <Route exact path={Pages.newBarcode} component={CatalogingBarcodePage} />
+      <Route exact path={Pages.viewBarcode + ':id'} component={CatalogingBarcodePage} />
+      <Route exact path={Pages.prefix} component={CallNumberPrefixPage} />
+      <Route exact path={Pages.newPrefix} component={CallNumberPrefixPage} />
+      <Route exact path={Pages.viewPrefix + ':id'} component={CallNumberPrefixPage} />
+      <Route exact path={Pages.cutter} component={CallNumberCutterPage} />
+      <Route exact path={Pages.newCutter} component={CallNumberCutterPage} />
+      <Route exact path={Pages.viewCutter + ':id'} component={CallNumberCutterPage} />
+      <Route exact path={Pages.suffix} component={CallNumberSuffixPage} />
+      <Route exact path={Pages.newSuffix} component={CallNumberSuffixPage} />
+      <Route exact path={Pages.viewSuffix + ':id'} component={CallNumberSuffixPage} />
     </Switch>);
   }
 }

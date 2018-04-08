@@ -25,6 +25,14 @@
                     background: $awe-blueH;
                     color: $hd-text-color;
                 }
+                &.grouped {
+                    background: darken($module-grid-background, 5.5);
+                    &:hover {
+                        cursor: pointer;
+                        background: $awe-blueH;
+                        color: $hd-text-color;
+                    }
+                }
             }
         }
     }

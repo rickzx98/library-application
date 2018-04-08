@@ -1,7 +1,7 @@
 .table {
     border: 1px solid $border-color;
     tbody {
-        background: $table-background-color;
+        background: none;
     }
     thead {
         th {
@@ -14,6 +14,22 @@
     }
     .fluid-table-filter-row {
         display: none;
+        background: none;
+    }
+    .fluid-row {
+        background: $table-background-color;
+        font-size: 14px;
+        text-align: left;
+        font-weight: 400;
+    }
+    .fluid-table-empty-row {
+        color: $hd-text-color;
+        font-weight: 500;
+        &:hover {
+            cursor: pointer !important;
+            background-color: $table-hover-background;
+            color: $hd-text-color;
+        }
     }
     &.table-hover {
         tbody {
@@ -21,6 +37,7 @@
                 &:hover {
                     cursor: pointer !important;
                     background-color: $table-hover-background;
+                    color: $hd-text-color;
                 }
             }
         }

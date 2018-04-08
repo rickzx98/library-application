@@ -23,7 +23,8 @@ export class PageSubModules extends React.Component {
   render = () => (<div className="page-sub-modules clearfix">
     {this.state.hasModules && (<PageModules onClick={this.props.goToPage} formValue={this.props.formValue} modules={this.props.modules} />)}
     <div className={`page-form clearfix ${this.state.hasModules ? 'col-sm-9' : 'no-sub-modules-links'}`}>
-      <PageForm {...this.props} />
+      {this.props.overridePages.view && this.props.overridePages.view(this.props)}
+      {!this.props.overridePages.view && <PageForm {...this.props} />}
     </div>
   </div>);
 }
@@ -40,5 +41,6 @@ PageSubModules.propTypes = {
   viewValueTransformer: PropTypes.func,
   modelValueTransformer: PropTypes.func,
   modules: PropTypes.array,
-  goToPage: PropTypes.func.isRequired
+  goToPage: PropTypes.func.isRequired,
+  overridePages: PropTypes.object
 };

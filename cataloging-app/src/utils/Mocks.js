@@ -1,3 +1,12 @@
+export const prefixes = [
+  { _id: '0001', value: 'TR' }
+];
+export const cutters = [
+  { _id: '0001', value: 'St33' }
+];
+export const suffixes = [
+  { _id: '0001', value: '2011' }
+];
 export const collections = [{
   _id: '0001',
   name: 'Sci Fi'

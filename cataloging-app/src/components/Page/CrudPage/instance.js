@@ -3,7 +3,7 @@ import { PageForm, PageHeaders, PageListWithLinks, PageSubModules } from '../../
 import { Page } from '../../common/';
 import React from 'react';
 
-export default ({ pageName, FormSpecs, TableColumns, page, formProps, listTransformer, modules, routes, links, fieldKey }) => (instance) => {
+export default ({ pageName, FormSpecs, TableColumns, page, formProps, listTransformer, modules, routes, links, fieldKey, overridePages = {} }) => (instance) => {
   instance.state = { editable: false };
   const { forCreateView, forListView, forManagedUpdateView, forManagedView } = new PageHeaders(pageName);
   return {
@@ -107,6 +107,7 @@ export default ({ pageName, FormSpecs, TableColumns, page, formProps, listTransf
       let element = (<div />);
       instance.list(() => {
         element = (<PageListWithLinks
+          name={pageName}
           fieldKey={fieldKey}
           goToUrl={instance.goToUrl}
           state={instance.state}
@@ -118,14 +119,22 @@ export default ({ pageName, FormSpecs, TableColumns, page, formProps, listTransf
       });
       instance.create(() => {
         element = (<div className="page-form">
-          <PageForm
-            {...formProps}
-            formSpecs={FormSpecs}
-            formName={pageName}
-            formValue={instance.props.pageForm}
-            onFailed={instance.onFormFailed}
-            onSubmit={instance.onFormSubmit}
-            readOnly={false} /></div>);
+          {overridePages.create && overridePages.create({
+            formSpecs: FormSpecs,
+            pageName,
+            onFailed: instance.onFormFailed,
+            onSubmit: instance.onFormSubmit,
+            ...formProps
+          })}
+          {!overridePages.create && (
+            <PageForm
+              {...formProps}
+              formSpecs={FormSpecs}
+              formName={pageName}
+              formValue={instance.props.pageForm}
+              onFailed={instance.onFormFailed}
+              onSubmit={instance.onFormSubmit}
+              readOnly={false} />)}</div>);
       });
       instance.view(() => {
         element = (<PageSubModules
@@ -137,7 +146,8 @@ export default ({ pageName, FormSpecs, TableColumns, page, formProps, listTransf
           formValue={instance.props.pageForm}
           onFailed={instance.onFormFailed}
           onSubmit={instance.onFormSubmit}
-          readOnly={!instance.state.editable} />);
+          readOnly={!instance.state.editable}
+          overridePages={overridePages} />);
       });
       return <Page {...page}>{element}</Page>;
     }

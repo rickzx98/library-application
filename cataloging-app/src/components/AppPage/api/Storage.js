@@ -4,7 +4,7 @@ import { getLabel } from '../../../utils/';
 
 export default {
   development: () => {
-    const { collections, libraries, librarian } = require('../../../utils/Mocks');
+    const { collections, libraries, librarian, prefixes, suffixes, cutters } = require('../../../utils/Mocks');
     return {
       collection: collections,
       library: libraries,
@@ -15,7 +15,11 @@ export default {
       user: [],
       currency,
       vendor: [],
-      fund: []
+      fund: [],
+      barcode: [],
+      prefix: prefixes,
+      suffix: suffixes,
+      cutter: cutters
     };
   }
 };

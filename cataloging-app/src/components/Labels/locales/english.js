@@ -203,3 +203,7 @@ export const LABEL_PREFIX = 'Prefix';
 
 
 // Vendor
+
+// call number
+export const LABEL_SUFFIX = 'Suffix';
+export const LABEL_CUTTER = 'Cutter';

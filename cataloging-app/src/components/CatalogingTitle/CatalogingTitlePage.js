@@ -35,5 +35,30 @@ export const CatalogingTitlePage = CrudPage({
     label: getLabel('LABEL_FUND'),
     icon: 'university',
     url: '/fund'
+  },
+  {
+    name: 'call-number',
+    label: getLabel('LABEL_CALL_NUMBER'),
+    icon: 'phone',
+    root: true,
+    group: 'callNumber'
+  },
+  {
+    name: 'prefix',
+    label: getLabel('LABEL_PREFIX'),
+    url: '/prefix',
+    group: 'callNumber'
+  },
+  {
+    name: 'cutter',
+    label: getLabel('LABEL_CUTTER'),
+    url: '/cutter',
+    group: 'callNumber'
+  },
+  {
+    name: 'suffix',
+    label: getLabel('LABEL_SUFFIX'),
+    url: '/suffix',
+    group: 'callNumber'
   }]
 });

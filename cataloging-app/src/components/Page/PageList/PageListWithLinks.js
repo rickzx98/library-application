@@ -8,7 +8,7 @@ export class PageListWithLinks extends React.Component {
       {this.props.links && this.props.links.length > 0 && (<PageLinks goToUrl={this.props.goToUrl}
         props={this.props.props} state={this.props.state} links={this.props.links} />)}
       <div className={`page-table ${this.props.links && this.props.links.length > 0 ? 'col-md-9' : ''}`}>
-        <FluidTable name="LibraryTable"
+        <FluidTable name={this.props.name}
           fieldKey={this.props.fieldKey || '_id'}
           onSelect={this.props.onSelect}
           className="table table-condensed table-hover"
@@ -26,5 +26,6 @@ PageListWithLinks.propTypes = {
   props: PropTypes.object,
   state: PropTypes.object,
   goToUrl: PropTypes.func.isRequired,
-  fieldKey: PropTypes.string
+  fieldKey: PropTypes.string,
+  name: PropTypes.string.isRequired
 };

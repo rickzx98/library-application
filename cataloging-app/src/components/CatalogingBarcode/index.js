@@ -1,0 +1,1 @@
+export { CatalogingBarcodePage } from './page/';
