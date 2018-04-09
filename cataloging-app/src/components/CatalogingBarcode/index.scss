@@ -1,0 +1,14 @@
+.barcode-page {
+    .barcode-preview {
+        padding: 45px;
+        .heading {
+            font-size: 24px;
+            color: $hd-text-color;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+        .barcode-content {
+            overflow-x: auto;
+        }
+    }
+}

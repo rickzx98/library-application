@@ -1,8 +1,22 @@
+export const Barcode = {
+  ID: '_id',
+  ITEM_LEFT_ALPHA_SYMBOL: 'itemLeftAlphaSymbol',
+  ITEM_RIGHT_ALPHA_SYMBOL: 'itemRightAlphaSymbol',
+  ITEM_BARCODE_LENGTH: 'itemBarcodeLength',
+  PATRON_LEFT_ALPHA_SYMBOL: 'patronLeftAlphaSymbol',
+  PATRON_RIGHT_ALPHA_SYMBOL: 'patronRightAlphaSymbol',
+  PATRON_BARCODE_LENGTH: 'patronBarcodeLength',
+  new: function (barcode, id) {
+    const newBarcode = { ...barcode };
+    newBarcode[this.ID] = id;
+    return newBarcode;
+  }
+};
+
 export const Cutter = {
   ID: '_id',
   VALUE: 'value'
 };
-
 
 export const Suffix = {
   ID: '_id',

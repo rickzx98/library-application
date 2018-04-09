@@ -207,3 +207,12 @@ export const LABEL_PREFIX = 'Prefix';
 // call number
 export const LABEL_SUFFIX = 'Suffix';
 export const LABEL_CUTTER = 'Cutter';
+
+
+// Barcode
+export const LABEL_LEFT_ALPHA_SYMBOL = 'Left alphanumeric symbols';
+export const LABEL_RIGHT_ALPHA_SYMBOL = 'Right alphamueric symbols';
+export const LABEL_BARCODE_LENGTH = 'Barcode length';
+export const LABEL_ITEM_BARCODE_MASK = 'Item barcode mask';
+export const LABEL_PATRON_BARCODE_MASK = 'Patron barcode mask';
+export const LABEL_PREVIEW = 'Preview';

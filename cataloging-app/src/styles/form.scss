@@ -11,3 +11,12 @@ form {
         font-size: 12px;
     }
 }
+
+.has-error {
+    .control-label {
+        color: $vin-red;
+    }
+    .form-control {
+        border-color: $vin-red;
+    }
+}

@@ -1,5 +1,6 @@
 import { PageForm } from '../PageForm/PageForm';
 import { PageModules } from './PageModules';
+import { PageTabbedForm } from '../PageForm/PageTabbedForm';
 import PropTypes from 'prop-types';
 import React from 'react';
 export class PageSubModules extends React.Component {
@@ -24,7 +25,8 @@ export class PageSubModules extends React.Component {
     {this.state.hasModules && (<PageModules onClick={this.props.goToPage} formValue={this.props.formValue} modules={this.props.modules} />)}
     <div className={`page-form clearfix ${this.state.hasModules ? 'col-sm-9' : 'no-sub-modules-links'}`}>
       {this.props.overridePages.view && this.props.overridePages.view(this.props)}
-      {!this.props.overridePages.view && <PageForm {...this.props} />}
+      {!this.props.overridePages.view && !this.props.tabbed && <PageForm {...this.props} />}
+      {!this.props.overridePages.view && this.props.tabbed && <PageTabbedForm {...this.props} />}
     </div>
   </div>);
 }
@@ -42,5 +44,6 @@ PageSubModules.propTypes = {
   modelValueTransformer: PropTypes.func,
   modules: PropTypes.array,
   goToPage: PropTypes.func.isRequired,
-  overridePages: PropTypes.object
+  overridePages: PropTypes.object,
+  tabbed: PropTypes.bool
 };

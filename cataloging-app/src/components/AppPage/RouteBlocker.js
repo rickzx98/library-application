@@ -45,9 +45,7 @@ export default class RouteBlocker extends PureComponent {
       <Route exact path={Pages.fund} component={CatalogingFundPage} />
       <Route exact path={Pages.newFund} component={CatalogingFundPage} />
       <Route exact path={Pages.viewFund + ':id'} component={CatalogingFundPage} />
-      <Route exact path={Pages.barcode} component={CatalogingBarcodePage} />
-      <Route exact path={Pages.newBarcode} component={CatalogingBarcodePage} />
-      <Route exact path={Pages.viewBarcode + ':id'} component={CatalogingBarcodePage} />
+
       <Route exact path={Pages.prefix} component={CallNumberPrefixPage} />
       <Route exact path={Pages.newPrefix} component={CallNumberPrefixPage} />
       <Route exact path={Pages.viewPrefix + ':id'} component={CallNumberPrefixPage} />
@@ -57,6 +55,8 @@ export default class RouteBlocker extends PureComponent {
       <Route exact path={Pages.suffix} component={CallNumberSuffixPage} />
       <Route exact path={Pages.newSuffix} component={CallNumberSuffixPage} />
       <Route exact path={Pages.viewSuffix + ':id'} component={CallNumberSuffixPage} />
+
+      <Route exact path={Pages.barcode} component={CatalogingBarcodePage} />
     </Switch>);
   }
 }

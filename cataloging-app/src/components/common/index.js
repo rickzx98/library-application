@@ -1,8 +1,11 @@
 import 'react-datepicker/dist/react-datepicker.css';
 
 import Lb from './LoadingBalls';
+import ReactBootstrapTab from 'react-bootstrap/lib/Tab';
+import ReactBootstrapTabs from 'react-bootstrap/lib/Tabs';
 import ReactDatePicker from 'react-datepicker';
 import ReactFontAwesome from 'react-fontawesome';
+import _Barcode from 'react-barcode';
 
 export { BackButton } from './BackButton';
 export { Selector } from './Selector';
@@ -22,3 +25,7 @@ export { FieldView } from './FieldView';
 export const LoadingBalls = Lb;
 export { Label } from './Label';
 export { ListItem } from './ListItem';
+export const Tabs = ReactBootstrapTabs;
+export const Tab = ReactBootstrapTab;
+export const Barcode = _Barcode;
+export { FormInputNumber } from './FormInputNumber';

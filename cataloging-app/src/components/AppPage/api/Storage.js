@@ -1,6 +1,8 @@
-import { Currency, UserGroup } from '../../../types/';
+import { Barcode, Currency, UserGroup } from '../../../types/';
 
 import { getLabel } from '../../../utils/';
+
+const APP_KEY = process.env.APP_KEY;
 
 export default {
   development: () => {
@@ -16,7 +18,7 @@ export default {
       currency,
       vendor: [],
       fund: [],
-      barcode: [],
+      barcode: barcode,
       prefix: prefixes,
       suffix: suffixes,
       cutter: cutters
@@ -24,7 +26,12 @@ export default {
   }
 };
 
-
+const barcode = [
+  {
+    ...Barcode.new({
+    }, APP_KEY)
+  }
+];
 const appStore = {
   userGroup: [
     {
