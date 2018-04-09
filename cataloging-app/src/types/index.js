@@ -30,7 +30,7 @@ export const Prefix = {
 
 export const Fund = {
   ID: '_id',
-  name: 'name',
+  NAME: 'name',
   new: function (name) {
     const data = {};
     data[this.NAME] = name;
@@ -192,7 +192,10 @@ export const Pages = {
   viewSuffix: '/suffix/view/',
   cutter: '/cutter',
   newCutter: '/cutter/new',
-  viewCutter: '/cutter/view/'
+  viewCutter: '/cutter/view/',
+  loanType: '/loantype',
+  newLoanType: '/loantype/new',
+  viewLoanType: '/loantype/view/'
 };
 
 export const Record = {
