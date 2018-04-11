@@ -1,19 +1,19 @@
 import React, { PureComponent } from 'react';
 import { Route, Switch } from 'react-router-dom';
 
-import { AdminUserPage } from '../AdminUser/';
-import { CallNumberCutterPage } from '../CallNumberCutter/';
-import { CallNumberPrefixPage } from '../CallNumberPrefix/';
-import { CallNumberSuffixPage } from '../CallNumberSuffix/';
-import { CatalogingBarcodePage } from '../CatalogingBarcode/';
-import { CatalogingCollectionPage } from '../CatalogingCollection/';
-import { CatalogingCurrencyPage } from '../CatalogingCurrency/';
-import { CatalogingFundPage } from '../CatalogingFund/';
-import { CatalogingLibrarianPage } from '../CatalogingLibrarian/';
-import { CatalogingLibraryPage } from '../CatalogingLibrary/';
-import { CatalogingLoanTypePage } from '../CatalogingLoanType/';
-import { CatalogingTitlePage } from '../CatalogingTitle/';
-import { CatalogingVendorPage } from '../CatalogingVendor/';
+import { AdminUserPage } from '../Admin/AdminUser/';
+import { CallNumberCutterPage } from '../Cataloging/CatalogingCallNumber/CallNumberCutter/';
+import { CallNumberPrefixPage } from '../Cataloging/CatalogingCallNumber/CallNumberPrefix/';
+import { CallNumberSuffixPage } from '../Cataloging/CatalogingCallNumber/CallNumberSuffix/';
+import { CatalogingBarcodePage } from '../Cataloging/CatalogingBarcode/';
+import { CatalogingCollectionPage } from '../Cataloging/CatalogingCollection/';
+import { CatalogingCurrencyPage } from '../Cataloging/CatalogingCurrency/';
+import { CatalogingFundPage } from '../Cataloging/CatalogingFund/';
+import { CatalogingLibrarianPage } from '../Cataloging/CatalogingLibrarian/';
+import { CatalogingLibraryPage } from '../Cataloging/CatalogingLibrary/';
+import { CatalogingLoanTypePage } from '../Cataloging/CatalogingLoanType/';
+import { CatalogingTitlePage } from '../Cataloging/CatalogingTitle/';
+import { CatalogingVendorPage } from '../Cataloging/CatalogingVendor/';
 import { HomePage } from '../Home/';
 import { Pages } from '../../types/';
 import PropTypes from 'prop-types';
@@ -56,7 +56,7 @@ export default class RouteBlocker extends PureComponent {
       <Route exact path={Pages.suffix} component={CallNumberSuffixPage} />
       <Route exact path={Pages.newSuffix} component={CallNumberSuffixPage} />
       <Route exact path={Pages.viewSuffix + ':id'} component={CallNumberSuffixPage} />
-      
+
       <Route exact path={Pages.barcode} component={CatalogingBarcodePage} />
       <Route exact path={Pages.loanType} component={CatalogingLoanTypePage} />
       <Route exact path={Pages.newLoadType} component={CatalogingLoanTypePage} />

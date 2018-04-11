@@ -18,10 +18,11 @@ export default {
       currency,
       vendor: [],
       fund: [],
-      barcode: barcode,
+      barcode: [],
       prefix: prefixes,
       suffix: suffixes,
-      cutter: cutters
+      cutter: cutters,
+      parameter: [...barcode]
     };
   }
 };
@@ -32,6 +33,7 @@ const barcode = [
     }, APP_KEY)
   }
 ];
+
 const appStore = {
   userGroup: [
     {

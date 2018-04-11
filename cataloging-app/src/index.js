@@ -2,6 +2,10 @@
 
 import './index.scss';
 import './images/body-bg.jpg';
+import './images/settings-header.jpg';
+import './images/books-header.jpg';
+import './images/library-header.jpg';
+import './images/subject-header.jpg';
 
 import configureStore, { history } from './store/configureStore';
 

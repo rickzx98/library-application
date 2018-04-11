@@ -1,3 +1,8 @@
+export const Parameter = {
+  ID: '_id',
+  TYPE: 'type'
+};
+
 export const Barcode = {
   ID: '_id',
   ITEM_LEFT_ALPHA_SYMBOL: 'itemLeftAlphaSymbol',
@@ -6,9 +11,11 @@ export const Barcode = {
   PATRON_LEFT_ALPHA_SYMBOL: 'patronLeftAlphaSymbol',
   PATRON_RIGHT_ALPHA_SYMBOL: 'patronRightAlphaSymbol',
   PATRON_BARCODE_LENGTH: 'patronBarcodeLength',
+  PATRON_BARCODE_TYPE: 'patronBarcodeType',
   new: function (barcode, id) {
     const newBarcode = { ...barcode };
     newBarcode[this.ID] = id;
+    newBarcode[Parameter.TYPE] = 'barcode';
     return newBarcode;
   }
 };
