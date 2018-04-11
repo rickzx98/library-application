@@ -1,10 +1,17 @@
-import { FieldView, FormGroup, HiddenButton, Tab, Tabs } from '../../common/';
-import { ModelValueTransformer, readOnlyWrapper } from '../../../utils/';
+import {
+  FieldView,
+  FluidForm,
+  FormGroup,
+  HiddenButton,
+  ModelValueTransformer,
+  PropTypes,
+  React,
+  Tab,
+  Tabs,
+  readOnlyWrapper
+} from '../imports';
 
-import { FluidForm } from 'fluid-commons';
 import { FormInput } from './FormInput';
-import PropTypes from 'prop-types';
-import React from 'react';
 
 export class PageTabbedForm extends React.Component {
   renderTab(groups) {

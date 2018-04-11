@@ -1,10 +1,6 @@
-import { FluidLabel } from 'fluid-commons';
+import { FluidLabel, LoadingBalls, Nav, Navbar, PropTypes, React } from '../imports';
+
 import { HeaderControls } from './HeaderControls';
-import { LoadingBalls } from '../../common';
-import Nav from 'react-bootstrap/lib/Nav';
-import Navbar from 'react-bootstrap/lib/Navbar';
-import PropTypes from 'prop-types';
-import React from 'react';
 
 export const HeadersBody = ({ locale, appLabel, security, navComponents,
     ajax, routing, headers }) => {

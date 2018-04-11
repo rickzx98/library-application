@@ -1,6 +1,6 @@
 import { ALERT_DANGER, ALERT_INFO, ALERT_SUCCESS, ALERT_WARNING, REMOVE_ALERT } from '../actions/';
 
-import { generateUID } from '../../../utils/';
+import { generateUID } from '../imports';
 import initialState from './InitialState';
 
 export function notificationsReducer(state = initialState, action) {

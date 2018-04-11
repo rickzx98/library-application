@@ -1,5 +1,3 @@
-import '../../../images/library-header.jpg';
-
 import * as actions from '../actions/';
 
 import { CreatePage, CreateReduxPage } from '../../Page/';

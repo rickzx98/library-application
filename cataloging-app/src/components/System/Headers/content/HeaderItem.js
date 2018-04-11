@@ -1,8 +1,6 @@
+import { FontAwesome, NavItem, PropTypes, React } from '../imports';
+
 import { BackHeaderItem } from './BackHeaderItem';
-import FontAwesome from 'react-fontawesome';
-import NavItem from 'react-bootstrap/lib/NavItem';
-import PropTypes from 'prop-types';
-import React from 'react';
 
 export const HeaderItem = ({ itemProperties, field }) => {
     if (field === 'Back') {

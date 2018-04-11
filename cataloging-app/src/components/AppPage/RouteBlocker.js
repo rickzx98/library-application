@@ -14,7 +14,7 @@ import { CatalogingLibraryPage } from '../Cataloging/CatalogingLibrary/';
 import { CatalogingLoanTypePage } from '../Cataloging/CatalogingLoanType/';
 import { CatalogingTitlePage } from '../Cataloging/CatalogingTitle/';
 import { CatalogingVendorPage } from '../Cataloging/CatalogingVendor/';
-import { HomePage } from '../Home/';
+import { HomePage } from '../System/Home/';
 import { Pages } from '../../types/';
 import PropTypes from 'prop-types';
 

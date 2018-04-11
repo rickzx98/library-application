@@ -1,8 +1,4 @@
-import FontAwesome from 'react-fontawesome';
-import NavItem from 'react-bootstrap/lib/NavItem';
-import PropTypes from 'prop-types';
-import React from 'react';
-import { browserHistory } from 'react-router';
+import { FontAwesome, NavItem, PropTypes, React, browserHistory } from '../imports';
 
 export const BackHeaderItem = ({ label, itemProperties }) => {
     const { to, confirm } = itemProperties;

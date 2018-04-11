@@ -1,7 +1,4 @@
-import { FontAwesome, Label } from '../../common/';
-
-import PropTypes from 'prop-types';
-import React from 'react';
+import { FontAwesome, Label, PropTypes, React } from '../imports';
 
 function Link({ links, props, state, goToUrl, show, hide }) {
   return links.filter(link => link.isVisible && link.isVisible instanceof Function ? link.isVisible(props, state) : true)

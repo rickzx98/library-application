@@ -1,5 +1,5 @@
-import { FluidForm } from 'fluid-commons';
-import { getLabel } from '../../../utils/';
+import { FluidForm, getLabel } from '../imports';
+
 export class PageHeaders {
   constructor(formName) {
     this.formName = formName;

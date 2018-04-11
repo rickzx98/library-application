@@ -1,4 +1,4 @@
-import { CatalogingLibraryNavItem } from '../CatalogingLibrary/';
+import { CatalogingLibraryNavItem } from '../Cataloging/CatalogingLibrary/';
 import React from 'react';
 
 export const NavComponents =

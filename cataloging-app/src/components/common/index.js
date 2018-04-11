@@ -1,12 +1,14 @@
 import 'react-datepicker/dist/react-datepicker.css';
 
 import Lb from './LoadingBalls';
-import ReactBootstrapTab from 'react-bootstrap/lib/Tab';
-import ReactBootstrapTabs from 'react-bootstrap/lib/Tabs';
 import ReactBootstrapMenuItem from 'react-bootstrap/lib/MenuItem';
+import ReactBootstrapModal from 'react-bootstrap/lib/Modal';
+import ReactBootstrapNav from 'react-bootstrap/lib/Nav';
 import ReactBootstrapNavDropdown from 'react-bootstrap/lib/NavDropdown';
 import ReactBootstrapNavItem from 'react-bootstrap/lib/NavItem';
-
+import ReactBootstrapNavbar from 'react-bootstrap/lib/Navbar';
+import ReactBootstrapTab from 'react-bootstrap/lib/Tab';
+import ReactBootstrapTabs from 'react-bootstrap/lib/Tabs';
 import ReactDatePicker from 'react-datepicker';
 import ReactFontAwesome from 'react-fontawesome';
 import _Barcode from 'react-barcode';
@@ -37,3 +39,6 @@ export const Barcode = _Barcode;
 export const MenuItem = ReactBootstrapMenuItem;
 export const NavDropdown = ReactBootstrapNavDropdown;
 export const NavItem = ReactBootstrapNavItem;
+export const Modal = ReactBootstrapModal;
+export const Nav = ReactBootstrapNav;
+export const Navbar = ReactBootstrapNavbar;

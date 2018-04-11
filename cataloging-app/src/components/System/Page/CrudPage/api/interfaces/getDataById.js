@@ -1,5 +1,5 @@
-import { FluidApi } from 'fluid-commons';
-import FluidFunc from 'fluid-func';
+import { FluidApi, FluidFunc } from '../../../imports';
+
 export default {
   development: ({ pageName, id, primaryField }) => new Promise((resolve) => {
     setTimeout(() => {

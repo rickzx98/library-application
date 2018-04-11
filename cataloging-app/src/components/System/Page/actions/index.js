@@ -1,14 +1,18 @@
 import * as types from './types';
 
-import { FluidApi, FluidForm } from 'fluid-commons';
-import { getLabel, getRequireMessage } from '../../../utils/';
-import { goBack, push } from 'react-router-redux';
-
-import { AjaxStatusActions } from '../../AjaxStatus/';
-import { DialogActions } from '../../Dialog/';
-import { HeaderActions } from '../../Headers/';
-import { NotificationActions } from '../../Notification/';
-import UrlPattern from 'url-pattern';
+import {
+  AjaxStatusActions,
+  DialogActions,
+  FluidApi,
+  FluidForm,
+  HeaderActions,
+  NotificationActions,
+  UrlPattern,
+  getLabel,
+  getRequireMessage,
+  goBack,
+  push
+} from '../imports';
 
 export const onFailed = (stack, formName) => {
   return dispatch => {

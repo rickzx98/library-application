@@ -1,8 +1,8 @@
-import * as notificationActions from '../../Notification/actions/NotificationActions';
 import * as types from './';
 
-import {getApi as Api} from '../api/';
-import {MPUser} from '../../../types/';
+import { MPUser, NotificationActions as notificationActions } from '../imports';
+
+import { getApi as Api } from '../api/';
 
 export function notAuthorizedAccess(path) {
   return (dispatch, state) => {
@@ -13,7 +13,7 @@ export function notAuthorizedAccess(path) {
 export function setAuthenticatedUserInfo(userId, username, departmentId) {
   return {
     type: types.SET_AUTHENTICATED_USER,
-    payload: {userId, username, departmentId}
+    payload: { userId, username, departmentId }
   };
 }
 

@@ -1,10 +1,6 @@
 import * as actions from './actions/NotificationActions';
 
-import { AlertList } from 'react-bs-notifier';
-import PropTypes from 'prop-types';
-import React from 'react';
-import { bindActionCreators } from 'redux';
-import { connect } from 'react-redux';
+import { AlertList, PropTypes, React, bindActionCreators, connect } from './imports';
 
 export class NotificationPage extends React.Component {
     constructor(props) {

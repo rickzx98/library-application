@@ -1,6 +1,5 @@
-import PropTypes from 'prop-types';
-import React from 'react';
-import UrlPattern from 'url-pattern';
+import { PropTypes, React, UrlPattern } from './imports';
+
 export class FluidPage extends React.Component {
   constructor(props) {
     super(props);

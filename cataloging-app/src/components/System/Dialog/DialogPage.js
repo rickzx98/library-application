@@ -1,10 +1,7 @@
-import Modal from 'react-bootstrap/lib/Modal';
-import PropTypes from 'prop-types';
-import React from 'react';
-import { connect } from 'react-redux';
+import { Modal, PropTypes, React, connect } from './imports';
 
 class DialogPage extends React.Component {
-    constructor(props){
+    constructor(props) {
         super(props);
     }
     render() {

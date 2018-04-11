@@ -1,14 +1,10 @@
+import { DialogPage, FluidApi, Header, NotificationPage, PropTypes, React, connect } from './imports';
+
 import Config from './api/Config';
-import { DialogPage } from '../Dialog/';
-import { FluidApi} from 'fluid-commons';
-import { Header } from '../Headers/';
 import Interface from './api/Interface';
 import { NavComponents } from './NavComponents';
-import { NotificationPage } from '../Notification/';
-import PropTypes from 'prop-types';
-import React from 'react';
 import RouteBlocker from './RouteBlocker';
-import { connect } from 'react-redux';
+
 const environment = process.env.NODE_ENV || 'development';
 class App extends React.Component {
   render() {
@@ -18,10 +14,10 @@ class App extends React.Component {
         config={Config}
         api={Interface}
         environment={environment}>
-        {isAuthenticated && <Header {...this.props} navComponents={NavComponents}/>}
+        {isAuthenticated && <Header {...this.props} navComponents={NavComponents} />}
         <NotificationPage />
         <DialogPage />
-        {isAuthenticated && <RouteBlocker routing={this.props.routing}/>}
+        {isAuthenticated && <RouteBlocker routing={this.props.routing} />}
       </FluidApi>
     );
   }

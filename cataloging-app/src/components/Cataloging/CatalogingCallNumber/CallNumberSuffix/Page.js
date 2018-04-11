@@ -1,6 +1,6 @@
-import '../../images/subject-header.jpg';
 import { CrudPage, getLabel } from '../imports';
 import { FormSpecs, TableColumns } from './api/';
+
 import { PAGE_NAME } from './constants';
 
 export const Page = CrudPage({

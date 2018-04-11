@@ -1,7 +1,4 @@
-import { FontAwesome, Label, ResponsiveButton } from '../../common/';
-
-import React from 'react';
-import { getLabel } from '../../../utils/';
+import { FontAwesome, Label, React, ResponsiveButton, getLabel } from '../imports';
 
 export const CancelDialog = (confirm, cancel) => ({
   title: getLabel('LABEL_CANCEL_CONFIRMATION_TITLE'),

@@ -1,9 +1,6 @@
-import '../../images/app-icon.png';
+import { PropTypes, React, connect } from './imports';
 
 import { HeadersBody } from './content/HeadersBody';
-import PropTypes from 'prop-types';
-import React from 'react';
-import { connect } from 'react-redux';
 
 export class Header extends React.Component {
   constructor(props) {
@@ -11,7 +8,7 @@ export class Header extends React.Component {
     this.state = {};
   }
   render() {
-    return (<HeadersBody {...this.props}/>);
+    return (<HeadersBody {...this.props} />);
   }
 }
 

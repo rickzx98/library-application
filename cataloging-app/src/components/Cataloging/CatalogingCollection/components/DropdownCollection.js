@@ -1,4 +1,5 @@
-import { FluidApi, FluidForm, PropTypes, React, Collection } from '../imports';
+import { Collection, FluidApi, FluidForm, PropTypes, React, getLabel } from '../imports';
+
 import { PAGE_NAME } from '../constants';
 
 export class DropdownCollection extends React.Component {

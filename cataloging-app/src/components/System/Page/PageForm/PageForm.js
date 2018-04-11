@@ -1,10 +1,14 @@
-import { FieldView, FormGroup, HiddenButton } from '../../common/';
+import {
+  FieldView,
+  FluidForm,
+  FormGroup,
+  HiddenButton,
+  PropTypes,
+  React,
+  readOnlyWrapper
+} from '../imports';
 
-import { FluidForm } from 'fluid-commons';
 import { FormInput } from './FormInput';
-import PropTypes from 'prop-types';
-import React from 'react';
-import { readOnlyWrapper } from '../../../utils/';
 
 export const PageForm = ({ formName, formValue,
   formSpecs, readOnly,

@@ -1,4 +1,4 @@
-import { BarcodeComponent, Label, getLabel, Page, React, PropTypes, formatItemBarcodeRandomValue, formatPatronBarcodeRandomValue} from '../imports';
+import { BarcodeComponent, Label, PropTypes, React, formatItemBarcodeRandomValue, formatPatronBarcodeRandomValue, getLabel } from '../imports';
 
 export const CatalogingBarcodePreview = ({ group, formValue = {data: {}} }) => (<span className="barcode-preview">
   <div className="heading">

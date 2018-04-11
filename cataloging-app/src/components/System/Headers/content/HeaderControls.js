@@ -1,7 +1,7 @@
+import { Nav, PropTypes, React } from '../imports';
+
 import { HeaderItem } from './HeaderItem';
-import Nav from 'react-bootstrap/lib/Nav';
-import PropTypes from 'prop-types';
-import React from 'react';
+
 export const HeaderControls = ({ headers, router }) => {
   const newHeaders = headers;
   const navItems = [];
@@ -15,7 +15,7 @@ export const HeaderControls = ({ headers, router }) => {
       if (!itemProperties.path || (itemProperties.path === path)) {
         if (!itemProperties.isVisible || itemProperties.isVisible()) {
           navItems.push(<HeaderItem field={field}
-                                    key={field} itemProperties={itemProperties}/>);
+            key={field} itemProperties={itemProperties} />);
         }
       }
     }

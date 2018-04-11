@@ -1,4 +1,5 @@
-import PropTypes from 'prop-types';
+import { PropTypes } from '../imports';
+
 export default types => ({
   ...types,
   actions: PropTypes.object.isRequired,

@@ -1,4 +1,4 @@
-import { requireMessage,requireMessage, getLabel,  Librarian, Library, FluidApi } from '../imports';
+import { FluidApi, Librarian, Library, getLabel, requireMessage } from '../imports';
 
 export default () => ([
   {

@@ -1,6 +1,5 @@
-import { FluidTable } from 'fluid-commons';
-import PropTypes from 'prop-types';
-import React from 'react';
+import { FluidTable, PropTypes, React } from '../imports';
+
 export const PageList = ({ name, data, onSelect, columns, fieldKey }) => {
   return (
     <FluidTable

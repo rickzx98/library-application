@@ -1,7 +1,4 @@
-import { FontAwesome, ResponsiveButton } from '../../common/';
-
-import React from 'react';
-import { getLabel } from '../../../utils/';
+import { FontAwesome, React, ResponsiveButton, getLabel } from '../imports';
 
 export const DeleteDialog = (confirm, cancel, target) => ({
   title: getLabel('LABEL_DELETE_CONFIRMATION_TITLE'),

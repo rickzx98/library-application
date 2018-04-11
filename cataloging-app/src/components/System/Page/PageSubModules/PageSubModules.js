@@ -1,8 +1,9 @@
+import { PropTypes, React } from '../imports';
+
 import { PageForm } from '../PageForm/PageForm';
 import { PageModules } from './PageModules';
 import { PageTabbedForm } from '../PageForm/PageTabbedForm';
-import PropTypes from 'prop-types';
-import React from 'react';
+
 export class PageSubModules extends React.Component {
   constructor(props) {
     super(props);

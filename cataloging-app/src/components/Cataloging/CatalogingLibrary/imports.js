@@ -3,8 +3,8 @@ import r from 'react';
 
 export const PropTypes = pt;
 export const React = r;
-
-export { Library, Librarian } from '../../../types/';
+export { push } from 'react-router-redux';
+export { Library, Librarian, Pages } from '../../../types/';
 export { CreatePage, CreateReduxPage, CrudPage } from '../../System/Page/';
 export { getLabel, requireMessage } from '../../../utils/';
 export { Page, Label, NavItem, FontAwesome } from '../../common/';

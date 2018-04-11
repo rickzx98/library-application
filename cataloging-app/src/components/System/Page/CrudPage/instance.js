@@ -1,7 +1,5 @@
+import { Page, React } from '../imports';
 import { PageForm, PageHeaders, PageListWithLinks, PageSubModules, PageTabbedForm } from '../../Page/';
-
-import { Page } from '../../common/';
-import React from 'react';
 
 export default ({ pageName, FormSpecs, TableColumns, page, formProps,
   listTransformer, modules, routes, links, fieldKey, overridePages = {},

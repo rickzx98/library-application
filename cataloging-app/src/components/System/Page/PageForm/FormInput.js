@@ -1,6 +1,4 @@
-import { FluidForm } from 'fluid-commons';
-import PropTypes from 'prop-types';
-import React from 'react';
+import { FluidForm, PropTypes, React } from '../imports';
 
 export const FormInput = ({
   formValue,

@@ -1,5 +1,4 @@
-import { Pages } from '../../../types';
-import { push } from 'react-router-redux';
+import { Pages, push } from '../imports';
 
 export function goToCollection() {
   return dispatch => {

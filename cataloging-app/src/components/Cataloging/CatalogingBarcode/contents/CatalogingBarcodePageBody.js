@@ -1,4 +1,5 @@
-import { Barcode, getLabel, Page, React, PropTypes} from '../imports';
+import { Page, PropTypes, React, getLabel } from '../imports';
+
 export const CatalogingBarcodePageBody = ({ children }) => (<Page
   className="barcode-page"
   icon="barcode"

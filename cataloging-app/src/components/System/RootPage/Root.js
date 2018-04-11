@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import { ConnectApp } from '../AppPage/';
+import { ConnectApp } from '../../AppPage/';
 import { ConnectedRouter } from 'react-router-redux';
 import PropTypes from 'prop-types';
 import { Provider } from 'react-redux';

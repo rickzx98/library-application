@@ -1,6 +1,5 @@
-import { FluidApi } from 'fluid-commons';
-import FluidFunc from 'fluid-func';
-import { generateUID } from '../../../../../utils/';
+import { FluidApi, FluidFunc, generateUID } from '../../../imports';
+
 export default {
   development: ({ pageName, input }) => new Promise((resolve, reject) => {
     setTimeout(() => {

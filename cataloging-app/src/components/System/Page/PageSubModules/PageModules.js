@@ -1,8 +1,6 @@
-import { FontAwesome, Label } from '../../common/';
+import { FontAwesome, Label, PropTypes, React } from '../imports';
 
 import { ModuleGrid } from './ModuleGrid';
-import PropTypes from 'prop-types';
-import React from 'react';
 
 export const PageModules = ({ modules, formValue, onClick }) => {
   return (

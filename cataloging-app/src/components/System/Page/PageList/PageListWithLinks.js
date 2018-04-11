@@ -1,7 +1,7 @@
-import { FluidTable } from 'fluid-commons';
-import { PageLinks } from '../PageLinks//PageLinks';
-import PropTypes from 'prop-types';
-import React from 'react';
+import { FluidTable, PropTypes, React } from '../imports';
+
+import { PageLinks } from '../PageLinks/PageLinks';
+
 export class PageListWithLinks extends React.Component {
   render() {
     return (<div className="page-list-with-links">
