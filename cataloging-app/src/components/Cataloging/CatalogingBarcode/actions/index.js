@@ -1,5 +1,12 @@
 import { Barcode, PageActions } from '../imports';
+
+import { BARCODE } from '../constants';
+
 const APP_KEY = process.env.APP_KEY;
+
+export const loadBarcodes = () => dispatch => {
+  dispatch(PageActions.load(BARCODE));
+};
 
 export const loadBarcode = (pageName) => dispatch => {
   dispatch(PageActions.loadById(pageName, `${Barcode.ID}_f${APP_KEY}`));
@@ -21,4 +28,13 @@ export const prevPage = (currentForm) => dispatch => {
 
 export const createHeaders = (controls) => disptach => {
   disptach(PageActions.createHeaders(controls));
+};
+
+export const goToUrl = (url) => dispatch => {
+  dispatch(PageActions.goToUrl(url));
+};
+
+
+export const back = () => dispatch => {
+  dispatch(PageActions.back());
 };

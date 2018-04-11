@@ -216,3 +216,5 @@ export const LABEL_BARCODE_LENGTH = 'Barcode length';
 export const LABEL_ITEM_BARCODE_MASK = 'Item barcode mask';
 export const LABEL_PATRON_BARCODE_MASK = 'Patron barcode mask';
 export const LABEL_PREVIEW = 'Preview';
+export const LABEL_BARCODES = 'Generated barcodes';
+export const LABEL_FOR = 'For';

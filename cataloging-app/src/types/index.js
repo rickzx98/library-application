@@ -2,7 +2,13 @@ export const Parameter = {
   ID: '_id',
   TYPE: 'type'
 };
-
+export const GeneratedBarcode = {
+  ID: '_id',
+  TYPE: 'type',
+  NUMBER: 'barcodeNumber',
+  RELATION_ID: 'relationId',
+  DESCRIPTION: 'description'
+};
 export const Barcode = {
   ID: '_id',
   ITEM_LEFT_ALPHA_SYMBOL: 'itemLeftAlphaSymbol',

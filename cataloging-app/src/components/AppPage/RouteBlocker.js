@@ -58,6 +58,7 @@ export default class RouteBlocker extends PureComponent {
       <Route exact path={Pages.viewSuffix + ':id'} component={CallNumberSuffixPage} />
 
       <Route exact path={Pages.barcode} component={CatalogingBarcodePage} />
+      <Route exact path={Pages.barcode + 's'} component={CatalogingBarcodePage} />
       <Route exact path={Pages.loanType} component={CatalogingLoanTypePage} />
       <Route exact path={Pages.newLoadType} component={CatalogingLoanTypePage} />
       <Route exact path={Pages.viewLoanType + ':id'} component={CatalogingLoanTypePage} />

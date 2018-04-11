@@ -1,5 +1,5 @@
-import { PAGE_NAME } from '../constants';
+import { BARCODE } from '../constants';
 export default {
-  create: `/${PAGE_NAME}`,
-  view: `/${PAGE_NAME}/:id`
+  barcode: `/${BARCODE}`,
+  barcodes: `/${BARCODE}s`
 };
