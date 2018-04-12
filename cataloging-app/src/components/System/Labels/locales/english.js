@@ -218,3 +218,7 @@ export const LABEL_PATRON_BARCODE_MASK = 'Patron barcode mask';
 export const LABEL_PREVIEW = 'Preview';
 export const LABEL_BARCODES = 'Generated barcodes';
 export const LABEL_FOR = 'For';
+
+
+//Subject
+export const LABEL_SUBJECTS = 'Subjects';
