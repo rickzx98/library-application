@@ -12,6 +12,7 @@ import { CatalogingFundPage } from '../Cataloging/CatalogingFund/';
 import { CatalogingLibrarianPage } from '../Cataloging/CatalogingLibrarian/';
 import { CatalogingLibraryPage } from '../Cataloging/CatalogingLibrary/';
 import { CatalogingLoanTypePage } from '../Cataloging/CatalogingLoanType/';
+import { CatalogingSubjectsPage } from '../Cataloging/CatalogingSubjects/';
 import { CatalogingTitlePage } from '../Cataloging/CatalogingTitle/';
 import { CatalogingVendorPage } from '../Cataloging/CatalogingVendor/';
 import { HomePage } from '../System/Home/';
@@ -59,9 +60,14 @@ export default class RouteBlocker extends PureComponent {
 
       <Route exact path={Pages.barcode} component={CatalogingBarcodePage} />
       <Route exact path={Pages.barcode + 's'} component={CatalogingBarcodePage} />
+
+
+      <Route exact path={Pages.subject} component={CatalogingSubjectsPage} />
+
       <Route exact path={Pages.loanType} component={CatalogingLoanTypePage} />
       <Route exact path={Pages.newLoadType} component={CatalogingLoanTypePage} />
       <Route exact path={Pages.viewLoanType + ':id'} component={CatalogingLoanTypePage} />
+
     </Switch>);
   }
 }

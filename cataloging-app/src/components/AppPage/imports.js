@@ -9,3 +9,4 @@ export { DialogPage } from '../System/Dialog/';
 export { FluidApi } from 'fluid-commons';
 export { Header } from '../System/Headers/';
 export { PageAPI } from '../System/Page/';
+export { SubjectApi } from '../Cataloging/CatalogingSubjects/';

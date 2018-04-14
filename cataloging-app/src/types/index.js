@@ -1,3 +1,9 @@
+export const Subject = {
+  ID: '_id',
+  PARENT: 'parent',
+  NAME: 'name',
+  ROOT: 'root'
+};
 export const Parameter = {
   ID: '_id',
   TYPE: 'type'
@@ -208,7 +214,8 @@ export const Pages = {
   viewCutter: '/cutter/view/',
   loanType: '/loantype',
   newLoanType: '/loantype/new',
-  viewLoanType: '/loantype/view/'
+  viewLoanType: '/loantype/view/',
+  subject: '/subject'
 };
 
 export const Record = {

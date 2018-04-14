@@ -6,7 +6,7 @@ const APP_KEY = process.env.APP_KEY;
 
 export default {
   development: () => {
-    const { collections, libraries, librarian, prefixes, suffixes, cutters } = require('../../../utils/Mocks');
+    const { collections, libraries, librarian, prefixes, suffixes, cutters, subjects } = require('../../../utils/Mocks');
     return {
       collection: collections,
       library: libraries,
@@ -22,7 +22,8 @@ export default {
       prefix: prefixes,
       suffix: suffixes,
       cutter: cutters,
-      parameter: [...barcode]
+      parameter: [...barcode],
+      subject: subjects,
     };
   }
 };

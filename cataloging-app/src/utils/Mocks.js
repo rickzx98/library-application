@@ -1,3 +1,11 @@
+export const subjects = [
+  { _id: '001', root: true, name: "History" },
+  { _id: '003', parent: '001', name: "National Heroes" },
+  { _id: '004', parent: '001', name: "American" },
+  { _id: '002', root: true, name: "Science" },
+  { _id: '005', parent: '003', name: "World War 1" },
+  { _id: '006', parent: '003', name: "Vietnam War" },
+];
 export const prefixes = [
   { _id: '0001', value: 'TR' }
 ];

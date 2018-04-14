@@ -39,7 +39,7 @@ export class FluidPage extends React.Component {
             const { location: { pathname } } = this.props.routing;
             const { params } = this.props.match;
             if (pattern.match(pathname)) {
-              callback(params);
+              return callback(params);
             }
           }).bind(this);
         }

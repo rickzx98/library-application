@@ -11,7 +11,7 @@ import ReactBootstrapTab from 'react-bootstrap/lib/Tab';
 import ReactBootstrapTabs from 'react-bootstrap/lib/Tabs';
 import ReactDatePicker from 'react-datepicker';
 import ReactFontAwesome from 'react-fontawesome';
-import ReactTreeView from 'react-treeview';
+import { Treebeard } from 'react-treebeard';
 import _Barcode from 'react-barcode';
 
 export { BackButton } from './BackButton';
@@ -43,4 +43,4 @@ export const NavItem = ReactBootstrapNavItem;
 export const Modal = ReactBootstrapModal;
 export const Nav = ReactBootstrapNav;
 export const Navbar = ReactBootstrapNavbar;
-export const TreeView = ReactTreeView;
+export const TreeView = Treebeard;

@@ -8,12 +8,12 @@ import { NotificationReducer as notifications } from '../components/System/Notif
 import { CrudPageReducer as pageListData } from '../components/System/Page/';
 import { routerReducer } from 'react-router-redux';
 import { SecurityReducer as security } from '../components/System/Security/';
-
+import { SubjectReducer as subjects } from '../components/Cataloging/CatalogingSubjects/';
 const rootReducer = combineReducers({
   routing: routerReducer,
   headers, security,
   notifications, ajaxStatus,
   fluidForm, dialog, labels,
-  pageListData
+  pageListData, subjects
 });
 export default rootReducer;

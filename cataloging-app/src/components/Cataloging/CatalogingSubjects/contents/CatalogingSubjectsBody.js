@@ -1,11 +1,11 @@
-import { Page, PropTypes, React, getLabel } from '../imports';
-export const CatalogingSubjectsBody = ({ children }) => {
-  return (<Page label={getLabel('LABEL_SUBJECTS')} banner="/subjects-header.jpg">{children}</Page>);
+import { Page, PropTypes, React, TreeView, getLabel } from '../imports';
+export const CatalogingSubjectsBody = ({ onToggle, subjects, tree }) => {
+  return (<Page icon="tag" label={getLabel('LABEL_SUBJECTS')} banner="/subject-header.jpg">
+    {tree(() => (<TreeView data={subjects} onToggle={onToggle} />))}
+  </Page>);
 };
 CatalogingSubjectsBody.propTypes = {
-  children: PropTypes.oneOfType([
-    PropTypes.array,
-    PropTypes.element,
-    PropTypes.string
-  ]).isRequired
+  subjects: PropTypes.array,
+  tree: PropTypes.func.isRequired,
+  onToggle: PropTypes.func.isRequired
 };

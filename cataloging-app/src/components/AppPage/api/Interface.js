@@ -1,5 +1,6 @@
-import { PageAPI } from '../imports';
+import { PageAPI, SubjectApi } from '../imports';
 
 export default {
-  ...PageAPI
+  ...PageAPI,
+  ...SubjectApi
 };
