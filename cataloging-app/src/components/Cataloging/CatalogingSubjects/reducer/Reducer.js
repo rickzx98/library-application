@@ -11,6 +11,8 @@ const recursiveLookUp = (subjects, rootPath, children, toggled) => {
     if (subject[Subject.ID] === idPath) {
       thisSubject = { ...subject, children: subject.children ? [...subject.children] : [] };
       index = key;
+    } else {
+      subjects[key] = { ...subject, active: false };
     }
   });
   if (thisSubject && rootPath.length > 0) {
@@ -18,7 +20,7 @@ const recursiveLookUp = (subjects, rootPath, children, toggled) => {
     return recursiveLookUp(thisSubject.children, rootPath, children, toggled);
   }
   else {
-    const newParent = { ...thisSubject, toggled };
+    const newParent = { ...thisSubject, toggled, active: true };
     if (newParent && newParent.children && newParent.children.length === 0) {
       const newSubjects = [...children];
       newSubjects.forEach((sub, index) => {
@@ -37,12 +39,12 @@ export default (state = InitialState, action) => {
   switch (action.type) {
     case types.SET_LOADED_SUBJECTS_CHILDREN: {
       const { paths, subjects, toggled } = action.payload;
-      const newState = [...state];
-      recursiveLookUp(newState, [...paths], subjects, toggled);
-      return newState;
+      const data = [...state.data];
+      recursiveLookUp(data, [...paths], subjects, toggled);
+      return { ...state, data };
     }
     case types.SET_LOADED_SUBJECTS_ROOT: {
-      return action.payload || [];
+      return { ...state, data: action.payload };
     }
     default:
       return state;

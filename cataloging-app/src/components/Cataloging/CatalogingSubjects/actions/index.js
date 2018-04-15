@@ -12,7 +12,7 @@ export const loadSubjects = () => dispatch => {
 export const loadSubjectsChildren = (node, toggled) => dispatch => {
   FluidApi.execute('getChildrenSubjects', { parentId: node[Subject.ID] })
     .then(({ getChildrenSubjects }) => {
-      dispatch(setSubjectsChildren({...node}, getChildrenSubjects('data')(), toggled));
+      dispatch(setSubjectsChildren({ ...node }, getChildrenSubjects('data')(), toggled));
     })
     .catch(error => { console.error(error); });
 };

@@ -1,7 +1,10 @@
-import { Page, PropTypes, React, TreeView, getLabel } from '../imports';
+import { Page, PropTypes, React, getLabel } from '../imports';
+
+import { CatalogingSubjectTree } from './CatalogingSubjectTree';
+
 export const CatalogingSubjectsBody = ({ onToggle, subjects, tree }) => {
-  return (<Page icon="tag" label={getLabel('LABEL_SUBJECTS')} banner="/subject-header.jpg">
-    {tree(() => (<TreeView data={subjects} onToggle={onToggle} />))}
+  return (<Page icon="leanpub" label={getLabel('LABEL_SUBJECTS')} banner="/subject-header.jpg">
+    {tree(() => (<CatalogingSubjectTree subjects={subjects} onToggle={onToggle} />))}
   </Page>);
 };
 CatalogingSubjectsBody.propTypes = {

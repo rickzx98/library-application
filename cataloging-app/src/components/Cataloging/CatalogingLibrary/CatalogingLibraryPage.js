@@ -1,7 +1,7 @@
 import { CrudPage, Library, getLabel } from './imports';
-
 import { DropdownLibrarian, transformLibrarianEdit, transformLibrarianView } from '../CatalogingLibrarian/';
 import { FormSpecs, TableColumns } from './api/';
+
 import { PAGE_NAME } from './constants';
 
 export const CatalogingLibraryPage = CrudPage({
@@ -84,5 +84,11 @@ export const CatalogingLibraryPage = CrudPage({
       name: 'barcode',
       icon: 'barcode',
       url: '/barcode'
+    },
+    {
+      label: getLabel('LABEL_SUBJECTS'),
+      name: 'subject',
+      icon: 'leanpub',
+      url: '/subject'
     }]
 });
