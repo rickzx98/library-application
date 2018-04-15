@@ -5,5 +5,5 @@ export const PropTypes = _PropTypes;
 export { Page, TreeView } from '../../common/';
 export { getLabel } from '../../../utils/';
 export { Subject } from '../../../types/';
-export { CreatePage, CreateReduxPage, PageActions } from '../../System/Page/';
+export { CreatePage, CreateReduxPage, PageActions, PageForm } from '../../System/Page/';
 export { FluidApi } from 'fluid-commons';

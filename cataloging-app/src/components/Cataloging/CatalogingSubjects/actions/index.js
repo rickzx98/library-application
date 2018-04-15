@@ -12,6 +12,7 @@ export const loadSubjects = () => dispatch => {
 export const loadSubjectsChildren = (node, toggled) => dispatch => {
   FluidApi.execute('getChildrenSubjects', { parentId: node[Subject.ID] })
     .then(({ getChildrenSubjects }) => {
+      dispatch(clearActive());
       dispatch(setSubjectsChildren({ ...node }, getChildrenSubjects('data')(), toggled));
     })
     .catch(error => { console.error(error); });
@@ -28,4 +29,8 @@ export const setSubjectsChildren = (node, subjects, toggled) => ({
 export const setSubjectRoots = (subjects) => ({
   type: types.SET_LOADED_SUBJECTS_ROOT,
   payload: subjects
+});
+
+export const clearActive = () => ({
+  type: types.CLEAR_ACTIVE
 });

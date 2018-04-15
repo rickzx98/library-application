@@ -1,4 +1,5 @@
-import { PropTypes, React } from '../imports';
+import { PropTypes, React, PageForm } from '../imports';
+import { FormSpecs} from '../api/';
 export const CatalogingSubjectForm = () => {
-
+	return (<div/>);
 };
