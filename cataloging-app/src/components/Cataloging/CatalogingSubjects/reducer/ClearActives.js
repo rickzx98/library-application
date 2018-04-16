@@ -22,4 +22,4 @@ const recursiveClearActives = (subjects, paths) => {
             subjects[index].active = false;
         }
     }
-}
+};

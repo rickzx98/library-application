@@ -215,7 +215,8 @@ export const Pages = {
   loanType: '/loantype',
   newLoanType: '/loantype/new',
   viewLoanType: '/loantype/view/',
-  subject: '/subject'
+  subject: '/subject',
+  newSubject: '/subject/new'
 };
 
 export const Record = {

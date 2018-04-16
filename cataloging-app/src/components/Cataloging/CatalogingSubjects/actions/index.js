@@ -1,6 +1,6 @@
 import * as types from './types';
 
-import { FluidApi, Subject } from '../imports';
+import { FluidApi, HeaderActions, Subject } from '../imports';
 
 export const loadSubjects = () => dispatch => {
   FluidApi.execute('getSubjects')
@@ -34,3 +34,7 @@ export const setSubjectRoots = (subjects) => ({
 export const clearActive = () => ({
   type: types.CLEAR_ACTIVE
 });
+
+export const createHeaders = (headers) => dispatch => {
+  dispatch(HeaderActions.setHeaderControls(headers));
+};

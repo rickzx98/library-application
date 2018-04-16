@@ -63,6 +63,7 @@ export default class RouteBlocker extends PureComponent {
 
 
       <Route exact path={Pages.subject} component={CatalogingSubjectsPage} />
+      <Route exact path={Pages.newSubject} component={CatalogingSubjectsPage} />
 
       <Route exact path={Pages.loanType} component={CatalogingLoanTypePage} />
       <Route exact path={Pages.newLoadType} component={CatalogingLoanTypePage} />

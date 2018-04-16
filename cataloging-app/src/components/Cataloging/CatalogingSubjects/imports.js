@@ -1,9 +1,13 @@
+import _FluidFunc from 'fluid-func';
 import _PropTypes from 'prop-types';
 import _React from 'react';
+
 export const React = _React;
 export const PropTypes = _PropTypes;
+export const FluidFunc = _FluidFunc;
 export { Page, TreeView } from '../../common/';
 export { getLabel } from '../../../utils/';
 export { Subject } from '../../../types/';
 export { CreatePage, CreateReduxPage, PageActions, PageForm } from '../../System/Page/';
 export { FluidApi } from 'fluid-commons';
+export { HeaderActions, HeaderControl } from '../../System/Headers/';

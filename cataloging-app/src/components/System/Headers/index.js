@@ -6,3 +6,4 @@ import reducer from './reducer/HeaderReducer';
 
 export const HeaderActions = actions;
 export const HeaderReducer = reducer;
+export { HeaderControl } from './api/HeaderControl';
