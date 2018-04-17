@@ -8,6 +8,7 @@ export const FluidFunc = _FluidFunc;
 export { Page, TreeView, FieldView } from '../../common/';
 export { getLabel } from '../../../utils/';
 export { Subject } from '../../../types/';
-export { CreatePage, CreateReduxPage, PageActions, PageForm } from '../../System/Page/';
+export { CreatePage, CreateReduxPage, PageActions, PageForm, PageLinks } from '../../System/Page/';
 export { FluidApi, FluidForm } from 'fluid-commons';
 export { HeaderActions, HeaderControl } from '../../System/Headers/';
+export { LibraryLinks } from '../CatalogingLibrary/';

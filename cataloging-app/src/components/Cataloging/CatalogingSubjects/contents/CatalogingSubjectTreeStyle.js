@@ -2,13 +2,14 @@ export default {
   tree: {
     base: {
       border: '1px solid #cccccc',
-      borderRadius: '5px',
+      borderTopLeftRadius: '5px',
+      borderBottomLeftRadius: '5px',
       listStyle: 'none',
       backgroundColor: 'rgba(97, 89, 89, 0.6)',
       margin: 0,
       padding: 0,
       fontFamily: 'Helvetica Neue',
-      fontWeight:'500',
+      fontWeight:'400',
       fontSize: '16px'
     },
     node: {

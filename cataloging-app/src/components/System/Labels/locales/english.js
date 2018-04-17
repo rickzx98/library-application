@@ -1,4 +1,4 @@
-export const appName = 'Library';
+export const appName = 'SWIFT';
 export const welcome = 'Welcome, ';
 export const LABEL_YES = 'Yes';
 export const LABEL_NO = 'No';

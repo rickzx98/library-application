@@ -18,7 +18,10 @@ export const GeneratedBarcode = {
   TYPE: 'type',
   NUMBER: 'barcodeNumber',
   RELATION_ID: 'relationId',
-  DESCRIPTION: 'description'
+  DESCRIPTION: 'description',
+  PRINTED: 'printed',
+  PRINTED_DATA: 'printedDate',
+  PRINTED_BY: 'printedBy'
 };
 export const Barcode = {
   ID: '_id',

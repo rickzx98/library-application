@@ -12,40 +12,42 @@ function Link({ links, props, state, goToUrl, show, hide }) {
       else {
         goToUrl(link.url);
       }
-    }} key={link.name} className={`page-link list-group-item ${!link.root && link.group && 'grouped'}`}>{link.icon && <FontAwesome name={link.icon} fixedWidth size="lg" />}&nbsp;{link.label} {link.root &&
-      (<span className="pull-right">{link.show ? <FontAwesome name="caret-down" fixedWidth size="lg" /> :
-        <FontAwesome name="caret-left" fixedWidth size="lg" />}</span>)}</a>));
+    }} key={link.name} className={`page-link list-group-item ${!link.root && link.group && 'grouped'}`}>{link.icon &&
+    <FontAwesome name={link.icon} fixedWidth size="lg"/>}&nbsp;{link.label} {link.root &&
+    (<span className="pull-right">{link.show ? <FontAwesome name="caret-down" fixedWidth size="lg"/> :
+      <FontAwesome name="caret-left" fixedWidth size="lg"/>}</span>)}</a>));
 }
 export class PageLinks extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { links: props.links };
     this.show = this._show.bind(this);
     this.hide = this._hide.bind(this);
   }
+
   _show(group) {
-    const links = [...this.state.links];
+    const links = [...this.props.links];
     links.filter(link => link.group === group).forEach(link => {
       link.show = true;
     });
-    this.setState({ links });
+    this.setState({links});
   }
+
   _hide(group) {
-    const links = [...this.state.links];
+    const links = [...this.props.links];
     links.filter(link => link.group === group).forEach(link => {
       link.show = false;
     });
-    this.setState({ links });
+    this.setState({links});
   }
+
   render() {
-    const { links } = this.state;
-    const { props, state, goToUrl } = this.props;
+    const { props, state, goToUrl, links } = this.props;
     return (<div className="page-links col-md-3">
       <div className="page-links-content list-group">
         <div className="list-group-item page-links-heading">
-          <FontAwesome name="gears" fixedWidth size="lg" />&nbsp;<Label label="LABEL_OPTIONS" />
+          <FontAwesome name="gears" fixedWidth size="lg"/>&nbsp;<Label label="LABEL_OPTIONS"/>
         </div>
-        {Link({ links, props, state, goToUrl, show: this.show, hide: this.hide })}</div>
+        {Link({links, props, state, goToUrl, show: this.show, hide: this.hide})}</div>
     </div>);
   }
 }

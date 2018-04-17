@@ -1,7 +1,7 @@
 import { CrudPage, Library, getLabel } from './imports';
 import { DropdownLibrarian, transformLibrarianEdit, transformLibrarianView } from '../CatalogingLibrarian/';
 import { FormSpecs, TableColumns } from './api/';
-
+import LibraryLinks from './LibraryLinks';
 import { PAGE_NAME } from './constants';
 
 export const CatalogingLibraryPage = CrudPage({
@@ -52,7 +52,8 @@ export const CatalogingLibraryPage = CrudPage({
       switch (field) {
         case Library.LIBRARIAN:
           return transformLibrarianView;
-        default: return false;
+        default:
+          return false;
       }
     },
     modelValueTransformer: (formValue) => ({
@@ -60,35 +61,5 @@ export const CatalogingLibraryPage = CrudPage({
       librarian: transformLibrarianEdit(formValue[Library.LIBRARIAN])
     })
   },
-  links: [
-    {
-      label: getLabel('LABEL_COLLECTION'),
-      name: 'collection',
-      icon: 'tags',
-      url: '/collection'
-    },
-    {
-      label: getLabel('LABEL_TITLE'),
-      name: 'title',
-      icon: 'book',
-      url: '/title'
-    },
-    {
-      label: getLabel('LABEL_LOAN_TYPE'),
-      name: 'loantype',
-      icon: 'bolt',
-      url: '/loantype'
-    },
-    {
-      label: getLabel('LABEL_BARCODE'),
-      name: 'barcode',
-      icon: 'barcode',
-      url: '/barcode'
-    },
-    {
-      label: getLabel('LABEL_SUBJECTS'),
-      name: 'subject',
-      icon: 'leanpub',
-      url: '/subject'
-    }]
+  links: new LibraryLinks([]).getLinks()
 });

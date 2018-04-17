@@ -92,3 +92,7 @@ export const removeSubject = () => (dispatch, state) => {
   }
 };
 
+
+export const goToUrl = (url) => dispatch => {
+  dispatch(PageActions.goToUrl(url));
+};

@@ -1,6 +1,6 @@
 import { FormSpecs, TableColumns } from './api/';
 import { PAGE_NAME } from './constants';
-import { CrudPage, getLabel } from './imports';
+import { CrudPage, getLabel, LibraryLinks } from './imports';
 
 export const CatalogingLoanTypePage = CrudPage({
   pageName: PAGE_NAME,
@@ -13,5 +13,6 @@ export const CatalogingLoanTypePage = CrudPage({
   },
   formProps: {
     fieldClass: () => 'col-sm-6 col-md-4'
-  }
+  },
+  links: new LibraryLinks('loantype').getLinks()
 });

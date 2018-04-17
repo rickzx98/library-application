@@ -8,9 +8,7 @@ export class ParentFormField extends React.Component {
   componentWillMount() {
     this.refresh();
   }
-  componentWillUnmount(){
-    this.state = {};
-  }
+
   setValue(value) {
     this.setState({value});
   }

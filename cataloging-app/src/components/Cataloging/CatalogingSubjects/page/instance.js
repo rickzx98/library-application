@@ -1,9 +1,10 @@
-import { FluidFunc, React, FluidForm, Subject } from '../imports';
+import { FluidFunc, React, FluidForm, Subject, LibraryLinks } from '../imports';
 import { PAGE_NAME } from '../constants';
 import { CatalogingSubjectsBody } from '../contents/CatalogingSubjectsBody';
 import { forListHeaders, forCreateHeaders} from '../contents/CatalogingSubjectHeaders';
 
 export default (instance) => {
+  instance.links = new LibraryLinks('subject').getLinks();
   instance.state = {};
   FluidFunc.create('subjectHeaderOnClick')
     .onStart(({ action }) => {
@@ -108,6 +109,8 @@ export default (instance) => {
     },
     render: function render() {
       return (<CatalogingSubjectsBody
+        goToUrl={instance.props.actions.goToUrl}
+        links={instance.links}
         onSubmit={instance.onSubmit}
         onFailed={instance.onFailed}
         createWithParent={instance.createWithParent}

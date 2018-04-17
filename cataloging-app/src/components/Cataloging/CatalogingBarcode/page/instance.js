@@ -1,42 +1,24 @@
 import { BARCODE, PAGE_NAME } from '../constants';
 import { CatalogingBarcodeForm, CatalogingBarcodePageBody } from '../contents/';
-import { GeneratedBarcode, PageHeaders, PageLinks, PageList, React, getLabel } from '../imports';
+import { GeneratedBarcode, PageHeaders, PageLinks, PageList, React, getLabel, LibraryLinks } from '../imports';
 
 import { TableColumns } from '../api/';
 
 export default (instance) => {
   const { forCreateView, forListView, hideAddButton } = new PageHeaders(PAGE_NAME);
-  let links = [];
   return {
     componentWillMount: () => {
       instance.refresh();
       instance.createHeaders();
-      instance.createLinks();
     },
     componentDidUpdate: (prevProps) => {
-      if (instance.props.location.pathname !== prevProps.location.pathname) {
+      if (instance.props.routing.location.pathname !== prevProps.routing.location.pathname) {
         instance.refresh();
-        instance.createLinks();
         instance.createHeaders();
       }
       if ((instance.props.ajax.started !== prevProps.ajax.started)) {
         instance.createHeaders();
       }
-    },
-    createLinks: () => {
-      instance.barcode(() => {
-        links = [
-          {
-            name: 'barcode',
-            icon: 'database',
-            label: getLabel('LABEL_BARCODES'),
-            url: '/barcodes'
-          }
-        ];
-      });
-      instance.barcodes(() => {
-        links = [];
-      });
     },
     refresh: () => {
       instance.barcode(() => {
@@ -58,8 +40,10 @@ export default (instance) => {
     onSubmit: (input) => {
       instance.props.actions.submit(PAGE_NAME, input);
     },
-    onSelect: () => { },
-    onFailed: () => { },
+    onSelect: () => {
+    },
+    onFailed: () => {
+    },
     prevPage: () => {
       instance.props.actions.prevPage(PAGE_NAME);
     },
@@ -69,26 +53,40 @@ export default (instance) => {
     },
     render: function Render() {
       let element;
+      let links;
+
       instance.barcode(() => {
+        links = new LibraryLinks().group('barcode', 'BC', [
+          {
+            group: 'BC',
+            name: 'barcodes',
+            icon: 'database',
+            label: getLabel('LABEL_BARCODES'),
+            url: '/barcodes',
+            show: true
+          }
+        ]).getLinks();
+
         element = (<CatalogingBarcodeForm
           onSubmit={instance.onSubmit}
           onFailed={instance.onFailed}
-          formValue={instance.props.pageForm} />);
+          formValue={instance.props.pageForm}/>);
       });
 
       instance.barcodes(() => {
+        links = new LibraryLinks().getLinks();
         element = (<PageList
           onSelect={instance.onSelect}
           columns={TableColumns}
           fieldKey={GeneratedBarcode.ID}
           name={BARCODE}
-          data={instance.props.pageList} />);
+          data={instance.props.pageList}/>);
       });
 
       return (<CatalogingBarcodePageBody>
         {links && links.length > 0 && (<PageLinks
           links={links}
-          goToUrl={instance.goToUrl} />)}
+          goToUrl={instance.goToUrl}/>)}
         <div className={`${links && links.length > 0 ? 'col-md-9' : ''}`}>
           {element}
         </div>
