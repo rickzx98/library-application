@@ -1,4 +1,5 @@
 import { Subject, getLabel } from '../imports';
+
 export default () => {
   return [
     {
@@ -9,6 +10,8 @@ export default () => {
     {
       label: getLabel('LABEL_PARENT'),
       field: Subject.PARENT,
+      isVisible: (state)=> state && state.data && state.data[Subject.PARENT],
+      public: true
     },
     {
       label: getLabel('LABEL_SUBJECT'),
@@ -17,5 +20,6 @@ export default () => {
         require: true
       }
     }
-  ];
+  ]
+    ;
 };

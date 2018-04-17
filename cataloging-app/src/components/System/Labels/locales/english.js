@@ -222,3 +222,7 @@ export const LABEL_FOR = 'For';
 
 //Subject
 export const LABEL_SUBJECTS = 'Subjects';
+export const LABEL_SUBJECT = 'Subject';
+export const LABEL_PARENT = 'Parent';
+export const LABEL_EDIT = 'Edit';
+export const LABEL_DELETE = 'Delete';

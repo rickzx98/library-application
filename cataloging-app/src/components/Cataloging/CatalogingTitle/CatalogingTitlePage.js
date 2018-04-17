@@ -56,5 +56,10 @@ export const CatalogingTitlePage = CrudPage({
       label: getLabel('LABEL_SUFFIX'),
       url: '/suffix',
       group: 'callNumber'
+    }, {
+      name: 'resourcetype',
+      icon: 'globe',
+      label: getLabel('LABEL_RESOURCE_TYPE'),
+      url: '/resourcetype'
     }]
 });

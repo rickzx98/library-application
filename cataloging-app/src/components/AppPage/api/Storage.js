@@ -24,6 +24,7 @@ export default {
       cutter: cutters,
       parameter: [...barcode],
       subject: subjects,
+      resourcetype:[]
     };
   }
 };

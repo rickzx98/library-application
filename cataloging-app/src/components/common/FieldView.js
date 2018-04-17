@@ -12,7 +12,7 @@ FieldView.propTypes = {
         PropTypes.string,
         PropTypes.object,
         PropTypes.number
-    ]).isRequired
+    ])
 };
 
 

@@ -2,6 +2,11 @@ import { getLabel, LoanType } from '../imports';
 
 export default () => ([
   {
+    field: LoanType.ID,
+    skipRender: true,
+    primaryKey: true
+  },
+  {
     field: LoanType.NAME,
     label: getLabel('LABEL_NAME'),
     data: {

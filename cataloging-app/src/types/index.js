@@ -1,3 +1,8 @@
+export const ResourceType = {
+  ID: '_id',
+  VALUE: 'value'
+};
+
 export const Subject = {
   ID: '_id',
   PARENT: 'parent',
@@ -25,7 +30,7 @@ export const Barcode = {
   PATRON_BARCODE_LENGTH: 'patronBarcodeLength',
   PATRON_BARCODE_TYPE: 'patronBarcodeType',
   new: function (barcode, id) {
-    const newBarcode = { ...barcode };
+    const newBarcode = {...barcode};
     newBarcode[this.ID] = id;
     newBarcode[Parameter.TYPE] = 'barcode';
     return newBarcode;
@@ -216,7 +221,11 @@ export const Pages = {
   newLoanType: '/loantype/new',
   viewLoanType: '/loantype/view/',
   subject: '/subject',
-  newSubject: '/subject/new'
+  newSubject: '/subject/new',
+  viewSubject: '/subject/view/',
+  resourceType: '/resourcetype',
+  newResourceType: '/resourceType/new',
+  viewResourceType: '/resourceType/view/'
 };
 
 export const Record = {
