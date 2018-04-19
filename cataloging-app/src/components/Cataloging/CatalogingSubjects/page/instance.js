@@ -1,7 +1,8 @@
-import { FluidFunc, React, FluidForm, Subject, LibraryLinks } from '../imports';
-import { PAGE_NAME } from '../constants';
+import { FluidForm, FluidFunc, LibraryLinks, React, Subject } from '../imports';
+import { forCreateHeaders, forListHeaders } from '../contents/CatalogingSubjectHeaders';
+
 import { CatalogingSubjectsBody } from '../contents/CatalogingSubjectsBody';
-import { forListHeaders, forCreateHeaders} from '../contents/CatalogingSubjectHeaders';
+import { PAGE_NAME } from '../constants';
 
 export default (instance) => {
   instance.links = new LibraryLinks('subject').getLinks();
@@ -10,16 +11,16 @@ export default (instance) => {
     .onStart(({ action }) => {
       switch (action()) {
         case 'back':
-          instance.tree(()=> {
+          instance.tree(() => {
             instance.props.actions.back();
           });
-          instance.create(()=> {
+          instance.create(() => {
             instance.props.actions.prevPage();
           });
-          instance.createWithParent(()=> {
+          instance.createWithParent(() => {
             instance.props.actions.prevPage();
           });
-          instance.view(()=> {
+          instance.view(() => {
             instance.props.actions.prevPage();
           });
           break;
@@ -47,6 +48,9 @@ export default (instance) => {
       instance.refresh();
       instance.createHeaders();
     },
+    componentWillUnmount: () => {
+      instance.props.actions.clear();
+    },
     componentDidUpdate: (prevProps, prevState) => {
       if (instance.props.routing.location.pathname !== prevProps.routing.location.pathname) {
         instance.refresh();
@@ -64,13 +68,13 @@ export default (instance) => {
       instance.tree(() => {
         instance.props.actions.createHeaders(forListHeaders(instance.isSelected));
       });
-      instance.create(()=> {
+      instance.create(() => {
         instance.props.actions.createHeaders(forCreateHeaders());
       });
-      instance.createWithParent(()=> {
+      instance.createWithParent(() => {
         instance.props.actions.createHeaders(forCreateHeaders());
       });
-      instance.view(()=> {
+      instance.view(() => {
         instance.props.actions.createHeaders(forCreateHeaders());
       });
     },
@@ -80,10 +84,10 @@ export default (instance) => {
         instance.props.actions.clearContent();
         instance.props.actions.loadSubjects();
       });
-      instance.createWithParent(({parent})=> {
+      instance.createWithParent(({ parent }) => {
         FluidForm.set(PAGE_NAME, Subject.PARENT, parent);
       });
-      instance.view(({id})=> {
+      instance.view(({ id }) => {
         instance.props.actions.loadSubjectById(id);
       });
     },
@@ -91,19 +95,19 @@ export default (instance) => {
       instance.props.actions.loadSubjectsChildren(node, toggled);
     },
     onSubmit: (value) => {
-      instance.create(()=> {
+      instance.create(() => {
         instance.props.actions.create(value);
       });
-      instance.createWithParent(()=> {
+      instance.createWithParent(() => {
         instance.props.actions.create(value);
       });
-      instance.view(({id})=> {
+      instance.view(({ id }) => {
         instance.props.actions.update(id, value);
       });
     },
     onFailed: () => {
     },
-    isSelected: ()=> {
+    isSelected: () => {
       const { content } = instance.props;
       return content && content.selected && content.selected.length > 0;
     },
@@ -119,7 +123,7 @@ export default (instance) => {
         view={instance.view}
         formValue={instance.props.pageForm}
         subjects={instance.props.subjects}
-        onToggle={instance.onToggle}/>);
+        onToggle={instance.onToggle} />);
     }
   };
 };

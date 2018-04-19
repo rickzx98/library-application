@@ -118,7 +118,7 @@ export default ({ pageName, FormSpecs, TableColumns, page, formProps,
             onSelect={instance.onSelect} />);
         });
         instance.create(() => {
-          element = (<div className="page-form clearfix">
+          element = (<div className={`clearfix ${!tabbed && 'page-form'}`}>
             {overridePages.create && overridePages.create({
               formSpecs: FormSpecs,
               pageName,

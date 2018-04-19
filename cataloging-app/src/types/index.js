@@ -33,7 +33,7 @@ export const Barcode = {
   PATRON_BARCODE_LENGTH: 'patronBarcodeLength',
   PATRON_BARCODE_TYPE: 'patronBarcodeType',
   new: function (barcode, id) {
-    const newBarcode = {...barcode};
+    const newBarcode = { ...barcode };
     newBarcode[this.ID] = id;
     newBarcode[Parameter.TYPE] = 'barcode';
     return newBarcode;
