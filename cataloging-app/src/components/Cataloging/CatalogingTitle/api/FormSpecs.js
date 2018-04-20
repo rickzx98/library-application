@@ -21,4 +21,10 @@ export default () => ([{
 }, {
   field: Title.SERIES_TITLE, label: getLabel('LABEL_SERIES_TITLE'),
   group: getLabel('LABEL_TITLE')
+}, {
+  field: Title.AUTHOR, label: getLabel('LABEL_AUTHOR'),
+  group: getLabel('LABEL_AUTHOR'),
+  data: {
+    require: true
+  }
 }]);
