@@ -226,3 +226,8 @@ export const LABEL_SUBJECT = 'Subject';
 export const LABEL_PARENT = 'Parent';
 export const LABEL_EDIT = 'Edit';
 export const LABEL_DELETE = 'Delete';
+
+
+// Author Fields
+export const LABEL_MORE = 'More';
+export const LABEL_CLOSE = 'Close';
