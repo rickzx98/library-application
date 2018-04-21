@@ -24,7 +24,7 @@ export class PageSubModules extends React.Component {
   }
   render = () => (<div className="page-sub-modules clearfix">
     {this.state.hasModules && (<PageModules onClick={this.props.goToPage} formValue={this.props.formValue} modules={this.props.modules} />)}
-    <div className={`page-form clearfix ${this.state.hasModules ? 'col-sm-9' : 'no-sub-modules-links'}`}>
+    <div className={`${!this.props.tabbed && 'page-form'} clearfix ${this.state.hasModules ? 'col-sm-9' : 'no-sub-modules-links'}`}>
       {this.props.overridePages.view && this.props.overridePages.view(this.props)}
       {!this.props.overridePages.view && !this.props.tabbed && <PageForm {...this.props} />}
       {!this.props.overridePages.view && this.props.tabbed && <PageTabbedForm {...this.props} />}

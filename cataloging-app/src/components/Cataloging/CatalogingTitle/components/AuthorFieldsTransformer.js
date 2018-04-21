@@ -1,3 +1,3 @@
-export const AuthorFieldsTransformer = (value) => {
+export const AuthorFieldsTransformer = () => {
     return '';
-}
+};
