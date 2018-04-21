@@ -7,6 +7,7 @@ import './images/books-header.jpg';
 import './images/library-header.jpg';
 import './images/subject-header.jpg';
 import './images/app-icon.png';
+import './favicon.ico';
 
 import configureStore, { history } from './store/configureStore';
 
@@ -16,7 +17,6 @@ import Root from './components/System/RootPage/Root';
 import { SecurityActions } from './components/System/Security/';
 import { render } from 'react-dom';
 
-require('./favicon.ico'); // Tell webpack to load favicon.ico
 const store = configureStore();
 store.dispatch(SecurityActions.loadCurrentUser()); // load authenticated user
 render(

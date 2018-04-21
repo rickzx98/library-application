@@ -1,61 +1,86 @@
-import { FluidForm, Label, PropTypes, React } from '../imports';
+import { FluidForm, FontAwesome, PropTypes, React, ResponsiveButton, getLabel } from '../imports';
 
 import { PAGE_NAME } from '../constants';
 
 const FIELD_LIMIT = 6;
-const MARC_CODE = '100';
+
 export class AuthorFields extends React.Component {
     constructor(props) {
         super(props);
-        this.state = { values: [] }
-        this.onSubmit = this._onSubmit.bind(this);
-        this.onChange = this._onChange.bind(this);
+        this.state = { values: [] };
         this.more = this._more.bind(this);
         this.remove = this._remove.bind(this);
     }
-    _onSubmit(event) {
-        event.preventDefault();
+    componentWillUnmount() {
+        this.setValues([]);
     }
-    _onChange(event) {
-
+    componentDidUpdate(prevProps) {
+        for (let i = 0; i < FIELD_LIMIT; i++) {
+            const fieldName = this.props.field.name + '_' + i;
+            if (FluidForm.getValue(this.props.formValue, fieldName) !== FluidForm.getValue(prevProps.formValue, fieldName)) {
+                let value = FluidForm.getValue(this.props.formValue, this.props.field.name);
+                if (!value) {
+                    value = {};
+                }
+                let newValue = { ...value };
+                newValue[this.props.field.name + '_' + i] = FluidForm.getValue(this.props.formValue, fieldName);
+                FluidForm.set(PAGE_NAME, this.props.field.name, newValue);
+            }
+        }
     }
     _more() {
         const values = [...this.state.values];
         values.push({
-            name: this.props.field.name + '_' + values.length + 1,
-            value: ''
+            name: this.props.field.name + '_' + (values.length + 1)
         });
         this.setValues(values);
     }
     _remove(index) {
         const values = [...this.state.values];
+        const fieldName = values[index].name;
+        const value = { ...FluidForm.getValue(this.props.formValue, this.props.field.name) };
+        value[fieldName] = undefined;
         values.splice(index, 1);
         this.setValues(values);
+        FluidForm.set(PAGE_NAME, this.props.field.name, value);
     }
     setValues(values) {
         this.setState({ values });
     }
     render() {
-        return (<form noValidate={true}
-            onChange={this.onChange}
-            onSubmit={this.onSubmit} className="author-fields">
-            <div className="form-group col-sm-9">
-                <input name={this.props.field.name + '_0'} className="form-control" />
-            </div>
-            <div className="more-control col-sm-3 clearfix">
-                {this.state.values.length < FIELD_LIMIT && <a onClick={this.more}><Label label="LABEL_MORE" />...</a>}
+        return (<div noValidate={true}
+            className="author-fields">
+            <div className="input-group">
+                <input className="form-control"
+                    placeholder={getLabel('LABEL_NAME')}
+                    name={this.props.field.name + '_0'} />
+                <div className="input-group-btn">
+                    <ResponsiveButton
+                        disabled={this.state.values.length === FIELD_LIMIT}
+                        onClick={this.more}
+                        title={getLabel('LABEL_MORE')}
+                        icon={<FontAwesome name="plus" size="lg" fixedWidth />}
+                        className="btn btn-success" />
+                </div>
             </div>
             {this.state.values && this.state.values.map((authorField, index) => (
-                <span key={authorField.name}>
-                    <div className="form-group col-sm-9">
-                        <input className="form-control" name={authorField.name} value={authorField.value} />
+                <div key={authorField.name} className="input-group">
+                    <input className="form-control"
+                        placeholder={getLabel('LABEL_OTHER_NAME')}
+                        name={authorField.name}
+                        value={authorField.value || FluidForm.getValue(this.props.formValue, authorField.name)} />
+                    <div className="input-group-btn">
+                        <ResponsiveButton
+                            onClick={() => {
+                                this.remove(index);
+                            }}
+                            icon={<FontAwesome name="trash" size="lg" fixedWidth />}
+                            className="btn btn-danger"
+                            title={getLabel('LABEL_REMOVE')} />
                     </div>
-                    <div className="remove-control col-sm-3">
-                        <a onClick={() => { this.remove(index); }}><Label label="LABEL_REMOVE" /></a>
-                    </div>
-                </span>
+                </div>
             ))}
-        </form>);
+        </div>);
     }
 }
 

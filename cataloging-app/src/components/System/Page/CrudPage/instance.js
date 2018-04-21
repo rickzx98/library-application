@@ -27,8 +27,8 @@ export default ({ pageName, FormSpecs, TableColumns, page, formProps,
           instance.props.actions.goTo(routes, rowValue, parent);
         });
       },
-      onFormFailed: (stack) => {
-        instance.props.actions.onFailed(stack);
+      onFormFailed: ({ stack }) => {
+        instance.props.actions.onFailed(stack, pageName);
       },
       onFormSubmit: (pageValue) => {
         const raw = pageValue.getRaw();
@@ -149,6 +149,7 @@ export default ({ pageName, FormSpecs, TableColumns, page, formProps,
         });
         instance.view(() => {
           element = (<PageSubModules
+            tabbed={tabbed}
             goToPage={instance.goToPage}
             modules={modules}
             {...formProps}

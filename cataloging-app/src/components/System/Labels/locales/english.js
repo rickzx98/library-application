@@ -231,3 +231,4 @@ export const LABEL_DELETE = 'Delete';
 // Author Fields
 export const LABEL_MORE = 'More';
 export const LABEL_CLOSE = 'Close';
+export const LABEL_OTHER_NAME = 'Other name';

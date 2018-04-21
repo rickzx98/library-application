@@ -9,16 +9,17 @@ import {
   NotificationActions,
   UrlPattern,
   getLabel,
-  getRequireMessage,
   goBack,
   push
 } from '../imports';
 
-export const onFailed = (stack, formName) => {
+export const onFailed = (stack) => {
   return dispatch => {
-    const { message, field } = getRequireMessage(stack.error.message);
-    FluidForm.invalid(formName, field, message);
-    dispatch(NotificationActions.alertDanger(message));
+    if (stack.error) {
+      stack.error.forEach(field => {
+        dispatch(NotificationActions.alertDanger(field.error.message));
+      });
+    }
   };
 };
 export const back = () => dispatch => {

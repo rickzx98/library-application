@@ -24,6 +24,7 @@ export default () => ([{
 }, {
   field: Title.AUTHOR, label: getLabel('LABEL_AUTHOR'),
   group: getLabel('LABEL_AUTHOR'),
+  public: true,
   data: {
     require: true
   }
