@@ -24,6 +24,14 @@ export const CatalogingTitlePage = CrudPage({
           return false;
       }
     },
+    viewComponent: (field) => {
+      switch (field) {
+        case Title.AUTHOR:
+          return AuthorFields;
+        default:
+          return false;
+      }
+    },
     viewValueTransformer: (field) => {
       switch (field) {
         case Title.AUTHOR:

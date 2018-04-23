@@ -1,5 +1,4 @@
 import {
-  FieldView,
   FluidForm,
   FormGroup,
   HiddenButton,
@@ -12,6 +11,7 @@ import {
 } from '../imports';
 
 import { FormInput } from './FormInput';
+import { FormView } from './FormView';
 
 export class PageTabbedForm extends React.Component {
   renderTab(groups) {
@@ -19,7 +19,8 @@ export class PageTabbedForm extends React.Component {
       readOnly,
       viewValueTransformer,
       fieldClass = () => '',
-      fieldComponent } = this.props;
+      fieldComponent,
+      viewComponent } = this.props;
     const tabs = [];
     let eventKey = 1;
     for (let field in groups) {
@@ -34,7 +35,11 @@ export class PageTabbedForm extends React.Component {
                   key={field.name} label={field.label}
                   name={field.name}
                   className={fieldClass(field.name, index)}>
-                  {readOnlyWrapper(<FieldView>{FluidForm.getValue(formValue, field.name, viewValueTransformer ? viewValueTransformer(field.name) : false)}</FieldView>,
+                  {readOnlyWrapper(<FormView
+                    field={field}
+                    formValue={formValue}
+                    viewValueTransformer={viewValueTransformer}
+                    viewComponent={viewComponent} />,
                     (<FormInput
                       FieldComponent={fieldComponent}
                       field={field}
@@ -73,6 +78,7 @@ PageTabbedForm.propTypes = {
   formSpecs: PropTypes.func.isRequired,
   fieldClass: PropTypes.func,
   fieldComponent: PropTypes.func,
+  viewComponent: PropTypes.func,
   viewValueTransformer: PropTypes.func,
   modelValueTransformer: PropTypes.func,
   extraContent: PropTypes.func
