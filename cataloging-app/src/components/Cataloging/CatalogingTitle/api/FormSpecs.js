@@ -28,4 +28,35 @@ export default () => ([{
   data: {
     require: true
   }
+}, {
+  field: Title.ISBN,
+  label: getLabel('LABEL_ISBN'),
+  group: getLabel('LABEL_ISBN'),
+  data: {
+    require: true
+  }
+}, {
+  field: Title.LCCN,
+  label: getLabel('LABEL_LCCN'),
+  group: getLabel('LABEL_ISBN'),
+}, {
+  field: Title.ISSN,
+  label: getLabel('LABEL_ISSN'),
+  group: getLabel('LABEL_ISBN')
+}, {
+  field: Title.PLACE_OF_PUBLICATION,
+  label: getLabel('LABEL_PLACE_OF_PUBLICATION'),
+  group: getLabel('LABEL_PUBLISHER')
+}, {
+  field: Title.PUBLISHER,
+  label: getLabel('LABEL_PUBLISHER'),
+  group: getLabel('LABEL_PUBLISHER')
+}, {
+  field: Title.PUBLISHED_DATE,
+  label: getLabel('LABEL_PUBLISHED_DATE'),
+  group: getLabel('LABEL_PUBLISHER')
+}, {
+  field: Title.NUMBER_OF_PAGES,
+  label: getLabel('LABEL_NUMBER_OF_PAGES'),
+  group: getLabel('LABEL_PUBLISHER')
 }]);

@@ -150,7 +150,9 @@ export const Title = {
   FUND: 'fund',
   COST: 'cost',
   LIBRARY: 'library',
-  RATING: 'rating'
+  RATING: 'rating',
+  ISSN: 'issn',
+  PLACE_OF_PUBLICATION: 'placeOfPublication'
 };
 export const Librarian = {
   ID: '_id',

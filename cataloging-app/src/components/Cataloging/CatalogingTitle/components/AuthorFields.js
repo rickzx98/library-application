@@ -20,9 +20,11 @@ export class AuthorFields extends React.Component {
     let values = [];
     for (let field in formValues) {
       if (formValues.hasOwnProperty(field)) {
-        values.push({
-          name: field
-        });
+        if (formValues[field]) {
+          values.push({
+            name: field
+          });
+        }
       }
     }
     this.setValues(values);
@@ -88,7 +90,7 @@ export class AuthorFields extends React.Component {
   }
   renderOtherAuthors(authorField, index) {
     return readOnlyWrapper((<div key={authorField.name} className="form-group">
-      <FieldView>{this.getValue(this.props.field.name + '_' + (++index))}</FieldView>
+      <FieldView>{this.getValue(this.props.field.name + '_' + (index + 1))}</FieldView>
     </div>),
       (<div key={authorField.name} className="input-group">
         <input className="form-control"

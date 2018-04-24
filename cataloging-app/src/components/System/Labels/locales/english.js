@@ -151,6 +151,8 @@ export const LABEL_SERIES_TITLE = 'Series Title';
 export const LABEL_ISBN = 'ISBN';
 export const LABEL_ISBN_13 = 'ISBN 13';
 export const LABEL_ISBN_10 = 'ISBN 10';
+export const LABEL_LCCN = 'LCCN';
+export const LABEL_ISSN = 'ISSN';
 export const LABEL_PUBLISHER = 'Publisher';
 export const LABEL_NUMBER_OF_PAGES = 'Number of Pages';
 export const LABEL_SUB_TITLE = 'Sub title';
@@ -172,6 +174,7 @@ export const LABEL_DATE = 'Date';
 export const LABEL_CALL_NUMBER = 'Call Number';
 export const LABEL_CURRENCY = 'Currency';
 export const LABEL_FUND = 'Fund';
+export const LABEL_PLACE_OF_PUBLICATION = 'Place of publication';
 
 // loantype
 export const LABEL_LOAN_PERIOD = 'Loan period';

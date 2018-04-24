@@ -1,7 +1,7 @@
-import { AuthorFields, AuthorFieldsTransformer } from './components/';
 import { CrudPage, Title, getLabel } from './imports';
 import { FormSpecs, TableColumns } from './api/';
 
+import { AuthorFields } from './components/';
 import { PAGE_NAME } from './constants';
 import { TitleLinks } from './TitleLinks';
 
@@ -28,14 +28,6 @@ export const CatalogingTitlePage = CrudPage({
       switch (field) {
         case Title.AUTHOR:
           return AuthorFields;
-        default:
-          return false;
-      }
-    },
-    viewValueTransformer: (field) => {
-      switch (field) {
-        case Title.AUTHOR:
-          return AuthorFieldsTransformer;
         default:
           return false;
       }

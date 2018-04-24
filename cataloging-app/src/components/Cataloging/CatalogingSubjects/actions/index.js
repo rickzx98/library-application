@@ -1,16 +1,19 @@
 import * as types from './types';
 
-import { FluidApi, HeaderActions, PageActions, Subject } from '../imports';
+import { AjaxStatusActions, FluidApi, HeaderActions, NotificationActions, PageActions, Subject, getLabel } from '../imports';
 
 import { PAGE_NAME } from '../constants';
 
 export const loadSubjects = () => dispatch => {
+  dispatch(AjaxStatusActions.beginAjaxCall());
   FluidApi.execute('getSubjects')
     .then(({ getSubjects }) => {
+      dispatch(AjaxStatusActions.ajaxCallSuccess());
       dispatch(setSubjectRoots(getSubjects('data')()));
     })
     .catch(error => {
-      console.error(error);
+      dispatch(NotificationActions.alertDanger(getLabel('LABEL_LOADING_SUBJECTS_LIST_FAILED')));
+      dispatch(AjaxStatusActions.ajaxCallError(error));
     });
 };
 export const loadSubjectById = (id) => dispatch => {
@@ -23,7 +26,8 @@ export const loadSubjectsChildren = (node, toggled) => dispatch => {
       dispatch(setSubjectsChildren({ ...node }, getChildrenSubjects('data')(), toggled));
     })
     .catch(error => {
-      console.error(error);
+      dispatch(NotificationActions.alertDanger(getLabel('LABEL_LOADING_SUBJECTS_CHILDREN_LIST_FAILED')));
+      dispatch(AjaxStatusActions.ajaxCallError(error));
     });
 };
 export const setSubjectsChildren = (node, subjects, toggled) => ({
