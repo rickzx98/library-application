@@ -103,6 +103,11 @@ export default ({ pageName, FormSpecs, TableColumns, page, formProps,
           instance.props.actions.goToUrl(url);
         });
       },
+      onSelectTab: (key) => {
+        if (formProps.onSelectTab) {
+          formProps.onSelectTab(key);
+        }
+      },
       render: function Instance() {
         let element = (<div />);
         instance.list(() => {
@@ -144,6 +149,7 @@ export default ({ pageName, FormSpecs, TableColumns, page, formProps,
                 formValue={instance.props.pageForm}
                 onFailed={instance.onFormFailed}
                 onSubmit={instance.onFormSubmit}
+                onSelectTab={instance.onSelectTab}
                 readOnly={false} />)}
           </div>);
         });
@@ -159,6 +165,7 @@ export default ({ pageName, FormSpecs, TableColumns, page, formProps,
             onFailed={instance.onFormFailed}
             onSubmit={instance.onFormSubmit}
             readOnly={!instance.state.editable}
+            onSelectTab={instance.onSelectTab}
             overridePages={overridePages} />);
         });
         return <Page {...page}>{element}</Page>;

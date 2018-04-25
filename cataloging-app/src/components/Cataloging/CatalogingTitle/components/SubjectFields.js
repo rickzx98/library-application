@@ -92,18 +92,18 @@ export class AuthorFields extends React.Component {
     return readOnlyWrapper((<div key={authorField.name} className="form-group">
       <FieldView>{this.getValue(this.props.field.name + '_' + (index + 1))}</FieldView>
     </div>),
-      (<div key={authorField.name} className={index === (this.state.values.length - 1) ? 'input-group' : 'input form-group'}>
+      (<div key={authorField.name} className="input-group">
         <input className="form-control"
           placeholder={getLabel('LABEL_OTHER_NAME')}
           name={authorField.name}
           value={this.getValue(authorField.name)} />
-        {index === (this.state.values.length - 1) && (<div className="input-group-btn">
+        <div className="input-group-btn">
           <ResponsiveButton
             onClick={() => { this.remove(index); }}
             icon={<FontAwesome name="trash" size="lg" fixedWidth />}
             className="btn btn-danger"
             title={getLabel('LABEL_REMOVE')} />
-        </div>)}
+        </div>
       </div>
       ), this.props.readOnly);
   }

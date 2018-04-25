@@ -49,5 +49,6 @@ PageSubModules.propTypes = {
   modules: PropTypes.array,
   goToPage: PropTypes.func.isRequired,
   overridePages: PropTypes.object,
-  tabbed: PropTypes.bool
+  tabbed: PropTypes.bool,
+  onSelectTab: PropTypes.func
 };

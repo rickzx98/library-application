@@ -1,3 +1,21 @@
+export const SubDivision = {
+  FORM: 'form',
+  GENERAL: 'general',
+  CHRONOLOGICAL: 'chronological',
+  GEOGRAPHIC: 'geographic'
+};
+
+export const SubjectEntry = {
+  PERSONAL: 'personal',
+  CORPORATE: 'corporate',
+  MEETING: 'meeting',
+  UNIFORM: 'uniform',
+  NAMED_EVENT: 'namedEvent',
+  CHRONOLOGICAL: 'chronological',
+  TOPICAL: 'topical',
+  GEOGRAPHIC: 'geographic'
+};
+
 export const ResourceType = {
   ID: '_id',
   VALUE: 'value'

@@ -57,11 +57,11 @@ export class PageTabbedForm extends React.Component {
   render() {
     const { formName,
       formSpecs,
-      onSubmit, onFailed,
+      onSubmit, onFailed, onSelectTab,
       modelValueTransformer } = this.props;
     return (<FluidForm name={formName} specs={formSpecs}
       onSubmit={(formValue) => ModelValueTransformer(formValue, modelValueTransformer, onSubmit)} onFailed={onFailed} fieldNodeGroup={(groups) =>
-        (<Tabs className="page-tabbed-form" id={this.props.formName + '_tab'} defaultActiveKey={1}>
+        (<Tabs onSelect={onSelectTab} className="page-tabbed-form" id={this.props.formName + '_tab'} defaultActiveKey={1}>
           {this.renderTab(groups)}
         </Tabs>)}>
       <HiddenButton />
@@ -81,5 +81,6 @@ PageTabbedForm.propTypes = {
   viewComponent: PropTypes.func,
   viewValueTransformer: PropTypes.func,
   modelValueTransformer: PropTypes.func,
-  extraContent: PropTypes.func
+  extraContent: PropTypes.func,
+  onSelectTab: PropTypes.func
 };

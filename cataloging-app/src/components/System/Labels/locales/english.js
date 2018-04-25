@@ -235,3 +235,16 @@ export const LABEL_DELETE = 'Delete';
 export const LABEL_MORE = 'More';
 export const LABEL_CLOSE = 'Close';
 export const LABEL_OTHER_NAME = 'Other name';
+
+// Subject Fields 
+
+export const LABEL_FORM = 'Form';
+export const LABEL_GENERAL = 'General';
+export const LABEL_CHRONOLOGICAL = 'Chronological';
+export const LABEL_GEOGRAPHIC = 'Geographic';
+export const LABEL_PERSONAL = 'Personal';
+export const LABEL_CORPORATE = 'Corporate';
+export const LABEL_MEETING = 'Meeting';
+export const LABEL_UNIFORM = 'Uniform';
+export const LABEL_NAMED_EVENT = 'Named event';
+export const LABEL_TOPICAL = 'Topical';
