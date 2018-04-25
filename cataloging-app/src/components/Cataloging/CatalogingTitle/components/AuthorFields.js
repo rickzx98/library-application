@@ -92,7 +92,7 @@ export class AuthorFields extends React.Component {
     return readOnlyWrapper((<div key={authorField.name} className="form-group">
       <FieldView>{this.getValue(this.props.field.name + '_' + (index + 1))}</FieldView>
     </div>),
-      (<div key={authorField.name} className={index === (this.state.values.length - 1) ? 'input-group' : 'input form-group'}>
+      (<div key={authorField.name} className={index === (this.state.values.length - 1) ? 'input-group' : 'author form-group'}>
         <input className="form-control"
           placeholder={getLabel('LABEL_OTHER_NAME')}
           name={authorField.name}

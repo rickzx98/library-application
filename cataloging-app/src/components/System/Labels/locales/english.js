@@ -248,3 +248,4 @@ export const LABEL_MEETING = 'Meeting';
 export const LABEL_UNIFORM = 'Uniform';
 export const LABEL_NAMED_EVENT = 'Named event';
 export const LABEL_TOPICAL = 'Topical';
+export const LABEL_SUBDIVISION = 'Subdivision';
