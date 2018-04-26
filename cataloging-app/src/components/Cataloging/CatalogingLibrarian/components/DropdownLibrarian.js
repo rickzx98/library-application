@@ -13,16 +13,16 @@ export class DropdownLibrarian extends React.Component {
   }
   setData = (data) => {
     this.setState({ data });
-  }
+  };
   loadingOn = () => {
     this.setState({ loading: true });
-  }
+  };
   loadingOff = () => {
     this.setState({ loading: false });
-  }
+  };
   error = (error) => {
     this.setState({ error });
-  }
+  };
   refresh = () => {
     this.loadingOn();
     FluidApi.storage(PAGE_NAME)

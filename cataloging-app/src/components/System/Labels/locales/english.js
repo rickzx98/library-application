@@ -236,7 +236,7 @@ export const LABEL_MORE = 'More';
 export const LABEL_CLOSE = 'Close';
 export const LABEL_OTHER_NAME = 'Other name';
 
-// Subject Fields 
+// Subject Fields
 
 export const LABEL_FORM = 'Form';
 export const LABEL_GENERAL = 'General';
@@ -249,3 +249,4 @@ export const LABEL_UNIFORM = 'Uniform';
 export const LABEL_NAMED_EVENT = 'Named event';
 export const LABEL_TOPICAL = 'Topical';
 export const LABEL_SUBDIVISION = 'Subdivision';
+export const LABEL_SUBJECT_ENTRY = 'Subject entry';
