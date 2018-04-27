@@ -1,6 +1,6 @@
-import { React, PropTypes, Label, SubjectEntry } from "../imports";
+import { Label, PropTypes, React, SubjectEntry } from "../../imports";
 
-export const SubjectEntries = ({ className, name, value }) => (
+export const SubjectEntriesDropdown = ({ className, name, value = SubjectEntry.TOPICAL }) => (
   <select name={name} className={className} value={value}>
     <option value={SubjectEntry.CORPORATE}>
       <Label label="LABEL_CORPORATE" />
@@ -29,7 +29,7 @@ export const SubjectEntries = ({ className, name, value }) => (
   </select>
 );
 
-SubjectEntries.propTypes = {
+SubjectEntriesDropdown.propTypes = {
   className: PropTypes.string,
   name: PropTypes.string,
   value: PropTypes.oneOfType([PropTypes.string, PropTypes.object])

@@ -1,0 +1,1 @@
+export const FLUID_SUBJECT_FIELDS_ON_CLICK = 'SubjectFields.ON_CLICK';

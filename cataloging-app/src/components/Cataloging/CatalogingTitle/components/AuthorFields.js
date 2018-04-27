@@ -2,11 +2,11 @@ import {
   FieldView,
   FluidForm,
   FontAwesome,
-  getLabel,
   PropTypes,
   React,
-  readOnlyWrapper,
-  ResponsiveButton
+  ResponsiveButton,
+  getLabel,
+  readOnlyWrapper
 } from '../imports';
 
 import {PAGE_NAME} from '../constants';

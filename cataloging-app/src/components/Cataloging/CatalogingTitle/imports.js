@@ -1,6 +1,7 @@
 import pt from 'prop-types';
 import r from 'react';
 
+export { create as CreateFunc, start as StartFunc } from 'fluid-func';
 export const PropTypes = pt;
 export const React = r;
 

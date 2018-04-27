@@ -1,10 +1,11 @@
+@import './components/SubjectFields/index.scss';
 .author-fields {
-  .author {
-    &.form-group {
-      margin: 15px;
+    .author {
+        &.form-group {
+            margin: 15px;
+        }
     }
-  }
-  .input-group {
-    margin: 15px;
-  }
+    .input-group {
+        margin: 15px;
+    }
 }

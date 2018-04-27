@@ -1,4 +1,4 @@
-import { React, PropTypes, SubDivision, Label } from "../imports";
+import { Label, PropTypes, React, SubDivision } from "../../imports";
 
 export const SubjectSubdivisionDropdown = ({ className, name, value }) => (
   <select name={name} className={className} value={value}>
