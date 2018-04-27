@@ -1,4 +1,4 @@
-import { CreateFunc, FluidForm, PropTypes, React } from "../../imports";
+import { FluidForm, FluidFunc, PropTypes, React } from "../../imports";
 
 import { FLUID_SUBJECT_FIELDS_ON_CLICK } from './constants';
 import { SubjectEntries } from './SubjectEntries';
@@ -9,7 +9,7 @@ export class SubjectFields extends React.Component {
     this.state = { values: [] };
     this.getValue = this._getValue.bind(this);
     this.addSubject = this._addSubject.bind(this);
-    CreateFunc(FLUID_SUBJECT_FIELDS_ON_CLICK).onStart(({ command }) => {
+    FluidFunc.create(FLUID_SUBJECT_FIELDS_ON_CLICK).onStart(({ command }) => {
       switch (command()) {
         case 'add_subject':
           break;

@@ -1,4 +1,4 @@
-import { FieldView, PropTypes, React, getLabel, readOnlyWrapper } from '../../imports';
+import { FieldView, PropTypes, React, ResponsiveButton, getLabel, readOnlyWrapper } from '../../imports';
 
 import { SubjectEntriesDropdown } from './SubjectEntriesDropdown';
 import { SubjectSubdivision } from './SubjectSubdivision';
@@ -22,6 +22,7 @@ export const SubjectEntry = ({ index, name, value = {}, readOnly }) => {
             </div>
         </div>), readOnly)}
         <SubjectSubdivision index={index} name={name} value={value} readOnly={readOnly} />
+        <div className="pull-right"><ResponsiveButton label="Add" /></div>
     </div>);
 };
 
