@@ -1,34 +1,67 @@
-import { FieldView, PropTypes, React, ResponsiveButton, getLabel, readOnlyWrapper } from '../../imports';
+import {
+  FieldView,
+  PropTypes,
+  React,
+  getLabel,
+  readOnlyWrapper,
+  FontAwesome,
+  ResponsiveButton,
+  FormGroup,
+  getValue
+} from "../../imports";
+import {entryTypeValueTransformer} from './SubjectValueTransformer';
+import {SubjectEntriesDropdown} from "./SubjectEntriesDropdown";
+import {SubjectSubdivision} from "./SubjectSubdivision";
+import {REMOVE_SUBJECT, FLUID_SUBJECT_FIELDS_ON_CLICK} from './constants';
 
-import { SubjectEntriesDropdown } from './SubjectEntriesDropdown';
-import { SubjectSubdivision } from './SubjectSubdivision';
+export const SubjectEntry = ({index, name, value = {}, readOnly}) => {
+  const entryName = `${index}_${name}_entry`;
+  const entryType = `${index}_${name}_type`;
+  return (
+    <div className="subject-entry">
+      {index > 0 && (
+        <ResponsiveButton
+          icon={<FontAwesome name="close" size="lg" fixedWidth/>}
+          className="remove-button btn btn-danger"
+          label={getLabel("LABEL_REMOVE_SUBJECT")}
+          fluid={{name: FLUID_SUBJECT_FIELDS_ON_CLICK, data: {command: REMOVE_SUBJECT, index, entryName}}}/>)}
 
-export const SubjectEntry = ({ index, name, value = {}, readOnly }) => {
-    const entryName = `${index}_${name}_entry`;
-    const entryType = `${index}_${name}_type`;
-    return (<div className="subject-entry">
-        {readOnlyWrapper((<div className="form-group clearfix">
-            <FieldView>{value}</FieldView>
-        </div>), (<div className="form-group clearfix">
+      <FormGroup label={getLabel("LABEL_SUBJECT_ENTRY")} className="clearfix">
+        {readOnlyWrapper(
+          <FieldView>{getValue(value, `${name}_entry`) + ' - ' + getValue(value, `${name}_type`, entryTypeValueTransformer)}</FieldView>,
+          <div>
             <div className="input-form col-sm-7">
-                <input
-                    name={entryName}
-                    placeholder={getLabel('LABEL_SUBJECT_ENTRY')}
-                    value={value[entryName]}
-                    className="form-control" />
+              <input
+                name={entryName}
+                placeholder={getLabel("LABEL_SUBJECT_ENTRY")}
+                value={value[`${name}_entry`]}
+                className="form-control"
+              />
             </div>
             <div className="button-form col-sm-5">
-                <SubjectEntriesDropdown name={entryType} value={value[entryType]} className="form-control" />
+              <SubjectEntriesDropdown
+                name={entryType}
+                value={value[`${name}_type`]}
+                className="form-control"
+              />
             </div>
-        </div>), readOnly)}
-        <SubjectSubdivision index={index} name={name} value={value} readOnly={readOnly} />
-        <div className="pull-right"><ResponsiveButton label="Add" /></div>
-    </div>);
+          </div>,
+          readOnly
+        )}
+      </FormGroup>
+      <SubjectSubdivision
+        index={index}
+        name={name}
+        value={value}
+        readOnly={readOnly}
+      />
+    </div>
+  );
 };
 
 SubjectEntry.propTypes = {
-    index: PropTypes.number,
-    name: PropTypes.string,
-    value: PropTypes.object,
-    readOnly: PropTypes.bool
+  index: PropTypes.number,
+  name: PropTypes.string,
+  value: PropTypes.object,
+  readOnly: PropTypes.bool
 };
