@@ -1,2 +1,2 @@
-export { AuthorFields } from './AuthorFields';
-export { SubjectFields } from './SubjectFields/';
+export {AuthorFields} from './AuthorFields/';
+export {SubjectFields} from './SubjectFields/';

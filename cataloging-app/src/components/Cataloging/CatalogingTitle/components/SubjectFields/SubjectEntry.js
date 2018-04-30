@@ -41,7 +41,7 @@ export const SubjectEntry = ({index, name, value = {}, readOnly}) => {
             <div className="button-form col-sm-5">
               <SubjectEntriesDropdown
                 name={entryType}
-                value={value[`${name}_type`]}
+                value={value[`${name}_type`] || ''}
                 className="form-control"
               />
             </div>

@@ -27,19 +27,18 @@ export class SubjectFields extends React.Component {
       .spec("command", {require: true});
   }
 
-  componentWillMount() {
-  }
-
   componentDidUpdate(prevProps) {
-    const values = this.getSubjects(prevProps.formValue);
-    values.forEach((entry, _index) => {
-      Object.keys(entry).forEach((field) => {
-        const value = FluidForm.getValue(this.props.formValue, `${_index}_${field}`);
-        if (value && value !== this.getValue(field, _index)) {
-          this.setValue(field, value, _index);
-        }
+    if (!this.props.readOnly && this.props.formValue.touched) {
+      const values = this.getSubjects(prevProps.formValue);
+      values.forEach((entry, _index) => {
+        Object.keys(entry).forEach((field) => {
+          const value = FluidForm.getValue(this.props.formValue, `${_index}_${field}`);
+          if (value && value !== this.getValue(field, _index)) {
+            this.setValue(field, value, _index);
+          }
+        });
       });
-    });
+    }
   }
 
   _setValue(field, value, fieldIndex) {
@@ -115,7 +114,8 @@ export class SubjectFields extends React.Component {
 
   render() {
     return (
-      <SubjectEntries readOnly={this.props.readOnly} values={this.getSubjects(this.props.formValue)} name={this.props.field.name}/>
+      <SubjectEntries readOnly={this.props.readOnly} values={this.getSubjects(this.props.formValue)}
+                      name={this.props.field.name}/>
     );
   }
 }

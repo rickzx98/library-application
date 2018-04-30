@@ -1,7 +1,8 @@
-import {FluidForm, FluidFunc, React} from '../../imports';
-import {Authors} from './Authors';
+import {FluidForm, FluidFunc, React, PropTypes} from '../../imports';
 import {ADD_AUTHOR, FLUID_AUTHOR_FIELDS_ON_CLICK, REMOVE_AUTHOR} from './constants';
+import {Authors} from './Authors';
 
+import {PAGE_NAME} from '../../constants';
 
 export class AuthorFields extends React.Component {
   constructor(props) {
@@ -11,6 +12,8 @@ export class AuthorFields extends React.Component {
     this.setValue = this._setValue.bind(this);
     this.addAuthor = this._addAuthor.bind(this);
     this.removeAuthor = this._removeAuthor.bind(this);
+    this.getValue = this._getValue.bind(this);
+
     FluidFunc.create(FLUID_AUTHOR_FIELDS_ON_CLICK)
       .onStart(({command, index}) => {
         switch (command()) {
@@ -26,15 +29,17 @@ export class AuthorFields extends React.Component {
   }
 
   componentDidUpdate(prevProps) {
-    const values = this.getAuthors(prevProps.formValue);
-    values.forEach((entry, _index) => {
-      Object.keys(entry).forEach((field) => {
-        const value = FluidForm.getValue(this.props.formValue, `${_index}_${field}`);
-        if (value && value !== this.getValue(field, _index)) {
-          this.setValue(field, value, _index);
-        }
+    if (!this.props.readOnly && this.props.formValue.touched) {
+      const values = this.getAuthors(prevProps.formValue);
+      values.forEach((entry, _index) => {
+        Object.keys(entry).forEach((field) => {
+          const value = FluidForm.getValue(this.props.formValue, `${_index}_${field}`);
+          if (value && value !== this.getValue(field, _index)) {
+            this.setValue(field, value, _index);
+          }
+        });
       });
-    });
+    }
   }
 
   _createDefaultAuthors() {
@@ -93,7 +98,8 @@ export class AuthorFields extends React.Component {
   }
 
   render() {
-    return <Authors values={this.getAuthors} name={this.props.field.name} readOnly={this.props.readOnly}/>;
+    return (<Authors values={this.getAuthors(this.props.formValue)} name={this.props.field.name}
+                     readOnly={this.props.readOnly}/>);
   }
 }
 

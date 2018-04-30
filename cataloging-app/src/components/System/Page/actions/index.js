@@ -99,7 +99,6 @@ export const update = (pageName, id, input) => dispatch => {
     .then(() => {
       dispatch(NotificationActions.alertSuccess(getLabel(`LABEL_UPDATE_${pageName}_SUCCESS`)));
       dispatch(AjaxStatusActions.ajaxCallSuccess());
-      dispatch(prevPage(pageName));
     })
     .catch(error => {
       dispatch(AjaxStatusActions.ajaxCallError(error));
