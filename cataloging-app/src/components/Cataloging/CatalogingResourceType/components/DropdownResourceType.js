@@ -1,5 +1,6 @@
-import { getLabel, FluidApi, FluidForm, PropTypes, React, ResourceType } from '../imports';
-import { PAGE_NAME } from '../constants';
+import {FieldView, FluidApi, FluidForm, getLabel, PropTypes, React, readOnlyWrapper, ResourceType} from '../imports';
+import {PAGE_NAME} from '../constants';
+import {viewTransformer} from './transformer/ResourceTypeTransformer';
 
 export class DropdownResourceType extends React.Component {
   constructor(props) {
@@ -8,26 +9,33 @@ export class DropdownResourceType extends React.Component {
       loading: false,
       data: []
     };
+    this.transformer = this._viewTransformer.bind(this);
   }
+
   componentWillMount() {
     this.refresh();
   }
+
   setData(data) {
-    this.setState({ data });
+    this.setState({data});
   }
+
   loadingOn() {
-    this.setState({ loading: true });
+    this.setState({loading: true});
   }
+
   loadingOff() {
-    this.setState({ loading: false });
+    this.setState({loading: false});
   }
+
   error(error) {
-    this.setState({ error });
+    this.setState({error});
   }
+
   refresh() {
     this.loadingOn();
     FluidApi.storage(PAGE_NAME)
-      .then(({ data }) => {
+      .then(({data}) => {
         this.setData(data());
         this.loadingOff();
       })
@@ -38,20 +46,28 @@ export class DropdownResourceType extends React.Component {
       });
   }
 
+  _viewTransformer(value) {
+    return viewTransformer(this.state.data, value);
+  }
+
   render() {
-    return (<select
-      className="form-control"
-      name={this.props.field.name}
-      value={FluidForm.getValue(this.props.formValue, this.props.field.name)}>
-      <option value="">{getLabel('LABEL_SELECT_OPTIONS')}</option>
-      {this.state.data && this.state.data.map(
-        data => (<option key={data[ResourceType.ID]} value={data[ResourceType.ID]}>{data[ResourceType.VALUE]}</option>)
-      )}
-    </select>);
+    return readOnlyWrapper(
+      <FieldView>{FluidForm.getValue(this.props.formValue, this.props.field.name, this.transformer)}</FieldView>, (
+        <select
+          className="form-control"
+          name={this.props.field.name}
+          value={FluidForm.getValue(this.props.formValue, this.props.field.name)}>
+          <option value="">{getLabel('LABEL_SELECT_OPTIONS')}</option>
+          {this.state.data && this.state.data.map(
+            data => (
+              <option key={data[ResourceType.ID]} value={data[ResourceType.ID]}>{data[ResourceType.VALUE]}</option>)
+          )}
+        </select>), this.props.readOnly);
   }
 }
 
 DropdownResourceType.propTypes = {
   formValue: PropTypes.object,
-  field: PropTypes.object.isRequired
+  field: PropTypes.object.isRequired,
+  readOnly: PropTypes.bool
 };

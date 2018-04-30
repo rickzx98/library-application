@@ -1,9 +1,8 @@
-import {AuthorFields, SubjectFields, ResourceTypeDropdown} from "./components/";
-import {CrudPage, Title, getLabel} from "./imports";
+import {AuthorFields, SubjectFields} from "./components/";
+import {CrudPage, DropdownResourceType, FormTextArea, getLabel, Title, TitleLinks} from "./imports";
 import {FormSpecs, TableColumns} from "./api/";
 
 import {PAGE_NAME} from "./constants";
-import {TitleLinks} from "./TitleLinks";
 
 export const CatalogingTitlePage = CrudPage({
   pageName: PAGE_NAME,
@@ -28,7 +27,7 @@ export const CatalogingTitlePage = CrudPage({
         case Title.TITLE_POINTS:
           return "col-sm-4 col-sm-offset-right-2";
         case Title.INTERNET_RESOURCE:
-          return "col-sm-5 col-sm-offset-right-1";
+          return "col-sm-6";
         case Title.RESOURCE_TYPE:
           return "col-sm-4 col-ms-offset-right-2";
         default:
@@ -42,7 +41,10 @@ export const CatalogingTitlePage = CrudPage({
         case Title.SUBJECTS:
           return SubjectFields;
         case Title.RESOURCE_TYPE:
-          return ResourceTypeDropdown;
+          return DropdownResourceType;
+        case Title.SUMMARY:
+        case Title.GENERAL_NOTE:
+          return FormTextArea;
         default:
           return false;
       }
@@ -53,11 +55,16 @@ export const CatalogingTitlePage = CrudPage({
           return AuthorFields;
         case Title.SUBJECTS:
           return SubjectFields;
+        case Title.SUMMARY:
+        case Title.GENERAL_NOTE:
+          return FormTextArea;
+        case Title.RESOURCE_TYPE:
+          return DropdownResourceType;
         default:
           return false;
       }
     }
   },
-  links: new TitleLinks().getLinks(),
+  links: new TitleLinks('title').getLinks(),
   tabbed: true
 });

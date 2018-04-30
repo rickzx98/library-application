@@ -235,6 +235,8 @@ export const LABEL_DELETE = 'Delete';
 export const LABEL_MORE = 'More';
 export const LABEL_CLOSE = 'Close';
 export const LABEL_OTHER_NAME = 'Other name';
+export const LABEL_REMOVE_AUTHOR = 'Remove author';
+export const LABEL_ADD_AUTHOR  = 'Add author';
 
 // Subject Fields
 
