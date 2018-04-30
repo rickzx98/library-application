@@ -252,3 +252,6 @@ export const LABEL_SUBDIVISION = 'Subdivision';
 export const LABEL_SUBJECT_ENTRY = 'Subject entry';
 export const LABEL_ADD_SUBJECT = 'Add subject';
 export const LABEL_REMOVE_SUBJECT = 'Remove subject';
+
+// Notes/Other
+export const LABEL_NOTES_OTHER  = 'Notes/Other';

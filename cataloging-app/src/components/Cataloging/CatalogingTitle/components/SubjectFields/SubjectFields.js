@@ -83,14 +83,14 @@ export class SubjectFields extends React.Component {
   }
 
   _removeSubject(index) {
-    const values = [...this.state.values];
+    const values = [...this.getSubjects(this.props.formValue)];
     values.splice(index, 1);
     this.setValues(values);
   }
 
   _createDefaultSubject() {
     const entryName = `${this.props.field.name}_entry`;
-    const entryType = `${this.props.field.name}_subject_type`;
+    const entryType = `${this.props.field.name}_type`;
     const subDivision0Name = `${this.props.field.name}_subdivision_0`;
     const subDivision1Name = `${this.props.field.name}_subdivision_1`;
     const subDivision2Name = `${this.props.field.name}_subdivision_2`;
@@ -115,7 +115,7 @@ export class SubjectFields extends React.Component {
 
   render() {
     return (
-      <SubjectEntries values={this.getSubjects(this.props.formValue)} name={this.props.field.name}/>
+      <SubjectEntries readOnly={this.props.readOnly} values={this.getSubjects(this.props.formValue)} name={this.props.field.name}/>
     );
   }
 }

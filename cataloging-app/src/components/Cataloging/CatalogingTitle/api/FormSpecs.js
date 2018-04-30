@@ -1,4 +1,4 @@
-import { getLabel, Title } from "../imports";
+import {getLabel, Title} from "../imports";
 
 export default () => [
   {
@@ -9,7 +9,7 @@ export default () => [
   {
     field: Title.TITLE,
     label: getLabel("LABEL_TITLE"),
-    data: { require: true },
+    data: {require: true},
     group: getLabel("LABEL_TITLE")
   },
   {
@@ -84,5 +84,41 @@ export default () => [
     label: getLabel("LABEL_SUBJECT"),
     group: getLabel("LABEL_SUBJECT"),
     public: true
+  },
+  {
+    field: Title.SUMMARY,
+    label: getLabel("LABEL_SUMMARY"),
+    group: getLabel("LABEL_NOTES_OTHER"),
+    public: true
+  },
+  {
+    field: Title.GENERAL_NOTE,
+    label: getLabel("LABEL_GENERAL_NOTE"),
+    group: getLabel("LABEL_NOTES_OTHER"),
+    public: true
+  },
+  {
+    field: Title.STUDY_PROGRAM,
+    label: getLabel("LABEL_STUDY_PROGRAM"),
+    group: getLabel("LABEL_NOTES_OTHER")
+  },
+  {
+    field: Title.READING_LEVEL,
+    label: getLabel("LABEL_READING_LEVEL"),
+    group: getLabel("LABEL_NOTES_OTHER")
+  },
+  {
+    field: Title.TITLE_POINTS,
+    label: getLabel("LABEL_TITLE_POINTS"),
+    group: getLabel("LABEL_NOTES_OTHER")
+  },
+  {
+    field: Title.INTERNET_RESOURCE,
+    label: getLabel("LABEL_INTERNET_RESOURCE"),
+    group: getLabel("LABEL_NOTES_OTHER")
+  }, {
+    field: Title.RESOURCE_TYPE,
+    label: getLabel("LABEL_RESOURCE_TYPE"),
+    group: getLabel("LABEL_NOTES_OTHER")
   }
 ];

@@ -19,7 +19,7 @@ export const SubjectEntry = ({index, name, value = {}, readOnly}) => {
   const entryType = `${index}_${name}_type`;
   return (
     <div className="subject-entry">
-      {index > 0 && (
+      {index > 0 && !readOnly && (
         <ResponsiveButton
           icon={<FontAwesome name="close" size="lg" fixedWidth/>}
           className="remove-button btn btn-danger"

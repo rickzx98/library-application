@@ -18,7 +18,7 @@ export const SubjectSubdivision = ({index, name, value = {}, readOnly}) => {
 
   return (<FormGroup label={getLabel("LABEL_SUBDIVISION")} className="subject-subdivistion">
     {readOnlyWrapper((<div className="form-group clearfix">
-      <FieldView>{getValue(value, subDivision0NameValue) + ' - ' + getValue(value, subDivision0TypeValue, subdivisionValueTransformer)}</FieldView>
+      <FieldView>{getValue(value, subDivision0NameValue) ? (getValue(value, subDivision0NameValue) + ' - ' + getValue(value, subDivision0TypeValue, subdivisionValueTransformer)) : ''}</FieldView>
     </div>), (<div className="form-group clearfix">
       <div className="input-form col-sm-7">
         <input name={subDivision0Name}
@@ -32,7 +32,7 @@ export const SubjectSubdivision = ({index, name, value = {}, readOnly}) => {
       </div>
     </div>), readOnly)}
     {readOnlyWrapper((<div className="form-group clearfix">
-      <FieldView>{getValue(value, subDivision1NameValue) + ' - ' + getValue(value, subDivision1TypeValue, subdivisionValueTransformer)}</FieldView>
+      <FieldView>{getValue(value, subDivision1NameValue) ? (getValue(value, subDivision1NameValue) + ' - ' + getValue(value, subDivision1TypeValue, subdivisionValueTransformer)) : ''}</FieldView>
     </div>), (<div className="form-group clearfix">
       <div className="input-form col-sm-7">
         <input name={subDivision1Name}
@@ -46,7 +46,7 @@ export const SubjectSubdivision = ({index, name, value = {}, readOnly}) => {
       </div>
     </div>), readOnly)}
     {readOnlyWrapper((<div className="form-group clearfix">
-      <FieldView>{getValue(value, subDivision2NameValue) + ' - ' + getValue(value, subDivision2TypeValue, subdivisionValueTransformer)}</FieldView>
+      <FieldView>{getValue(value, subDivision2NameValue) ? (getValue(value, subDivision2NameValue) + ' - ' + getValue(value, subDivision2TypeValue, subdivisionValueTransformer)) : ''}</FieldView>
     </div>), (<div className="form-group clearfix">
       <div className="input-form col-sm-7">
         <input name={subDivision2Name}

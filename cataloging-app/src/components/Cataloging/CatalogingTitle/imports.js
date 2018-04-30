@@ -5,7 +5,7 @@ import r from 'react';
 export const PropTypes = pt;
 export const React = r;
 export const FluidFunc = _FluidFunc;
-export {Title, SubDivision, SubjectEntry} from '../../../types/';
+export {Title, SubDivision, SubjectEntry, ResourceType} from '../../../types/';
 export {CreatePage, CreateReduxPage, CrudPage} from '../../System/Page/';
 export {getLabel, requireMessage, OptionLinks, readOnlyWrapper, getValue} from '../../../utils/';
 export {FontAwesome, Page, Label, FormGroup, ResponsiveButton, FieldView} from '../../common/';
