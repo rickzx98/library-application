@@ -177,7 +177,8 @@ export const Title = {
   LIBRARY: 'library',
   RATING: 'rating',
   ISSN: 'issn',
-  PLACE_OF_PUBLICATION: 'placeOfPublication'
+  PLACE_OF_PUBLICATION: 'placeOfPublication',
+  PUBLIC_NOTE: 'publicNote'
 };
 export const Librarian = {
   ID: '_id',

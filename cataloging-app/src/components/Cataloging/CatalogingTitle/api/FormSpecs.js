@@ -121,19 +121,49 @@ export default () => [
     label: getLabel("LABEL_RESOURCE_TYPE"),
     group: getLabel("LABEL_NOTES_OTHER")
   }, {
-    isVisible: (state) => state && state.managed,
+  /*  isVisible: (state) => state && state.managed,*/
     field: Title.CALL_NUMBER,
     label: getLabel("LABEL_CALL_NUMBER"),
     group: getLabel("LABEL_COPIES")
   }, {
-    isVisible: (state) => state && state.managed,
+ /*   isVisible: (state) => state && state.managed,*/
     field: Title.LOCATION,
     label: getLabel("LABEL_LOCATION"),
     group: getLabel("LABEL_COPIES")
   }, {
-    isVisible: (state) => state && state.managed,
+    /*isVisible: (state) => state && state.managed,*/
     field: Title.FORMAT,
     label: getLabel("LABEL_FORMAT"),
+    group: getLabel("LABEL_COPIES")
+  }, {
+    /*isVisible: (state) => state && state.managed,*/
+    field: Title.COST,
+    label: getLabel("LABEL_COST"),
+    group: getLabel("LABEL_COPIES")
+  }, {
+    /*isVisible: (state) => state && state.managed,*/
+    field: Title.CURRENCY,
+    label: getLabel("LABEL_CURRENCY"),
+    group: getLabel("LABEL_COPIES")
+  }, {
+    /*isVisible: (state) => state && state.managed,*/
+    field: Title.VENDOR,
+    label: getLabel("LABEL_VENDOR"),
+    group: getLabel("LABEL_COPIES")
+  }, {
+    /*isVisible: (state) => state && state.managed,*/
+    field: Title.FUND,
+    label: getLabel("LABEL_FUND"),
+    group: getLabel("LABEL_COPIES")
+  }, {
+    /*isVisible: (state) => state && state.managed,*/
+    field: Title.DATE,
+    label: getLabel("LABEL_DATE"),
+    group: getLabel("LABEL_COPIES")
+  }, {
+    /*isVisible: (state) => state && state.managed,*/
+    field: Title.PUBLIC_NOTE,
+    label: getLabel("LABEL_PUBLIC_NOTE"),
     group: getLabel("LABEL_COPIES")
   }
 ];

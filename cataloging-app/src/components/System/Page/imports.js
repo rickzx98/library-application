@@ -9,7 +9,8 @@ export const UrlPattern = _UrlPattern;
 export const FluidFunc = _FluidFunc;
 export {
   Page, FontAwesome, Label, FieldView,
-  FormGroup, HiddenButton, Tab, Tabs
+  FormGroup, HiddenButton, Tab, Tabs,
+  DatePicker
 } from '../../common/';
 export {FluidTable, FluidForm, FluidApi} from 'fluid-commons';
 export {generateUID, getLabel, ModelValueTransformer, readOnlyWrapper, getRequireMessage} from '../../../utils/';

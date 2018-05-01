@@ -1,4 +1,4 @@
-import { getLabel, LoanType } from '../imports';
+import {getLabel, LoanType} from '../imports';
 
 export default () => ([
   {
@@ -17,6 +17,7 @@ export default () => ([
     field: LoanType.LOAN_PERIOD,
     label: getLabel('LABEL_LOAN_PERIOD'),
     data: {
+      default: 15,
       require: true
     }
   },
@@ -24,6 +25,7 @@ export default () => ([
     field: LoanType.GRACE_PERIOD,
     label: getLabel('LABEL_LOAN_GRACE_PERIOD'),
     data: {
+      default: 1,
       require: true
     }
   },
@@ -31,6 +33,7 @@ export default () => ([
     field: LoanType.FINE_CYCLE,
     label: getLabel('LABEL_FINE_CYCLE'),
     data: {
+      default: 1,
       require: true
     }
   },
@@ -38,13 +41,15 @@ export default () => ([
     field: LoanType.MAX_LOAN_AMOUNT,
     label: getLabel('LABEL_MAX_LOAN_AMOUNT'),
     data: {
+      default: 5,
       require: true
     }
   },
   {
     field: LoanType.FINE_AMOUNT,
-    label: getLabel('LABEL_MAX_LOAN_AMOUNT'),
+    label: getLabel('LABEL_FINE_AMOUNT'),
     data: {
+      default: '0.00',
       require: true
     }
   },
@@ -52,6 +57,7 @@ export default () => ([
     field: LoanType.FEE_AMOUNT,
     label: getLabel('LABEL_FEE_AMOUNT'),
     data: {
+      default: '0.00',
       require: true
     }
   },

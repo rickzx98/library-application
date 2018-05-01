@@ -12,3 +12,6 @@ export {PageListWithLinks} from './PageList/PageListWithLinks';
 export {PageTabbedForm} from './PageForm/PageTabbedForm';
 export {PageLinks} from './PageLinks/PageLinks';
 export {FormTextArea} from './components/FormTextArea';
+export {FormInputNumber} from './components/FormInputNumber';
+export {FormYesOrNO} from './components/FormYesOrNo';
+export {FormDate} from './components/FormDate';

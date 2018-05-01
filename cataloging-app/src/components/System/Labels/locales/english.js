@@ -175,13 +175,13 @@ export const LABEL_CALL_NUMBER = 'Call Number';
 export const LABEL_CURRENCY = 'Currency';
 export const LABEL_FUND = 'Fund';
 export const LABEL_PLACE_OF_PUBLICATION = 'Place of publication';
-
+export const LABEL_PUBLIC_NOTE = 'Public note';
 // loantype
 export const LABEL_LOAN_PERIOD = 'Loan period';
 export const LABEL_LOAN_GRACE_PERIOD = 'Grace period';
 export const LABEL_FINE_CYCLE = 'Fine cycle';
 export const LABEL_MAX_LOAN_AMOUNT = 'Max loan amount';
-export const LABLE_FINE_AMOUNT = 'Fine amount';
+export const LABEL_FINE_AMOUNT = 'Fine amount';
 export const LABEL_FEE_AMOUNT = 'Fee amount';
 export const LABEL_CAN_LEAVE = 'Item can leave library';
 export const LABEL_PER_HOUR = 'Loan by hour';
