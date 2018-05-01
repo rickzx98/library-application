@@ -1,4 +1,4 @@
-import {FontAwesome, Label, PropTypes, React} from '../imports';
+import {FontAwesome, Label, PropTypes, React, FluidFunc} from '../imports';
 
 function Link({links, props, state, goToUrl, show, hide}) {
   return links.filter(link => link.isVisible && link.isVisible instanceof Function ? link.isVisible(props, state) : true)
@@ -9,7 +9,18 @@ function Link({links, props, state, goToUrl, show, hide}) {
       } else if (link.root && link.show && (link.active || !link.url)) {
         hide(link.group);
       } else {
-        goToUrl(link.url);
+        if (link.fluid) {
+          console.log("fluid",link);
+          const {name, data, resolve} = link.fluid;
+          if (FluidFunc.exists(name)) {
+            const promise = FluidFunc.start(name, data);
+            if (resolve && resolve instanceof Function) {
+              resolve(promise);
+            }
+          }
+        } else {
+          goToUrl(link.url);
+        }
       }
     }} key={link.name}
                      className={`page-link list-group-item ${!link.root && link.group && 'grouped'} ${link.active ? 'active' : ''}`}>{link.icon &&

@@ -9,7 +9,7 @@ export const Authors = ({values, readOnly, name}) => {
         {!readOnly && (<ResponsiveButton
           disabled={values.length > 6}
           icon={<FontAwesome name="plus" size="lg" fixedWidth/>}
-          className="add-button btn btn-secondary"
+          className="add-button btn btn-sm btn-secondary"
           label={getLabel("LABEL_ADD_AUTHOR")}
           fluid={{name: FLUID_AUTHOR_FIELDS_ON_CLICK, data: {command: ADD_AUTHOR}}}/>)}
       </div>

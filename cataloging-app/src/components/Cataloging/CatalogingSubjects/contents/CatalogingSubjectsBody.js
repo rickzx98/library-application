@@ -7,7 +7,7 @@ export const CatalogingSubjectsBody = ({ formValue, onToggle, subjects, createWi
   create, onSubmit, onFailed, view, links, goToUrl}) => {
   return (<Page icon="leanpub" label={getLabel('LABEL_SUBJECTS')} banner="/subject-header.jpg">
     {tree(() => (
-      <div className="page-list-with-links">
+      <div className="with-links">
         {links && links.length > 0 && (<PageLinks
           links={links}
           goToUrl={goToUrl}/>)}

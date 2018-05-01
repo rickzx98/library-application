@@ -1,18 +1,19 @@
 import {Page, React, FluidForm} from '../imports';
-import {PageForm, PageHeaders, PageListWithLinks, PageTabbedForm} from '../../Page/';
+import {PageForm, PageHeaders, PageListWithLinks, PageTabbedForm, WithLinks} from '../../Page/';
 
 export default ({
                   pageName, FormSpecs, TableColumns, page, formProps,
                   listTransformer, routes, links, fieldKey, overridePages = {},
-                  tabbed = false
+                  tabbed = false, pageLinks
                 }) => (instance) => {
-  instance.state = {editable: false};
+  instance.state = {editable: false, links};
   const {forCreateView, forListView, forManagedUpdateView, forManagedView} = new PageHeaders(pageName);
   return {
     componentWillMount: () => {
       instance.refresh();
       instance.createHeaders();
       instance.setEditable(false);
+      instance.setLinks();
     },
     componentDidUpdate: (prevProps, prevState) => {
       if (instance.props.routing.location.pathname !== prevProps.routing.location.pathname) {
@@ -20,6 +21,11 @@ export default ({
         FluidForm.clear(pageName);
         instance.refresh();
         instance.createHeaders();
+        instance.setLinks();
+      }
+      if (instance.state.activeKey !== prevState.activeKey) {
+        instance.createHeaders();
+        instance.setLinks();
       }
       if ((instance.props.ajax.started !== prevProps.ajax.started) ||
         (instance.state.editable !== prevState.editable)) {
@@ -106,9 +112,35 @@ export default ({
         instance.props.actions.goToUrl(url);
       });
     },
-    onSelectTab: (key) => {
+    onSelectTab: (activeKey) => {
       if (formProps.onSelectTab) {
-        formProps.onSelectTab(key);
+        formProps.onSelectTab(activeKey);
+      }
+      instance.setState({activeKey});
+    },
+    setLinks: () => {
+      if (pageLinks) {
+        let links = [];
+        instance.list(params => {
+          links = pageLinks('list', instance.state, params);
+        });
+        instance.create(params => {
+          links = pageLinks('create', instance.state, params);
+        });
+        instance.view(params => {
+          links = pageLinks('view', instance.state, params);
+        });
+        instance.setState({links});
+      } else {
+        instance.list(() => {
+          instance.setState({links});
+        });
+        instance.create(() => {
+          instance.setState({links: []});
+        });
+        instance.view(() => {
+          instance.setState({links: []});
+        });
       }
     },
     render: function Instance() {
@@ -120,13 +152,18 @@ export default ({
           goToUrl={instance.goToUrl}
           state={instance.state}
           props={instance.props}
-          links={links}
+          links={instance.state.links}
           columns={TableColumns}
           data={instance.props.pageList}
           onSelect={instance.onSelect}/>);
       });
       instance.create(() => {
-        element = (<div className={`clearfix ${!tabbed && 'page-form'}`}>
+        element = (<WithLinks
+          goToUrl={instance.goToUrl}
+          state={instance.state}
+          props={instance.props}
+          links={instance.state.links}
+          className={`clearfix ${!tabbed && 'page-form'}`}>
           {overridePages.create && overridePages.create({
             formSpecs: FormSpecs,
             pageName,
@@ -154,10 +191,15 @@ export default ({
               onSubmit={instance.onFormSubmit}
               onSelectTab={instance.onSelectTab}
               readOnly={false}/>)}
-        </div>);
+        </WithLinks>);
       });
       instance.view(() => {
-        element = (<div className={`clearfix ${!tabbed && 'page-form'}`}>
+        element = (<WithLinks
+          goToUrl={instance.goToUrl}
+          state={instance.state}
+          props={instance.props}
+          links={instance.state.links}
+          className={`clearfix ${!tabbed && 'page-form'}`}>
           {overridePages.view && overridePages.view({
             formSpecs: FormSpecs,
             pageName,
@@ -184,9 +226,8 @@ export default ({
               onFailed={instance.onFormFailed}
               onSubmit={instance.onFormSubmit}
               onSelectTab={instance.onSelectTab}
-
               readOnly={!instance.state.editable}/>)}
-        </div>);
+        </WithLinks>);
       });
 
       return <Page {...page}>{element}</Page>;

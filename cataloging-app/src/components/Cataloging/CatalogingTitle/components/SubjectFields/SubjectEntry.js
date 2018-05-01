@@ -22,7 +22,7 @@ export const SubjectEntry = ({index, name, value = {}, readOnly}) => {
       {index > 0 && !readOnly && (
         <ResponsiveButton
           icon={<FontAwesome name="close" size="lg" fixedWidth/>}
-          className="remove-button btn btn-danger"
+          className="remove-button btn btn-sm btn-danger"
           label={getLabel("LABEL_REMOVE_SUBJECT")}
           fluid={{name: FLUID_SUBJECT_FIELDS_ON_CLICK, data: {command: REMOVE_SUBJECT, index, entryName}}}/>)}
 

@@ -262,3 +262,9 @@ export const LABEL_NOTES_OTHER = 'Notes/Other';
 export const LABEL_COPIES = 'Copies';
 export const LABEL_MAIN = 'Main';
 export const LABEL_FORMAT = 'Format';
+
+
+// Title Page
+export const LABEL_NEXT = 'Next';
+export const LABEL_NEXT_TAB = 'Next tab';
+export const LABEL_PREVIOUS_TAB = 'Previous tab';
