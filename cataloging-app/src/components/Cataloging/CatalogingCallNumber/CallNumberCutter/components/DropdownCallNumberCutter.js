@@ -1,4 +1,4 @@
-import { getLabel, FluidApi, FluidForm, PropTypes, React, Cutter } from '../../imports';
+import { getLabel, FluidApi, PropTypes, React, Cutter } from '../../imports';
 import { PAGE_NAME } from '../constants';
 
 export class DropdownCallNumberCutter extends React.Component {
@@ -47,8 +47,8 @@ export class DropdownCallNumberCutter extends React.Component {
   render() {
     return (<select
       className="form-control"
-      name={this.props.field.name}
-      value={FluidForm.getValue(this.props.formValue, this.props.field.name)}>
+      name={this.props.name}
+      value={this.props.value}>
       <option value="">{getLabel('LABEL_SELECT_OPTIONS')}</option>
       {this.state.data && this.state.data.map(
         data => (<option key={data[Cutter.ID]} value={data[Cutter.ID]}>{data[Cutter.VALUE]}</option>)
@@ -58,6 +58,6 @@ export class DropdownCallNumberCutter extends React.Component {
 }
 
 DropdownCallNumberCutter.propTypes = {
-  formValue: PropTypes.object,
-  field: PropTypes.object.isRequired
+  name: PropTypes.string.isRequired,
+  value: PropTypes.string
 };

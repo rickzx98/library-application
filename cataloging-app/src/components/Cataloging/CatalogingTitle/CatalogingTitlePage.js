@@ -1,5 +1,5 @@
-import {AuthorFields, SubjectFields} from "./components/";
-import {CrudPage, DropdownResourceType, FormTextArea, getLabel, Title, TitleLinks} from "./imports";
+import {AuthorFields, SubjectFields, CallNumberFields} from "./components/";
+import {CrudPage, DropdownResourceType, FormTextArea, getLabel, Title, TitleLinks, DropdownLibrary, DropdownLoanType} from "./imports";
 import {FormSpecs, TableColumns} from "./api/";
 
 import {PAGE_NAME} from "./constants";
@@ -29,7 +29,9 @@ export const CatalogingTitlePage = CrudPage({
         case Title.INTERNET_RESOURCE:
           return "col-sm-6";
         case Title.RESOURCE_TYPE:
-          return "col-sm-4 col-ms-offset-right-2";
+          return "col-sm-4 col-sm-offset-right-2";
+        case Title.CALL_NUMBER:
+          return "col-sm-10 col-sm-offset-right-2 no-pad-left";
         default:
           return "col-sm-6 col-sm-offset-right-6 col-md-4 col-md-offset-right-8";
       }
@@ -45,6 +47,12 @@ export const CatalogingTitlePage = CrudPage({
         case Title.SUMMARY:
         case Title.GENERAL_NOTE:
           return FormTextArea;
+        case Title.CALL_NUMBER:
+          return CallNumberFields;
+        case Title.LOCATION:
+          return DropdownLibrary;
+        case Title.FORMAT:
+          return DropdownLoanType;
         default:
           return false;
       }
@@ -60,6 +68,12 @@ export const CatalogingTitlePage = CrudPage({
           return FormTextArea;
         case Title.RESOURCE_TYPE:
           return DropdownResourceType;
+        case Title.CALL_NUMBER:
+          return CallNumberFields;
+        case Title.LOCATION:
+          return DropdownLibrary;
+        case Title.FORMAT:
+          return DropdownLoanType;
         default:
           return false;
       }

@@ -1,8 +1,8 @@
-import {FieldView, FluidApi, FluidForm, getLabel, PropTypes, React, readOnlyWrapper, LoanType} from '../imports';
+import {FieldView, FluidApi, FluidForm, getLabel, PropTypes, React, readOnlyWrapper, Library} from '../imports';
 import {PAGE_NAME} from '../constants';
-import {viewTransformer} from './LoanTypeTransformer';
+import {viewTransformer} from './LibraryTransformer';
 
-export class DropdownLoanType extends React.Component {
+export class DropdownLibrary extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -60,13 +60,13 @@ export class DropdownLoanType extends React.Component {
           <option value="">{getLabel('LABEL_SELECT_OPTIONS')}</option>
           {this.state.data && this.state.data.map(
             data => (
-              <option key={data[LoanType.ID]} value={data[LoanType.ID]}>{data[LoanType.NAME]}</option>)
+              <option key={data[Library.ID]} value={data[Library.ID]}>{data[Library.NAME]}</option>)
           )}
         </select>), this.props.readOnly);
   }
 }
 
-DropdownLoanType.propTypes = {
+DropdownLibrary.propTypes = {
   formValue: PropTypes.object,
   field: PropTypes.object.isRequired,
   readOnly: PropTypes.bool

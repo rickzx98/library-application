@@ -55,12 +55,6 @@ export class TitleLinks extends OptionLinks {
         label: getLabel('LABEL_CUTTER'),
         url: '/cutter',
         group: 'callNumber'
-      },
-      {
-        name: 'suffix',
-        label: getLabel('LABEL_SUFFIX'),
-        url: '/suffix',
-        group: 'callNumber'
       }]).getLinks(), omit);
   }
 }

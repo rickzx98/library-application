@@ -120,5 +120,20 @@ export default () => [
     field: Title.RESOURCE_TYPE,
     label: getLabel("LABEL_RESOURCE_TYPE"),
     group: getLabel("LABEL_NOTES_OTHER")
+  }, {
+    isVisible: (state) => state && state.managed,
+    field: Title.CALL_NUMBER,
+    label: getLabel("LABEL_CALL_NUMBER"),
+    group: getLabel("LABEL_COPIES")
+  }, {
+    isVisible: (state) => state && state.managed,
+    field: Title.LOCATION,
+    label: getLabel("LABEL_LOCATION"),
+    group: getLabel("LABEL_COPIES")
+  }, {
+    isVisible: (state) => state && state.managed,
+    field: Title.FORMAT,
+    label: getLabel("LABEL_FORMAT"),
+    group: getLabel("LABEL_COPIES")
   }
 ];

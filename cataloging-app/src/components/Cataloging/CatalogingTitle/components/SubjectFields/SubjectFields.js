@@ -32,8 +32,9 @@ export class SubjectFields extends React.Component {
       const values = this.getSubjects(prevProps.formValue);
       values.forEach((entry, _index) => {
         Object.keys(entry).forEach((field) => {
+          const preValue = FluidForm.getValue(prevProps.formValue, `${_index}_${field}`);
           const value = FluidForm.getValue(this.props.formValue, `${_index}_${field}`);
-          if (value && value !== this.getValue(field, _index)) {
+          if ((preValue !== value) && (value !== this.getValue(field, _index))) {
             this.setValue(field, value, _index);
           }
         });

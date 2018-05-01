@@ -236,7 +236,7 @@ export const LABEL_MORE = 'More';
 export const LABEL_CLOSE = 'Close';
 export const LABEL_OTHER_NAME = 'Other name';
 export const LABEL_REMOVE_AUTHOR = 'Remove author';
-export const LABEL_ADD_AUTHOR  = 'Add author';
+export const LABEL_ADD_AUTHOR = 'Add author';
 
 // Subject Fields
 
@@ -256,4 +256,9 @@ export const LABEL_ADD_SUBJECT = 'Add subject';
 export const LABEL_REMOVE_SUBJECT = 'Remove subject';
 
 // Notes/Other
-export const LABEL_NOTES_OTHER  = 'Notes/Other';
+export const LABEL_NOTES_OTHER = 'Notes/Other';
+
+// Copies
+export const LABEL_COPIES = 'Copies';
+export const LABEL_MAIN = 'Main';
+export const LABEL_FORMAT = 'Format';
