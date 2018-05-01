@@ -1,5 +1,3 @@
-import 'react-datepicker/dist/react-datepicker.css';
-
 import Lb from './LoadingBalls';
 import ReactBootstrapMenuItem from 'react-bootstrap/lib/MenuItem';
 import ReactBootstrapModal from 'react-bootstrap/lib/Modal';
@@ -9,7 +7,7 @@ import ReactBootstrapNavItem from 'react-bootstrap/lib/NavItem';
 import ReactBootstrapNavbar from 'react-bootstrap/lib/Navbar';
 import ReactBootstrapTab from 'react-bootstrap/lib/Tab';
 import ReactBootstrapTabs from 'react-bootstrap/lib/Tabs';
-import ReactDatePicker from 'react-datepicker';
+import ReactDatePicker from 'react-date-picker';
 import ReactFontAwesome from 'react-fontawesome';
 import { Treebeard } from 'react-treebeard';
 import _Barcode from 'react-barcode';

@@ -33,6 +33,7 @@ export const PageForm = ({ formName, formValue,
           viewValueTransformer={viewValueTransformer}
           viewComponent={viewComponent} />,
           (<FormInput
+            formName={formName}
             FieldComponent={fieldComponent}
             field={field}
             formValue={formValue} />), readOnly)}

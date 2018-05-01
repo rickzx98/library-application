@@ -121,12 +121,12 @@ export default () => [
     label: getLabel("LABEL_RESOURCE_TYPE"),
     group: getLabel("LABEL_NOTES_OTHER")
   }, {
-  /*  isVisible: (state) => state && state.managed,*/
+    /*  isVisible: (state) => state && state.managed,*/
     field: Title.CALL_NUMBER,
     label: getLabel("LABEL_CALL_NUMBER"),
     group: getLabel("LABEL_COPIES")
   }, {
- /*   isVisible: (state) => state && state.managed,*/
+    /*   isVisible: (state) => state && state.managed,*/
     field: Title.LOCATION,
     label: getLabel("LABEL_LOCATION"),
     group: getLabel("LABEL_COPIES")
@@ -159,7 +159,8 @@ export default () => [
     /*isVisible: (state) => state && state.managed,*/
     field: Title.DATE,
     label: getLabel("LABEL_DATE"),
-    group: getLabel("LABEL_COPIES")
+    group: getLabel("LABEL_COPIES"),
+    public: true
   }, {
     /*isVisible: (state) => state && state.managed,*/
     field: Title.PUBLIC_NOTE,

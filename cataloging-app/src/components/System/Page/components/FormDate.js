@@ -1,11 +1,32 @@
 import {FluidForm, PropTypes, React, DatePicker} from '../imports';
 
-export const FormDate = ({field, formValue}) => {
-  return (<DatePicker
-    placeholder={field.label} name={field.name} className="form-input-number form-control"
-    selected={FluidForm.getValue(formValue, field.name)}/>);
-};
+export class FormDate extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {};
+    this.onChange = this._onChange.bind(this);
+  }
+
+  _onChange(value) {
+    this.setValue(value);
+  }
+
+  setValue(value) {
+    FluidForm.set(this.props.formName, this.props.field.name, value);
+  }
+
+  render() {
+    const {field, formValue} = this.props;
+    return (<DatePicker
+        calendarClassName="form-date-calendar"
+        onChange={this.onChange}
+        placeholder={field.label} className="form-date"
+        value={FluidForm.getValue(formValue, field.name)}/>);
+  }
+}
+
 FormDate.propTypes = {
+  formName: PropTypes.string.isRequired,
   field: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.object

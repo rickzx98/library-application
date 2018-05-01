@@ -3,7 +3,8 @@ import { FluidForm, PropTypes, React } from '../imports';
 export const FormInput = ({
   formValue,
   field,
-  FieldComponent
+  FieldComponent,
+  formName
 }) => {
   let element = (<input
     disabled={field.isDisabled}
@@ -13,13 +14,14 @@ export const FormInput = ({
   if (FieldComponent && FieldComponent(field.name)) {
     const FieldComp = FieldComponent(field.name);
     if (FieldComp instanceof Function) {
-      element = <FieldComp formValue={formValue} field={field} />;
+      element = <FieldComp formName={formName} formValue={formValue} field={field} />;
     }
   }
   return element;
 };
 
 FormInput.propTypes = {
+  formName: PropTypes.string.isRequired,
   field: PropTypes.object.isRequired,
   formValue: PropTypes.object,
   FieldComponent: PropTypes.func

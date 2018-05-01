@@ -20,7 +20,7 @@ export class PageTabbedForm extends React.Component {
       viewValueTransformer,
       fieldClass = () => '',
       fieldComponent,
-      viewComponent } = this.props;
+      viewComponent, formName } = this.props;
     const tabs = [];
     let eventKey = 1;
     for (let field in groups) {
@@ -41,6 +41,7 @@ export class PageTabbedForm extends React.Component {
                     viewValueTransformer={viewValueTransformer}
                     viewComponent={viewComponent} />,
                     (<FormInput
+                      formName={formName}
                       FieldComponent={fieldComponent}
                       field={field}
                       formValue={formValue} />), readOnly)}
