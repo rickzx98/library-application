@@ -10,7 +10,6 @@ function Link({links, props, state, goToUrl, show, hide}) {
         hide(link.group);
       } else {
         if (link.fluid) {
-          console.log("fluid",link);
           const {name, data, resolve} = link.fluid;
           if (FluidFunc.exists(name)) {
             const promise = FluidFunc.start(name, data);
