@@ -64,7 +64,9 @@ export const CatalogingTitlePage = CrudPage({
             "col-md-4 col-md-offset-right-3 " +
             "col-lg-3 col-lg-offset-right-6";
         case Title.LOCATION:
-           return "col-sm-6 col-md-4 col-lg-3";
+          return "col-sm-6 col-md-4 col-lg-3";
+        case Title.COPIES:
+          return "col-sm-6 col-md-4 col-md-offset-right-3 col-lg-3 col-lg-offset-right-6";
         default:
           return "col-sm-6 col-sm-offset-right-6 " +
             "col-md-4 col-md-offset-right-8 " +
@@ -102,6 +104,8 @@ export const CatalogingTitlePage = CrudPage({
           return FormDate;
         case Title.IMAGE_ID:
           return FormImageUploader;
+        case Title.COPIES:
+          return FormInputNumber;
         default:
           return false;
       }

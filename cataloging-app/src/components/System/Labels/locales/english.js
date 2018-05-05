@@ -263,7 +263,7 @@ export const LABEL_COPIES = 'Copies';
 export const LABEL_MAIN = 'Main';
 export const LABEL_FORMAT = 'Format';
 export const LABEL_UPLOAD_COVER = 'Upload cover';
-
+export const LABEL_NUMBER_OF_COPIES = 'Number of copies';
 // Title Page
 export const LABEL_NEXT = 'Next';
 export const LABEL_NEXT_TAB = 'Next tab';

@@ -148,6 +148,11 @@ export default () => [
     group: getLabel("LABEL_COPIES")
   }, {
     isVisible: (state) => state && state.managed,
+    field: Title.COPIES,
+    label: getLabel("LABEL_NUMBER_OF_COPIES"),
+    group: getLabel("LABEL_COPIES")
+  }, {
+    isVisible: (state) => state && state.managed,
     field: Title.FORMAT,
     label: getLabel("LABEL_FORMAT"),
     group: getLabel("LABEL_COPIES")
