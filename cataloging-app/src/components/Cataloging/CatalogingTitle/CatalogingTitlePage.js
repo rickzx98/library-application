@@ -13,7 +13,8 @@ import {
   DropdownVendor,
   DropdownFund,
   FormDate,
-  FLUID_GO_TO_TAB
+  FLUID_GO_TO_TAB,
+  FormImageUploader
 } from "./imports";
 import {FormSpecs, TableColumns} from "./api/";
 
@@ -62,6 +63,8 @@ export const CatalogingTitlePage = CrudPage({
           return "col-sm-5 col-sm-offset-right-1 " +
             "col-md-4 col-md-offset-right-3 " +
             "col-lg-3 col-lg-offset-right-6";
+        case Title.LOCATION:
+           return "col-sm-6 col-md-4 col-lg-3";
         default:
           return "col-sm-6 col-sm-offset-right-6 " +
             "col-md-4 col-md-offset-right-8 " +
@@ -97,6 +100,8 @@ export const CatalogingTitlePage = CrudPage({
           return FormTextArea;
         case Title.DATE:
           return FormDate;
+        case Title.IMAGE_ID:
+          return FormImageUploader;
         default:
           return false;
       }
@@ -126,6 +131,8 @@ export const CatalogingTitlePage = CrudPage({
           return DropdownFund;
         case Title.PUBLIC_NOTE:
           return FormTextArea;
+        case Title.IMAGE_ID:
+          return FormImageUploader;
         default:
           return false;
       }

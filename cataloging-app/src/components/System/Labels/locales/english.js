@@ -262,7 +262,7 @@ export const LABEL_NOTES_OTHER = 'Notes/Other';
 export const LABEL_COPIES = 'Copies';
 export const LABEL_MAIN = 'Main';
 export const LABEL_FORMAT = 'Format';
-
+export const LABEL_UPLOAD_COVER = 'Upload cover';
 
 // Title Page
 export const LABEL_NEXT = 'Next';

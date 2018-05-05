@@ -8,7 +8,7 @@ import './images/library-header.jpg';
 import './images/subject-header.jpg';
 import './images/app-icon.png';
 import './favicon.ico';
-
+import './images/upload-image.png';
 import configureStore, {history} from './store/configureStore';
 
 import {AppContainer} from 'react-hot-loader';
@@ -23,7 +23,7 @@ switch (NODE_ENV) {
   case 'DEVELOPMENT':
     FluidFunc.config({
       logMonitor: (monitor) => {
-        console.log(monitor);
+        console.log('monitor', monitor);
       }
     });
     break;

@@ -12,3 +12,10 @@
   }
 }
 
+.call-number {
+  #callNumber_main_form, #callNumber_cutter_form, #callNumber_suffix_form {
+    .field-view {
+      border-radius: 0 !important;
+    }
+  }
+}

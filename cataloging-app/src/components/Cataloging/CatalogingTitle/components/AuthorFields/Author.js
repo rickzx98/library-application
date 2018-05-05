@@ -5,7 +5,7 @@ export const Author = ({value = {}, index, readOnly, name}) => {
   return (<div className="author">
     {!readOnly && index > 0 && (<ResponsiveButton
       icon={<FontAwesome name="close" size="lg" fixedWidth/>}
-      className="remove-button btn btn-sm btn-danger"
+      className="remove-button btn btn-xs btn-danger"
       label={getLabel("LABEL_REMOVE_AUTHOR")}
       fluid={{name: FLUID_AUTHOR_FIELDS_ON_CLICK, data: {command: REMOVE_AUTHOR, index, author: value[name]}}}/>)}
     <div className="form-group clearfix">

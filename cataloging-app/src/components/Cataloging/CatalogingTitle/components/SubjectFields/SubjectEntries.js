@@ -18,7 +18,7 @@ export const SubjectEntries = ({values, readOnly, name}) => (
             data: {command: ADD_SUBJECT}
           }}
           icon={<FontAwesome name="plus" fixedWidth size="lg"/>}
-          className="btn btn-sm btn-secondary"
+          className="btn btn-xs btn-secondary"
           label={getLabel("LABEL_ADD_SUBJECT")}
         />)}
       </div>

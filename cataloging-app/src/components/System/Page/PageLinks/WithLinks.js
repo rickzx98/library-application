@@ -15,6 +15,10 @@ WithLinks.propTypes = {
   props: PropTypes.object,
   goToUrl: PropTypes.func.isRequired,
   state: PropTypes.object,
-  children: PropTypes.oneOfType[PropTypes.object, PropTypes.element,PropTypes.string],
+  children: PropTypes.oneOfType([
+    PropTypes.element,
+    PropTypes.string,
+    PropTypes.object
+  ]),
   className: PropTypes.string
 };

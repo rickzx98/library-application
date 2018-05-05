@@ -10,7 +10,7 @@ export const FluidFunc = _FluidFunc;
 export {
   Page, FontAwesome, Label, FieldView,
   FormGroup, HiddenButton, Tab, Tabs,
-  DatePicker
+  DatePicker, Dropzone, ReactImage
 } from '../../common/';
 export {FluidTable, FluidForm, FluidApi} from 'fluid-commons';
 export {generateUID, getLabel, ModelValueTransformer, readOnlyWrapper, getRequireMessage} from '../../../utils/';

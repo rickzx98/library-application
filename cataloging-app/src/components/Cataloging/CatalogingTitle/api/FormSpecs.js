@@ -126,7 +126,23 @@ export default () => [
     label: getLabel("LABEL_CALL_NUMBER"),
     group: getLabel("LABEL_COPIES")
   }, {
-       isVisible: (state) => state && state.managed,
+    isVisible: (state) => state && state.managed,
+    field: Title.IMAGE_ID,
+    label: getLabel("LABEL_UPLOAD_COVER"),
+    group: getLabel("LABEL_COPIES"),
+    data: {
+      transform: (value) => new Promise((resolve) => {
+        if (value.preview) {
+          resolve(value.preview);
+        } else {
+          resolve({
+            preview: value
+          });
+        }
+      })
+    }
+  }, {
+    isVisible: (state) => state && state.managed,
     field: Title.LOCATION,
     label: getLabel("LABEL_LOCATION"),
     group: getLabel("LABEL_COPIES")
