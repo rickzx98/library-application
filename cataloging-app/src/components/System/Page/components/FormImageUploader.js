@@ -16,7 +16,6 @@ export class FormImageUploader extends React.Component {
     const value = FluidForm.getValue(formValue, this.props.field.name);
     let file = {preview: '/upload-image.png'};
     if (value.preview) {
-      console.log('value', value);
       file = value;
     }
     return file;
@@ -42,7 +41,7 @@ export class FormImageUploader extends React.Component {
 }
 
 FormImageUploader.propTypes = {
-  formName: PropTypes.string.isRequired,
+  formName: PropTypes.string,
   field: PropTypes.object,
   formValue: PropTypes.object.isRequired,
   readOnly: PropTypes.bool

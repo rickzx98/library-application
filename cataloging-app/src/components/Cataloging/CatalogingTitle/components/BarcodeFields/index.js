@@ -1,0 +1,1 @@
+export { BarcodeFields } from "./BarcodeFields";

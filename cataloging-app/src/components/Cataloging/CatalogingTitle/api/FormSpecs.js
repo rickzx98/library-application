@@ -148,11 +148,6 @@ export default () => [
     group: getLabel("LABEL_COPIES")
   }, {
     isVisible: (state) => state && state.managed,
-    field: Title.COPIES,
-    label: getLabel("LABEL_NUMBER_OF_COPIES"),
-    group: getLabel("LABEL_COPIES")
-  }, {
-    isVisible: (state) => state && state.managed,
     field: Title.FORMAT,
     label: getLabel("LABEL_FORMAT"),
     group: getLabel("LABEL_COPIES")
@@ -187,5 +182,27 @@ export default () => [
     field: Title.PUBLIC_NOTE,
     label: getLabel("LABEL_PUBLIC_NOTE"),
     group: getLabel("LABEL_COPIES")
+  }, {
+    isVisible: (state) => state && state.managed,
+    field: Title.ACCESSIONS,
+    label: getLabel("LABEL_ACCESSIONS"),
+    group: getLabel("LABEL_COPIES"),
+    public: true
+  }, {
+    isVisible: (state) => state && state.managed,
+    field: Title.COPIES,
+    label: getLabel("LABEL_NUMBER_OF_COPIES"),
+    group: getLabel("LABEL_COPIES"),
+    public: true,
+    data: {
+      default: 1
+    }
+  },
+  {
+    isVisible: (state) => state && state.data && state.data[Title.BARCODE] && state.data[Title.BARCODE].length > 0,
+    field: Title.BARCODE,
+    label: getLabel("LABEL_BARCODE"),
+    group: getLabel("LABEL_BARCODE"),
+    public: true,
   }
 ];

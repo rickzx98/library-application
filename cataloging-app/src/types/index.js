@@ -179,7 +179,8 @@ export const Title = {
   ISSN: 'issn',
   PLACE_OF_PUBLICATION: 'placeOfPublication',
   PUBLIC_NOTE: 'publicNote',
-  COPIES: 'copies'
+  COPIES: 'copies',
+  ACCESSIONS: 'accessions'
 };
 export const Librarian = {
   ID: '_id',

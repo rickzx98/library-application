@@ -1,13 +1,34 @@
-import {React, PropTypes} from '../imports';
-import {PageLinks} from './PageLinks';
+import { React, PropTypes } from "../imports";
+import { PageLinks } from "./PageLinks";
 
-export const WithLinks = ({children, links, goToUrl, props, state, className}) => {
-  return (<div className={`with-links`}>
-    {links && links.length > 0 && (<PageLinks goToUrl={goToUrl} props={props} state={state} links={links}/>)}
-    <div className={`${className || ''} ${(links && links.length > 0) ? 'col-md-9' : ''}`}>
-      {children || ''};
+export const WithLinks = ({
+  children = "",
+  links,
+  goToUrl,
+  props,
+  state,
+  className
+}) => {
+  return (
+    <div className={`with-links`}>
+      {links &&
+        links.length > 0 && (
+          <PageLinks
+            goToUrl={goToUrl}
+            props={props}
+            state={state}
+            links={links}
+          />
+        )}
+      <div
+        className={`${className || ""} ${
+          links && links.length > 0 ? "col-md-9" : ""
+        }`}
+      >
+        {children || ""};
+      </div>
     </div>
-  </div>);
+  );
 };
 
 WithLinks.propTypes = {

@@ -12,9 +12,8 @@ import {
 
 export const CallNumberField = ({name, value, readOnly}) => (<div className="call-number">
   <FormGroup className="col-sm-2 no-padding" name={name + '_' + CallNumber.PREFIX} label={getLabel("LABEL_PREFIX")}>
-    {readOnlyWrapper((<FieldView>{value[CallNumber.PREFIX] || ''}</FieldView>), (
-        <DropdownCallNumberPrefix value={value[CallNumber.PREFIX]} name={name + '_' + CallNumber.PREFIX}/>),
-      readOnly)}
+    <DropdownCallNumberPrefix readOnly={readOnly} value={value[CallNumber.PREFIX]}
+                              name={name + '_' + CallNumber.PREFIX}/>),
   </FormGroup>
   <FormGroup className="col-sm-5 no-padding" name={name + '_' + CallNumber.MAIN} label={getLabel("LABEL_MAIN")}>
     {readOnlyWrapper((<FieldView>{value[CallNumber.MAIN] || ''}</FieldView>),
@@ -23,9 +22,8 @@ export const CallNumberField = ({name, value, readOnly}) => (<div className="cal
       readOnly)}
   </FormGroup>
   <FormGroup className="col-sm-2 no-padding" name={name + '_' + CallNumber.CUTTER} label={getLabel("LABEL_CUTTER")}>
-    {readOnlyWrapper((<FieldView>{value[CallNumber.CUTTER] || ''}</FieldView>),
-      (<DropdownCallNumberCutter value={value[CallNumber.CUTTER]} name={name + '_' + CallNumber.CUTTER}/>),
-      readOnly)}
+    <DropdownCallNumberCutter readOnly={readOnly} value={value[CallNumber.CUTTER]}
+                              name={name + '_' + CallNumber.CUTTER}/>
   </FormGroup>
   <FormGroup className="col-sm-3 no-padding" name={name + '_' + CallNumber.SUFFIX} label={getLabel("LABEL_SUFFIX")}>
     {readOnlyWrapper((<FieldView>{value[CallNumber.SUFFIX] || ''}</FieldView>),

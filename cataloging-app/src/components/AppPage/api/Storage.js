@@ -1,16 +1,25 @@
-import { Barcode, Currency, UserGroup } from '../../../types/';
+import {Barcode, Currency, UserGroup} from '../../../types/';
 
-import { getLabel } from '../../../utils/';
+import {getLabel} from '../../../utils/';
 
 const APP_KEY = process.env.APP_KEY;
 
 export default {
   development: () => {
-    const { collections, libraries, librarian, prefixes, suffixes, cutters, subjects } = require('../../../utils/Mocks');
+    const {collections, libraries, librarian, prefixes, suffixes, cutters, subjects} = require('../../../utils/Mocks');
     return {
       collection: collections,
       library: libraries,
-      title: [],
+      title: [{
+        _id: 'b85a5cbea47c-4df6-a757-f77dc60dac05',
+        title: 'Sample',
+        author: [
+          {
+            author: 'sample'
+          }
+        ],
+        isbn: 'isbn'
+      }],
       loantype: [],
       librarian,
       app: appStore,
@@ -24,15 +33,14 @@ export default {
       cutter: cutters,
       parameter: [...barcode],
       subject: subjects,
-      resourcetype:[]
+      resourcetype: []
     };
   }
 };
 
 const barcode = [
   {
-    ...Barcode.new({
-    }, APP_KEY)
+    ...Barcode.new({}, APP_KEY)
   }
 ];
 
@@ -54,5 +62,5 @@ const appStore = {
 };
 
 const currency = [
-  { _id: '000', ...Currency.new('Philippine Peso', 'Php', '₱'), isRemovable: false }
+  {_id: '000', ...Currency.new('Philippine Peso', 'Php', '₱'), isRemovable: false}
 ];

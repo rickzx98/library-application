@@ -1,6 +1,13 @@
-import {FluidForm, PropTypes, React, DatePicker} from '../imports';
+import {FluidForm, PropTypes, React, DatePicker, moment} from '../imports';
 
 export class FormDate extends React.Component {
+
+  static transformSmallValue(value) {
+    if (value) {
+      return moment(value).format('MMM Do YY');
+    }
+  }
+
   constructor(props) {
     super(props);
     this.state = {};
@@ -18,10 +25,10 @@ export class FormDate extends React.Component {
   render() {
     const {field, formValue} = this.props;
     return (<DatePicker
-        calendarClassName="form-date-calendar"
-        onChange={this.onChange}
-        placeholder={field.label} className="form-date"
-        value={FluidForm.getValue(formValue, field.name)}/>);
+      calendarClassName="form-date-calendar"
+      onChange={this.onChange}
+      placeholder={field.label} className="form-date"
+      value={FluidForm.getValue(formValue, field.name)}/>);
   }
 }
 

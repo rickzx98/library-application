@@ -6,9 +6,9 @@ export const CatalogingBarcodePreview = ({ group, formValue = {data: {}} }) => (
   </div>
   <div className="barcode-content">
     {group === getLabel('LABEL_ITEM_BARCODE_MASK') &&
-    <BarcodeComponent width={3} height={100} value={formatItemBarcodeRandomValue(formValue.data)}/>}
+    <BarcodeComponent width={2} height={100} value={formatItemBarcodeRandomValue(formValue.data)}/>}
     {group === getLabel('LABEL_PATRON_BARCODE_MASK') &&
-    <BarcodeComponent width={3} height={100} value={formatPatronBarcodeRandomValue(formValue.data)}/>}
+    <BarcodeComponent width={2} height={100} value={formatPatronBarcodeRandomValue(formValue.data)}/>}
   </div>
 </span>);
 CatalogingBarcodePreview.propTypes = {

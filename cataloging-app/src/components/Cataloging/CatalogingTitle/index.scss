@@ -1,14 +1,18 @@
 @import './components/SubjectFields/index.scss';
-@import './components/AuthorFields/index.scss';
 
-.author-fields {
-  .author {
-    &.form-group {
-      margin: 15px;
+.authors, .accessions {
+  .author, .accession {
+    &:hover {
+      background: $table-hover-background;
     }
-  }
-  .input-group {
-    margin: 15px;
+    margin: 5px;
+    padding: 15px 10px 0px 10px;
+    border: 1px solid $border-color;
+    .remove-button {
+      margin-left: -10px;
+      margin-top: -15px;
+      margin-bottom: 15px;
+    }
   }
 }
 
@@ -19,3 +23,4 @@
     }
   }
 }
+

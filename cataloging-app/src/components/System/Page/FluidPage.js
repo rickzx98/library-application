@@ -1,4 +1,4 @@
-import { PropTypes, React, UrlPattern } from './imports';
+import {PropTypes, React, UrlPattern} from './imports';
 
 export class FluidPage extends React.Component {
   constructor(props) {
@@ -31,13 +31,17 @@ export class FluidPage extends React.Component {
         }
       }
     }
+    if (!this.componentWillUnmount) {
+      this.componentWillUnmount = this._componentWillUnmount.bind(this);
+    }
+
     if (props.pages) {
       for (let field in props.pages) {
         if (props.pages.hasOwnProperty(field)) {
           this[field] = ((callback) => {
             const pattern = new UrlPattern(props.pages[field]);
-            const { location: { pathname } } = this.props.routing;
-            const { params } = this.props.match;
+            const {location: {pathname}} = this.props.routing;
+            const {params} = this.props.match;
             if (pattern.match(pathname)) {
               return callback(params);
             }
@@ -45,6 +49,10 @@ export class FluidPage extends React.Component {
         }
       }
     }
+  }
+
+  _componentWillUnmount() {
+    this.setState({});
   }
 }
 

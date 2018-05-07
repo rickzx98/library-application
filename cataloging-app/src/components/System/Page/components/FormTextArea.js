@@ -3,7 +3,7 @@ import {FieldView, FluidForm, PropTypes, React, readOnlyWrapper} from '../import
 export const FormTextArea = ({field, formValue, readOnly}) => {
   return readOnlyWrapper((<FieldView><p className="form-text-area">{FluidForm.getValue(formValue, field.name)}</p>
   </FieldView>), (
-    <textarea placeholder={field.label} name={field.name} className="form-text-area form-control"
+    <textarea disabled={field.isDisabled} placeholder={field.label} name={field.name} className="form-text-area form-control"
               value={FluidForm.getValue(formValue, field.name)}
               rows={2}/>), readOnly);
 };
