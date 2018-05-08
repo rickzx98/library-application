@@ -1,7 +1,9 @@
-@import './components/SubjectFields/index.scss';
-
-.authors, .accessions {
-  .author, .accession {
+@import "./components/SubjectFields/index.scss";
+@import "./components/BarcodeFields/index.scss";
+.authors,
+.accessions {
+  .author,
+  .accession {
     &:hover {
       background: $table-hover-background;
     }
@@ -17,10 +19,11 @@
 }
 
 .call-number {
-  #callNumber_main_form, #callNumber_cutter_form, #callNumber_suffix_form {
+  #callNumber_main_form,
+  #callNumber_cutter_form,
+  #callNumber_suffix_form {
     .field-view {
       border-radius: 0 !important;
     }
   }
 }
-

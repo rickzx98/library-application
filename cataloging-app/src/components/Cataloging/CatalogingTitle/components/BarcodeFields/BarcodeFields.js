@@ -6,6 +6,7 @@ import {
   FluidApi,
   Library
 } from "../../imports";
+import { Barcodes } from "./Barcodes";
 export class BarcodeFields extends React.Component {
   constructor(props) {
     super(props);
@@ -61,18 +62,11 @@ export class BarcodeFields extends React.Component {
       this.props.formValue,
       this.props.field.name
     );
-    return (
-      <div className="barcode-fields">
-        <div className="barcode">
-          {this.state.library && <h4>{this.state.library}</h4>}
-        </div>
-      </div>
-    );
+    return <Barcodes values={values} library={this.state.library} />;
   }
 }
 
 BarcodeFields.propTypes = {
   field: PropTypes.object,
-  formValue: PropTypes.object,
-  readOnly: PropTypes.bool
+  formValue: PropTypes.object
 };

@@ -23,7 +23,7 @@ switch (NODE_ENV) {
   case 'DEVELOPMENT':
     FluidFunc.config({
       logMonitor: (monitor) => {
-        console.log('monitor', monitor);
+      //  console.log('monitor', monitor);
       }
     });
     break;

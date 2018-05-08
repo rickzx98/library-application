@@ -83,6 +83,8 @@ export const CatalogingTitlePage = CrudPage(
           case Title.FORMAT:
           case Title.FUND:
             return "col-sm-6 col-md-4 col-md-offset-right-3 col-lg-3 col-lg-offset-right-6";
+          case Title.BARCODE:
+            return "col-sm-12";
           default:
             return (
               "col-sm-6 col-sm-offset-right-6 " +
