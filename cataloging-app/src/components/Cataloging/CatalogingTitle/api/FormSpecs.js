@@ -1,4 +1,4 @@
-import {getLabel, Title} from "../imports";
+import { Title, getLabel } from "../imports";
 
 export default () => [
   {
@@ -9,7 +9,7 @@ export default () => [
   {
     field: Title.TITLE,
     label: getLabel("LABEL_TITLE"),
-    data: {require: true},
+    data: { require: true },
     group: getLabel("LABEL_TITLE")
   },
   {
@@ -184,12 +184,6 @@ export default () => [
     group: getLabel("LABEL_COPIES")
   }, {
     isVisible: (state) => state && state.managed,
-    field: Title.ACCESSIONS,
-    label: getLabel("LABEL_ACCESSIONS"),
-    group: getLabel("LABEL_COPIES"),
-    public: true
-  }, {
-    isVisible: (state) => state && state.managed,
     field: Title.COPIES,
     label: getLabel("LABEL_NUMBER_OF_COPIES"),
     group: getLabel("LABEL_COPIES"),
@@ -197,6 +191,12 @@ export default () => [
     data: {
       default: 1
     }
+  }, {
+    isVisible: (state) => state && state.managed,
+    field: Title.ACCESSIONS,
+    label: getLabel("LABEL_ACCESSIONS"),
+    group: getLabel("LABEL_COPIES"),
+    public: true
   },
   {
     isVisible: (state) => state && state.data && state.data[Title.BARCODE] && state.data[Title.BARCODE].length > 0,

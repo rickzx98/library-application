@@ -1,29 +1,30 @@
 import {
-  AuthorFields,
-  SubjectFields,
-  CallNumberFields,
   AccessionFields,
-  BarcodeFields
+  AuthorFields,
+  BarcodeFields,
+  CallNumberFields,
+  SubjectFields
 } from "./components/";
 import {
   CrudPage,
-  DropdownResourceType,
-  FormTextArea,
-  getLabel,
-  Title,
+  DropdownCurrency,
+  DropdownFund,
   DropdownLibrary,
   DropdownLoanType,
-  FormInputNumber,
-  DropdownCurrency,
+  DropdownResourceType,
   DropdownVendor,
-  DropdownFund,
   FormDate,
-  FormImageUploader
+  FormImageUploader,
+  FormInputNumber,
+  FormTextArea,
+  Title,
+  getLabel
 } from "./imports";
 import { FormSpecs, TableColumns } from "./api/";
+
 import { PAGE_NAME } from "./constants";
-import pageLinks from "./CatalogingTitlePageLinks";
 import commands from "./commands/";
+import pageLinks from "./CatalogingTitlePageLinks";
 
 export const CatalogingTitlePage = CrudPage(
   {
@@ -75,16 +76,16 @@ export const CatalogingTitlePage = CrudPage(
               "col-md-4 col-md-offset-right-3 " +
               "col-lg-3 col-lg-offset-right-6"
             );
-          case Title.ACCESSIONS:
           case Title.LOCATION:
           case Title.VENDOR:
             return "col-sm-6 col-md-4 col-lg-3";
-          case Title.COPIES:
           case Title.FORMAT:
           case Title.FUND:
             return "col-sm-6 col-md-4 col-md-offset-right-3 col-lg-3 col-lg-offset-right-6";
           case Title.BARCODE:
             return "col-sm-12";
+          case Title.ACCESSIONS:
+            return "col-sm-5";
           default:
             return (
               "col-sm-6 col-sm-offset-right-6 " +

@@ -1,8 +1,10 @@
 import {
   FLUID_GO_TO_TAB,
-  getLabel,
-  TitleLinks
+  Title,
+  TitleLinks,
+  getLabel
 } from "./imports";
+
 import { PAGE_NAME } from "./constants";
 
 export default (page, { activeKey = 1 }) => {
@@ -27,6 +29,11 @@ export default (page, { activeKey = 1 }) => {
         {
           isVisible: (props, state) => {
             if (props.pageForm && props.pageForm.managed) {
+              if (props.pageForm && props.pageForm.data &&
+                props.pageForm.data[Title.BARCODE] &&
+                props.pageForm.data[Title.BARCODE].length > 0) {
+                return !state.activeKey || state.activeKey < 8;
+              }
               return !state.activeKey || state.activeKey < 7;
             } else {
               return !state.activeKey || state.activeKey < 6;

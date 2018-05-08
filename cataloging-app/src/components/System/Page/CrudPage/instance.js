@@ -1,4 +1,4 @@
-import { Page, React, FluidForm, FluidFunc } from "../imports";
+import { FluidForm, FluidFunc, Page, React } from "../imports";
 import {
   PageForm,
   PageHeaders,
@@ -6,6 +6,7 @@ import {
   PageTabbedForm,
   WithLinks
 } from "../../Page/";
+
 import { FLUID_TRIGGER_COMMAND } from "../constants";
 
 export default ({
@@ -21,7 +22,8 @@ export default ({
   overridePages = {},
   tabbed = false,
   pageLinks,
-  commands
+  commands,
+  headerControls
 }) => instance => {
   instance.state = { editable: false, links };
   const {
@@ -99,40 +101,50 @@ export default ({
         instance.setEditable(false);
       });
     },
+    overrideHeaders(defaultControls) {
+      if (headerControls && headerControls instanceof Function) {
+        const controls = headerControls({ defaultControls, props: instance.props, state: instance.state });
+        if (controls) {
+          return controls;
+        }
+      }
+      return defaultControls;
+    },
     createHeaders: () => {
       instance.list(() => {
         instance.props.actions.createHeaders(
-          forListView(
+          instance.overrideHeaders(forListView(
             instance.refresh,
             instance.goToNew,
             instance.props.actions.back,
             instance.isActive
-          )
+          ))
         );
       });
       instance.create(() => {
         instance.props.actions.createHeaders(
-          forCreateView(instance.prevPage, instance.isActive)
+          instance.overrideHeaders(forCreateView(instance.prevPage, instance.isActive))
         );
       });
       instance.view(() => {
         if (!instance.state.editable) {
           instance.props.actions.createHeaders(
-            forManagedView(
-              instance.prevPage,
-              () => {
-                instance.setEditable(true);
-              },
-              instance.remove,
-              instance.refresh,
-              instance.isActive,
-              instance.isEditable,
-              instance.isRemovable
-            )
+            instance.overrideHeaders(
+              forManagedView(
+                instance.prevPage,
+                () => {
+                  instance.setEditable(true);
+                },
+                instance.remove,
+                instance.refresh,
+                instance.isActive,
+                instance.isEditable,
+                instance.isRemovable
+              ))
           );
         } else {
           instance.props.actions.createHeaders(
-            forManagedUpdateView(instance.cancelEdit, instance.isActive)
+            instance.overrideHeaders(forManagedUpdateView(instance.cancelEdit, instance.isActive))
           );
         }
       });
@@ -148,12 +160,12 @@ export default ({
     isActive: () => !instance.props.ajax.started,
     isEditable: () =>
       instance.props.pageForm.data &&
-      instance.props.pageForm.data["isEditable"] !== undefined
+        instance.props.pageForm.data["isEditable"] !== undefined
         ? instance.props.pageForm.data["isEditable"]
         : true,
     isRemovable: () =>
       instance.props.pageForm.data &&
-      instance.props.pageForm.data["isRemovable"] !== undefined
+        instance.props.pageForm.data["isRemovable"] !== undefined
         ? instance.props.pageForm.data["isRemovable"]
         : true,
     setEditable: value => {
