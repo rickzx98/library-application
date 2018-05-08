@@ -101,9 +101,9 @@ export default ({
         instance.setEditable(false);
       });
     },
-    overrideHeaders(defaultControls) {
+    overrideHeaders(page, defaultControls) {
       if (headerControls && headerControls instanceof Function) {
-        const controls = headerControls({ defaultControls, props: instance.props, state: instance.state });
+        const controls = headerControls(page, { defaultControls, props: instance.props, state: instance.state });
         if (controls) {
           return controls;
         }
@@ -113,7 +113,7 @@ export default ({
     createHeaders: () => {
       instance.list(() => {
         instance.props.actions.createHeaders(
-          instance.overrideHeaders(forListView(
+          instance.overrideHeaders('list', forListView(
             instance.refresh,
             instance.goToNew,
             instance.props.actions.back,
@@ -123,13 +123,14 @@ export default ({
       });
       instance.create(() => {
         instance.props.actions.createHeaders(
-          instance.overrideHeaders(forCreateView(instance.prevPage, instance.isActive))
+          instance.overrideHeaders('create', forCreateView(instance.prevPage, instance.isActive))
         );
       });
       instance.view(() => {
         if (!instance.state.editable) {
           instance.props.actions.createHeaders(
             instance.overrideHeaders(
+              'view',
               forManagedView(
                 instance.prevPage,
                 () => {
@@ -144,7 +145,7 @@ export default ({
           );
         } else {
           instance.props.actions.createHeaders(
-            instance.overrideHeaders(forManagedUpdateView(instance.cancelEdit, instance.isActive))
+            instance.overrideHeaders('view', forManagedUpdateView(instance.cancelEdit, instance.isActive))
           );
         }
       });

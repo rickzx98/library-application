@@ -180,6 +180,17 @@ export const CatalogingTitlePage = CrudPage(
       }
     },
     pageLinks,
+    overrideHeaders: (page, { defaultControls, state }) => {
+      switch (page) {
+        case 'view':
+          if (state.activeKey === 8) {
+            return { ...defaultControls, print: { label: getLabel("LABEL_PRINT"), fontIcon: "print" } };
+          }
+          return defaultControls;
+        default:
+          return defaultControls;
+      }
+    },
     tabbed: true
   },
   commands
