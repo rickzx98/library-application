@@ -204,5 +204,6 @@ export default () => [
     label: getLabel("LABEL_BARCODE"),
     group: getLabel("LABEL_BARCODE"),
     public: true,
+    ref: Title.BARCODE
   }
 ];

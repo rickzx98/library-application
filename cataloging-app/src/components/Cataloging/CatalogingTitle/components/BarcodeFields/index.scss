@@ -1,24 +1,28 @@
 .barcodes {
-    .barcode {
-        padding: 0.05in;
-        float: left;
-        background: white;
-        .barcode-container {
-            padding-top: 6px;
-            border: 3px dashed $border-color;
-            height: 1.1in;
-            width: 2.635in;
-            .barcode-header {
-                text-align: center;
-                font-weight: 550;
-            }
-            .barcode-component {
-                margin-top: -2px;
-                text-align: center;
-                svg {
-                    display: inline-block;
-                }
-            }
+  .barcode {
+    padding: 0.05in;
+    float: left;
+    background: white;
+    .barcode-container {
+      padding-top: 6px;
+      border: 3px dashed $border-color;
+      height: 1.1in;
+      width: 2.635in;
+      .barcode-header {
+        text-align: center;
+        font-weight: 550;
+      }
+      .barcode-component {
+        margin-top: -2px;
+        text-align: center;
+        svg {
+          display: inline-block;
         }
+      }
     }
+  }
+}
+.barcode-print {
+  margin-top: 5px;
+  margin-bottom: 5px;
 }

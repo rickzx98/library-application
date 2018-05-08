@@ -22,7 +22,7 @@ import {
 } from "./imports";
 import { FormSpecs, TableColumns } from "./api/";
 
-import { PAGE_NAME } from "./constants";
+import { PAGE_NAME, COMMAND_PRINT_BARCODES } from "./constants";
 import commands from "./commands/";
 import pageLinks from "./CatalogingTitlePageLinks";
 
@@ -182,9 +182,19 @@ export const CatalogingTitlePage = CrudPage(
     pageLinks,
     overrideHeaders: (page, { defaultControls, state, props }) => {
       switch (page) {
-        case 'view':
+        case "view":
           if (state.activeKey === 8) {
-            return { ...defaultControls, print: { label: getLabel("LABEL_PRINT"), icon: "print", isActive: () => !props.ajax.started } };
+            return {
+              print: {
+                label: getLabel("LABEL_PRINT"),
+                icon: "print",
+                isActive: () => !props.ajax.started,
+                fluid: {
+                  name: COMMAND_PRINT_BARCODES
+                }
+              },
+              ...defaultControls
+            };
           }
           return defaultControls;
         default:

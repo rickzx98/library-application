@@ -4,13 +4,18 @@ import {
   FluidForm,
   Title,
   FluidApi,
-  Library
+  Library,
+  FluidFunc,
+  printA4
 } from "../../imports";
+import { COMMAND_PRINT_BARCODES } from "../../constants";
 import { Barcodes } from "./Barcodes";
 export class BarcodeFields extends React.Component {
   constructor(props) {
     super(props);
     this.state = {};
+    this.printBarcodes = this._printBarcodes.bind(this);
+    FluidFunc.create(COMMAND_PRINT_BARCODES).onStart(this.printBarcodes);
   }
   componentWillMount() {
     this.refresh();
@@ -22,6 +27,9 @@ export class BarcodeFields extends React.Component {
     ) {
       this.refresh();
     }
+  }
+  _printBarcodes() {
+    printA4('barcodes clearfix a4 portrait paddin03in');
   }
   refresh() {
     FluidApi.storage("library")
@@ -62,7 +70,13 @@ export class BarcodeFields extends React.Component {
       this.props.formValue,
       this.props.field.name
     );
-    return <Barcodes values={values} library={this.state.library} />;
+    return (
+      <Barcodes
+        ref={el => (this.refBarcodes = el)}
+        values={values}
+        library={this.state.library}
+      />
+    );
   }
 }
 
