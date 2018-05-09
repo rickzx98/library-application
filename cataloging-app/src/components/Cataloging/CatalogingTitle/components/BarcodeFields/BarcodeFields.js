@@ -29,7 +29,7 @@ export class BarcodeFields extends React.Component {
     }
   }
   _printBarcodes() {
-    printA4('barcodes clearfix a4 portrait paddin03in');
+    printA4("barcodes clearfix a4 portrait paddin03in");
   }
   refresh() {
     FluidApi.storage("library")
