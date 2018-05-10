@@ -5,6 +5,7 @@ import {
   CallNumberFields,
   SubjectFields
 } from "./components/";
+import { COMMAND_PRINT_BARCODES, PAGE_NAME } from "./constants";
 import {
   CrudPage,
   DropdownCurrency,
@@ -17,12 +18,12 @@ import {
   FormImageUploader,
   FormInputNumber,
   FormTextArea,
+  React,
   Title,
   getLabel
 } from "./imports";
 import { FormSpecs, TableColumns } from "./api/";
 
-import { PAGE_NAME, COMMAND_PRINT_BARCODES } from "./constants";
 import commands from "./commands/";
 import pageLinks from "./CatalogingTitlePageLinks";
 
@@ -199,6 +200,14 @@ export const CatalogingTitlePage = CrudPage(
           return defaultControls;
         default:
           return defaultControls;
+      }
+    },
+    overrideRoutes: {
+      preview: `/${PAGE_NAME}/preview`
+    },
+    screens: {
+      preview: {
+        render: function render(){return<h1>Preview</h1>;}
       }
     },
     tabbed: true

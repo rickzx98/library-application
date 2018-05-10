@@ -50,7 +50,8 @@ export default (page, { activeKey = 1 }) => {
         {
           name: "preview",
           icon: "search",
-          label: getLabel("LABEL_PREVIEW")
+          label: getLabel("LABEL_PREVIEW"),
+          url: '/title/preview'
         }
       ];
     default:

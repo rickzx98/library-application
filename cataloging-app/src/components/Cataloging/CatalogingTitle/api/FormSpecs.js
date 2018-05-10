@@ -199,7 +199,10 @@ export default () => [
     public: true
   },
   {
-    isVisible: (state) => state && state.data && state.data[Title.BARCODE] && state.data[Title.BARCODE].length > 0,
+    isVisible: (state) => state &&
+      state.data &&
+      state.data[Title.BARCODE] &&
+      state.data[Title.BARCODE].length > 0,
     field: Title.BARCODE,
     label: getLabel("LABEL_BARCODE"),
     group: getLabel("LABEL_BARCODE"),

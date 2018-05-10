@@ -2,7 +2,7 @@ import * as actions from '../actions/';
 
 import { CreatePage, CreateReduxPage } from '../../Page/';
 
-import instance from './instance';
+import instance from './instance/instance';
 import pages from './pages';
 import propTypes from './propTypes';
 
@@ -11,7 +11,7 @@ export const CrudPage = ({
   TableColumns, formProps, types,
   page, listTransformer, overrideRoutes, links,
   fieldKey, overridePages, tabbed, pageLinks,
-  overrideHeaders
+  overrideHeaders, screens
 }, commands) => {
   const routes = pages(pageName, overrideRoutes);
   return CreateReduxPage(CreatePage(instance({
@@ -28,7 +28,8 @@ export const CrudPage = ({
     tabbed,
     pageLinks,
     commands,
-    headerControls: overrideHeaders
+    headerControls: overrideHeaders,
+    screens
   }), propTypes(types), routes),
     ({ fluidForm, pageListData, routing, ajaxStatus }) => ({
       pageForm: fluidForm[pageName] || { data: {} },
