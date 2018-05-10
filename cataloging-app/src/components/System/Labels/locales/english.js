@@ -285,3 +285,7 @@ export const LABEL_ACCESSIONS = "Accesssions";
 export const LABEL_GENERATE_BARCODES = "Generate barcodes";
 export const LABEL_REQUIRED_ACCESSIONS = "One or more accession is required.";
 export const LABEL_PRINT = "Print";
+
+//IndexCard
+export const LABEL_TEMPLATE = "Template";
+export const LABEL_LAYOUT = "Layout";

@@ -1,3 +1,8 @@
+export const IndexCard = {
+  ID: "_id",
+  TEMPLATE: "template",
+  LAYOUT: "layout"
+};
 export const CallNumber = {
   PREFIX: 'prefix',
   MAIN: 'main',
