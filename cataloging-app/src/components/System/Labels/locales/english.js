@@ -289,3 +289,4 @@ export const LABEL_PRINT = "Print";
 //IndexCard
 export const LABEL_TEMPLATE = "Template";
 export const LABEL_LAYOUT = "Layout";
+export const LABEL_CARD_CATALOG = "Card catalog";

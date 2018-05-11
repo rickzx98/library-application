@@ -62,7 +62,7 @@ export const Barcode = {
   PATRON_BARCODE_LENGTH: 'patronBarcodeLength',
   PATRON_BARCODE_TYPE: 'patronBarcodeType',
   new: function (barcode, id) {
-    const newBarcode = {...barcode};
+    const newBarcode = { ...barcode };
     newBarcode[this.ID] = id;
     newBarcode[Parameter.TYPE] = 'barcode';
     return newBarcode;
@@ -263,7 +263,10 @@ export const Pages = {
   viewSubject: '/subject/view/',
   resourceType: '/resourcetype',
   newResourceType: '/resourceType/new',
-  viewResourceType: '/resourceType/view/'
+  viewResourceType: '/resourceType/view/',
+  indexCard: '/indexcard',
+  viewIndexCard: '/indexcard/view/',
+  newIndexCard: '/indexcard/new'
 };
 
 export const Record = {

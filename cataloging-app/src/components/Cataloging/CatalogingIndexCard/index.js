@@ -1,0 +1,1 @@
+export { CatalogingIndexCardPage } from './CatalogingIndexCardPage';

@@ -14,7 +14,9 @@ export const FormInput = ({ formValue, field, FieldComponent, formName }) => {
     const FieldComp = FieldComponent(field.name);
     if (FieldComp instanceof Function) {
       element = (
-        <FieldComp formName={formName} formValue={formValue} field={field} />
+        <FieldComp setValue={value => {
+          FluidForm.set(formName, field.name, value);
+        }} formName={formName} formValue={formValue} field={field} />
       );
     }
   }

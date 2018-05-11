@@ -1,10 +1,18 @@
-import {getLabel} from './getLabel';
-import {OptionLinks} from './OptionLinks';
-import {LibraryLinks} from './LibraryLinks';
+import { LibraryLinks } from './LibraryLinks';
+import { OptionLinks } from './OptionLinks';
+import { getLabel } from './getLabel';
 
 export class TitleLinks extends OptionLinks {
   constructor(omit) {
     super(new LibraryLinks().group('title', 'TL', [
+      {
+        name: 'indexcard',
+        label: getLabel("LABEL_CARD_CATALOG"),
+        url: '/indexcard',
+        icon: 'address-card',
+        group: 'TL',
+        show: true
+      },
       {
         name: 'currency',
         label: getLabel('LABEL_CURRENCY'),

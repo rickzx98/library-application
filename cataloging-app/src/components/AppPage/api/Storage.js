@@ -16,6 +16,7 @@ export default {
       subjects
     } = require("../../../utils/Mocks");
     return {
+      indexcard: [],
       collection: collections,
       library: libraries,
       title: [
