@@ -1,7 +1,8 @@
 export const IndexCard = {
   ID: "_id",
   TEMPLATE: "template",
-  LAYOUT: "layout"
+  LAYOUT: "layout",
+  CARD_SIZE: 'cardSize'
 };
 export const CallNumber = {
   PREFIX: 'prefix',

@@ -1,4 +1,4 @@
-import { IndexCard, getLabel } from '../imports';
+import {IndexCard, getLabel} from '../imports';
 
 export default () => [
   {
@@ -9,6 +9,13 @@ export default () => [
   {
     field: IndexCard.TEMPLATE,
     label: getLabel("LABEL_TEMPLATE")
+  },
+  {
+    field: IndexCard.CARD_SIZE,
+    label: getLabel("LABEL_CARD_SIZE"),
+    data: {
+      default: "large"
+    }
   },
   {
     field: IndexCard.LAYOUT,

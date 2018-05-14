@@ -290,3 +290,6 @@ export const LABEL_PRINT = "Print";
 export const LABEL_TEMPLATE = "Template";
 export const LABEL_LAYOUT = "Layout";
 export const LABEL_CARD_CATALOG = "Card catalog";
+export const LABEL_CARD_SIZE = "Card size";
+export const LABEL_STANDARD = "Standard";
+export const LABEL_LARGE = "Large";
