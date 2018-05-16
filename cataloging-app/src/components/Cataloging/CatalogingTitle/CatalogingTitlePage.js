@@ -198,6 +198,17 @@ export const CatalogingTitlePage = CrudPage(
             };
           }
           return defaultControls;
+        case "preview":
+          return {
+            back: {
+              label: getLabel("LABEL_BACK"),
+              icon: "arrow-left",
+              isActive: () => !props.ajax.started,
+              onClick: () => {
+                props.actions.prevPage(PAGE_NAME);
+              }
+            }
+          };
         default:
           return defaultControls;
       }
@@ -207,7 +218,7 @@ export const CatalogingTitlePage = CrudPage(
     },
     screens: {
       preview: {
-        render: function render(){return<h1>Preview</h1>;}
+        render: function render(instance) { console.log('preview', instance); return <h1>Preview</h1>; }
       }
     },
     tabbed: true

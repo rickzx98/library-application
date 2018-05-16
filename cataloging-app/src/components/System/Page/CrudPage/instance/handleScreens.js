@@ -4,7 +4,7 @@ export default (instance, screens, call) => {
             if (screens.hasOwnProperty(screen)) {
                 if (instance[screen]) {
                     instance[screen]((param) => {
-                        call(param);
+                        call({ ...param, field: screen });
                     });
                 }
             }

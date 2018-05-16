@@ -54,6 +54,7 @@ export default (page, { activeKey = 1 }) => {
           url: '/title/preview'
         }
       ];
+    case "preview": return [];
     default:
       return new TitleLinks("title").getLinks();
   }
