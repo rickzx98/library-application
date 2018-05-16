@@ -3,6 +3,7 @@ import {
   AuthorFields,
   BarcodeFields,
   CallNumberFields,
+  CardCatalogPreview,
   SubjectFields
 } from "./components/";
 import { COMMAND_PRINT_BARCODES, PAGE_NAME } from "./constants";
@@ -218,7 +219,7 @@ export const CatalogingTitlePage = CrudPage(
     },
     screens: {
       preview: {
-        render: function render(instance) { console.log('preview', instance); return <h1>Preview</h1>; }
+        render: (instance) => <CardCatalogPreview instance={instance} />
       }
     },
     tabbed: true
