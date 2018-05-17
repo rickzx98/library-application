@@ -1,0 +1,71 @@
+.card-catalog-preview {
+  text-align: center;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  &.printing {
+    .card-catalog {
+      margin: 0.5cm;
+    }
+  }
+  .card-border {
+    width: 100%;
+    float: left;
+    border-top: 2px dashed $border-color;
+  }
+  .card-catalog {
+    font-weight: 550;
+    padding: 0.5cm;
+    display: inline-block;
+    border: 1px solid black;
+    &.large {
+      height: 11cm;
+      width: 15cm;
+    }
+    &.standard {
+      width: 12.5cm;
+      height: 7.5cm;
+    }
+    .card-main-content {
+      height: 9.5cm;
+      .card-call-number {
+        float: left;
+        text-align: left;
+        .card-call-number-container {
+          display: inline-block;
+        }
+      }
+      .card-information {
+        width: 85%;
+        float: left;
+        text-align: center;
+        .card-information-container {
+          padding-left: 0.7cm;
+          display: inline-block;
+          text-align: left;
+          .card-title,
+          .card-physical-desc,
+          .card-general-note,
+          .card-isbn {
+            text-indent: 0.5cm;
+          }
+          .card-subjects {
+            padding-top: 0.2cm;
+            p {
+              text-indent: 0.5cm !important;
+              text-align: justify;
+            }
+          }
+        }
+      }
+    }
+
+    .card-footer {
+      width: 100%;
+      text-align: left;
+      .card-lccn,
+      .card-location {
+        margin-left: 0.5cm;
+        display: inline-block;
+      }
+    }
+  }
+}

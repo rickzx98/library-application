@@ -13,7 +13,7 @@ import {
 export const CallNumberField = ({name, value, readOnly}) => (<div className="call-number">
   <FormGroup className="col-sm-2 no-padding" name={name + '_' + CallNumber.PREFIX} label={getLabel("LABEL_PREFIX")}>
     <DropdownCallNumberPrefix readOnly={readOnly} value={value[CallNumber.PREFIX]}
-                              name={name + '_' + CallNumber.PREFIX}/>),
+                              name={name + '_' + CallNumber.PREFIX}/>
   </FormGroup>
   <FormGroup className="col-sm-5 no-padding" name={name + '_' + CallNumber.MAIN} label={getLabel("LABEL_MAIN")}>
     {readOnlyWrapper((<FieldView>{value[CallNumber.MAIN] || ''}</FieldView>),

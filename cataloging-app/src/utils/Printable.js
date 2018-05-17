@@ -16,6 +16,9 @@ export function printA4(className) {
       popupWin.onafterprint = () => {
         resolve("printed");
       };
+      popupWin.onbeforeunload = () => {
+        resolve("printed");
+      };
     } catch (err) {
       reject(err);
     }

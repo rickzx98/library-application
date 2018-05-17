@@ -10,7 +10,10 @@ export {
   SubjectEntry,
   ResourceType,
   CallNumber,
-  Library
+  Library,
+  Prefix,
+  Cutter,
+  Subject
 } from "../../../types/";
 export {
   CreatePage,

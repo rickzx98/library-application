@@ -2,7 +2,7 @@ import { FLUID_GO_TO_TAB, Title, TitleLinks, getLabel } from "./imports";
 
 import { PAGE_NAME } from "./constants";
 
-export default (page, { activeKey = 1 }) => {
+export default (page, { activeKey = 1 }, { id }) => {
   switch (page) {
     case "create":
     case "view":
@@ -48,13 +48,15 @@ export default (page, { activeKey = 1 }) => {
           }
         },
         {
+          isVisible: props => props.pageForm && props.pageForm.managed,
           name: "preview",
           icon: "search",
           label: getLabel("LABEL_PREVIEW"),
-          url: '/title/preview'
+          url: "/title/preview/" + id
         }
       ];
-    case "preview": return [];
+    case "preview":
+      return [];
     default:
       return new TitleLinks("title").getLinks();
   }

@@ -22,20 +22,48 @@ export default {
       title: [
         {
           _id: "b85a5cbea47c-4df6-a757-f77dc60dac05",
-          title: "Sample",
+          title: "Harry Potter",
+          subTitle: "And the Prisoner of Azkaban",
+          statementOfResponsibility: "J.K. Rowling",
+          edition: "1st Edition",
+          seriesTitle: "",
           author: [
             {
-              author: "sample"
+              author: "J.K. Rowling"
             }
           ],
-          isbn: "isbn",
+          isbn: "08909912",
+          lccn: "E873 .C36 2001",
+          placeOfPublication: "New York",
+          publisher: "The Book Foundation",
+          publishedDate: "1999",
+          numberOfPages: "485p: ill ; 25cm",
+          subjects: [
+            {
+              subjects_entry: "Fantasy",
+              subjects_type: "topical",
+              subjects_subdivision_0: "",
+              subjects_subdivision_1: "",
+              subjects_subdivision_2: "",
+              subjects_subdivision_type_0: "general",
+              subjects_subdivision_type_1: "general",
+              subjects_subdivision_type_2: "general"
+            }
+          ],
+          generalNote: "The book is about magic",
+          callNumber: {
+            prefix: "0001",
+            main: "093",
+            cutter: "0001",
+            suffix: "22"
+          },
+          location: "0002",
+          copies: 1,
           accessions: [
             {
               accessions: "102809"
             }
           ],
-          location: "0002",
-          copies: 1,
           barcode: [
             {
               barcode: "102809"

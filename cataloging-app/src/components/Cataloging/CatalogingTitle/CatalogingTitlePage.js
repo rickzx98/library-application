@@ -6,7 +6,11 @@ import {
   CardCatalogPreview,
   SubjectFields
 } from "./components/";
-import {COMMAND_PRINT_BARCODES, PAGE_NAME} from "./constants";
+import {
+  COMMAND_PRINT_BARCODES,
+  COMMAND_PRINT_CATALOG,
+  PAGE_NAME
+} from "./constants";
 import {
   CrudPage,
   DropdownCurrency,
@@ -23,7 +27,7 @@ import {
   Title,
   getLabel
 } from "./imports";
-import {FormSpecs, TableColumns} from "./api/";
+import { FormSpecs, TableColumns } from "./api/";
 
 import commands from "./commands/";
 import pageLinks from "./CatalogingTitlePageLinks";
@@ -182,7 +186,7 @@ export const CatalogingTitlePage = CrudPage(
       }
     },
     pageLinks,
-    overrideHeaders: (page, {defaultControls, state, props}) => {
+    overrideHeaders: (page, { defaultControls, state, props }) => {
       switch (page) {
         case "view":
           if (state.activeKey === 8) {
@@ -208,6 +212,14 @@ export const CatalogingTitlePage = CrudPage(
               onClick: () => {
                 props.actions.prevPage(PAGE_NAME);
               }
+            },
+            print: {
+              label: getLabel("LABEL_PRINT"),
+              icon: "print",
+              isActive: () => !props.ajax.started,
+              fluid: {
+                name: COMMAND_PRINT_CATALOG
+              }
             }
           };
         default:
@@ -215,12 +227,15 @@ export const CatalogingTitlePage = CrudPage(
       }
     },
     overrideRoutes: {
-      preview: `/${PAGE_NAME}/preview`
+      preview: `/${PAGE_NAME}/preview/:id`
     },
     screens: {
       preview: {
+        refresh: ({ props, id }) => {
+          props.actions.loadById(PAGE_NAME, id);
+        },
         render: function Render(instance) {
-          return <CardCatalogPreview instance={instance}/>;
+          return <CardCatalogPreview instance={instance} />;
         }
       }
     },
