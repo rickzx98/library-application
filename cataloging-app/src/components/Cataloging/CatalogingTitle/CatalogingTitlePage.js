@@ -6,7 +6,7 @@ import {
   CardCatalogPreview,
   SubjectFields
 } from "./components/";
-import { COMMAND_PRINT_BARCODES, PAGE_NAME } from "./constants";
+import {COMMAND_PRINT_BARCODES, PAGE_NAME} from "./constants";
 import {
   CrudPage,
   DropdownCurrency,
@@ -23,7 +23,7 @@ import {
   Title,
   getLabel
 } from "./imports";
-import { FormSpecs, TableColumns } from "./api/";
+import {FormSpecs, TableColumns} from "./api/";
 
 import commands from "./commands/";
 import pageLinks from "./CatalogingTitlePageLinks";
@@ -182,7 +182,7 @@ export const CatalogingTitlePage = CrudPage(
       }
     },
     pageLinks,
-    overrideHeaders: (page, { defaultControls, state, props }) => {
+    overrideHeaders: (page, {defaultControls, state, props}) => {
       switch (page) {
         case "view":
           if (state.activeKey === 8) {
@@ -219,7 +219,9 @@ export const CatalogingTitlePage = CrudPage(
     },
     screens: {
       preview: {
-        render: (instance) => <CardCatalogPreview instance={instance} />
+        render: function Render(instance) {
+          return <CardCatalogPreview instance={instance}/>;
+        }
       }
     },
     tabbed: true
