@@ -33,7 +33,8 @@ export {
   readOnlyWrapper,
   getValue,
   TitleLinks,
-  printA4
+  printA4,
+  printCatalog
 } from "../../../utils/";
 export {
   FontAwesome,
@@ -42,7 +43,8 @@ export {
   FormGroup,
   ResponsiveButton,
   FieldView,
-  Barcode
+  Barcode,
+  CollapseHeader
 } from "../../common/";
 export { FluidApi, FluidForm } from "fluid-commons";
 export { DropdownResourceType } from "../CatalogingResourceType/";

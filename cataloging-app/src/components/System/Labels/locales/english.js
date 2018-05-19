@@ -293,3 +293,8 @@ export const LABEL_CARD_CATALOG = "Card catalog";
 export const LABEL_CARD_SIZE = "Card size";
 export const LABEL_STANDARD = "Standard";
 export const LABEL_LARGE = "Large";
+
+//Card Catalog Preview
+export const LABEL_PROPERTIES = "Properties";
+export const LABEL_PAGES = "Pages";
+export const LABEL_CARDS_TO_PRINT = "Print quantity";

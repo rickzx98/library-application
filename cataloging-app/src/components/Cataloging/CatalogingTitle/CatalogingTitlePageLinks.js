@@ -1,5 +1,6 @@
 import { FLUID_GO_TO_TAB, Title, TitleLinks, getLabel } from "./imports";
 
+import { CardCatalogNumberOfPages } from "./components";
 import { PAGE_NAME } from "./constants";
 
 export default (page, { activeKey = 1 }, { id }) => {
@@ -56,7 +57,10 @@ export default (page, { activeKey = 1 }, { id }) => {
         }
       ];
     case "preview":
-      return [];
+      return [{
+        name: "numberOfPages",
+        component: CardCatalogNumberOfPages
+      }];
     default:
       return new TitleLinks("title").getLinks();
   }

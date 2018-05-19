@@ -19,4 +19,4 @@ export {
 export { OptionLinks } from "./OptionLinks";
 export { LibraryLinks } from "./LibraryLinks";
 export { TitleLinks } from "./TitleLinks";
-export { printA4 } from "./Printable";
+export { printA4, printCatalog } from "./Printable";

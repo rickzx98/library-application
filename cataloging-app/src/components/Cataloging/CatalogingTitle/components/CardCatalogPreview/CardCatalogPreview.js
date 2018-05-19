@@ -1,49 +1,62 @@
-import { PropTypes, React, FluidFunc, printA4 } from "../../imports";
-import { CardCatalog } from "./CardCatalog";
+import { FluidFunc, PropTypes, React, printCatalog } from "../../imports";
+
 import { COMMAND_PRINT_CATALOG } from "../../constants";
+import { CardCatalogPreviewBody } from "./CardCatalogPreviewBody";
+import { SET_NUMBER_TO_PRINT } from "./fluid.info";
+
 export class CardCatalogPreview extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { isPrinting: false };
+    this.state = { isPrinting: false, printQuantity: 1 };
     this.printCatalog = this._printCatalog.bind(this);
+    this.numberToPrint = this._setNumberToPrint.bind(this);
     FluidFunc.create(COMMAND_PRINT_CATALOG).onStart(this.printCatalog);
+    FluidFunc.create(SET_NUMBER_TO_PRINT).onStart(this.numberToPrint).spec("printQuantity", { require: true });
   }
+
   componentWillMount() {
-    this.setState({
-      isPrinting: false
-    });
+    this._printOff();
+    this._printQuantity();
   }
+
   componentWillUnmount() {
-    this.setState({
-      isPrinting: false
-    });
+    this._printOff();
+    this._printQuantity();
+  }
+  _setNumberToPrint({ printQuantity }) {
+    this._printQuantity(printQuantity());
   }
   _printCatalog() {
+    this._printOn();
+    printCatalog(
+      "clearfix a4 portrait card-catalog-preview printing",
+      this.state.printQuantity
+    ).then(() => {
+      this._printOff();
+    });
+  }
+
+  _printOn() {
     this.setState({
       isPrinting: true
     });
-    printA4(
-      "clearfix a4 portrait padding05cm card-catalog-preview printing"
-    ).then(() => {
-      this.setState({
-        isPrinting: false
-      });
+  }
+
+  _printOff() {
+    this.setState({
+      isPrinting: false
+    });
+  }
+
+  _printQuantity(printQuantity = 1) {
+    this.setState({
+      printQuantity
     });
   }
   render() {
-    return (
-      <div
-        className={`paper a4 portrait card-catalog-preview ${
-          this.state.isPrinting ? "printing" : ""
-        }`}
-      >
-        <CardCatalog formValue={this.props.instance.props.pageForm} />
-        {this.state.isPrinting && <div className="card-border" />}
-        {this.state.isPrinting && (
-          <CardCatalog className="card-for-printing" formValue={this.props.instance.props.pageForm} />
-        )}
-      </div>
-    );
+    return (<CardCatalogPreviewBody
+      isPrinting={this.state.isPrinting}
+      pageForm={this.props.instance.props.pageForm} />);
   }
 }
 
