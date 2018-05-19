@@ -1,9 +1,15 @@
-import {OptionLinks} from './OptionLinks';
-import {getLabel} from './getLabel';
+import { OptionLinks } from './OptionLinks';
+import { getLabel } from './getLabel';
 
-export  class LibraryLinks extends OptionLinks {
+export class LibraryLinks extends OptionLinks {
   constructor(omit) {
     super([
+      {
+        label: getLabel('LABEL_LIBRARY'),
+        name: 'library',
+        icon: 'book',
+        url: '/library'
+      },
       {
         label: getLabel('LABEL_COLLECTION'),
         name: 'collection',
@@ -21,18 +27,6 @@ export  class LibraryLinks extends OptionLinks {
         name: 'loantype',
         icon: 'bolt',
         url: '/loantype'
-      },
-      {
-        label: getLabel('LABEL_BARCODE'),
-        name: 'barcode',
-        icon: 'barcode',
-        url: '/barcode'
-      },
-      {
-        label: getLabel('LABEL_SUBJECTS'),
-        name: 'subject',
-        icon: 'leanpub',
-        url: '/subject'
       }], omit);
   }
 }

@@ -1,0 +1,1 @@
+export { CollectionTitles } from "./CollectionTitles/CollectionTitles";

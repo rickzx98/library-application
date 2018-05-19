@@ -297,4 +297,4 @@ export const LABEL_LARGE = "Large";
 //Card Catalog Preview
 export const LABEL_PROPERTIES = "Properties";
 export const LABEL_PAGES = "Pages";
-export const LABEL_CARDS_TO_PRINT = "Print quantity";
+export const LABEL_CARDS_TO_PRINT = "# to print";

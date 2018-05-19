@@ -1,4 +1,4 @@
-import { FLUID_GO_TO_TAB, Title, TitleLinks, getLabel } from "./imports";
+import { CreateLinkComponent, FLUID_GO_TO_TAB, Title, TitleLinks, getLabel, triggerCommands } from "./imports";
 
 import { CardCatalogNumberOfPages } from "./components";
 import { PAGE_NAME } from "./constants";
@@ -61,7 +61,19 @@ export default (page, { activeKey = 1 }, { id }) => {
         name: "numberOfPages",
         component: CardCatalogNumberOfPages
       }];
-    default:
-      return new TitleLinks("title").getLinks();
+    default: {
+      const links = new TitleLinks("title").getLinks();
+      links.unshift({
+        name: "searchTitle",
+        component: CreateLinkComponent("LinkSearch",
+          {
+            label: getLabel("LABEL_SEARCH_RECORDS"),
+            name: "searchTitle",
+            pageName: PAGE_NAME,
+            fluidLink: triggerCommands(PAGE_NAME)
+          })
+      });
+      return links;
+    }
   }
 };

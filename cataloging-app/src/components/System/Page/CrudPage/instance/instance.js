@@ -40,7 +40,7 @@ export default ({
         instance.props.routing.location.pathname !==
         prevProps.routing.location.pathname
       ) {
-        instance.state = {};
+        instance.state = { activeKey: 1 };
         FluidForm.clear(pageName);
         instance.refresh();
         instance.createHeaders();
@@ -64,15 +64,16 @@ export default ({
       instance.state = {};
       FluidForm.clear(pageName);
     },
-    onTriggerCommand: ({ command }) => {
+    onTriggerCommand: (params) => {
       if (commands) {
-        commands(command(), {
+        commands(params.command(), {
           state: instance.state,
           props: {
+            pageName,
             actions: instance.props.actions,
             pageForm: instance.props.pageForm,
             pageList: instance.props.pageList
-          }
+          }, params
         });
       }
     },

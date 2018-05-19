@@ -191,6 +191,7 @@ export const CatalogingTitlePage = CrudPage(
         case "view":
           if (state.activeKey === 8) {
             return {
+              ...defaultControls,
               print: {
                 label: getLabel("LABEL_PRINT"),
                 icon: "print",
@@ -198,8 +199,7 @@ export const CatalogingTitlePage = CrudPage(
                 fluid: {
                   name: COMMAND_PRINT_BARCODES
                 }
-              },
-              ...defaultControls
+              }
             };
           }
           return defaultControls;

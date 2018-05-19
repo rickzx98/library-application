@@ -70,7 +70,7 @@ export const Barcode = {
   PATRON_RIGHT_ALPHA_SYMBOL: "patronRightAlphaSymbol",
   PATRON_BARCODE_LENGTH: "patronBarcodeLength",
   PATRON_BARCODE_TYPE: "patronBarcodeType",
-  new: function(barcode, id) {
+  new: function (barcode, id) {
     const newBarcode = { ...barcode };
     newBarcode[this.ID] = id;
     newBarcode[Parameter.TYPE] = "barcode";
@@ -96,7 +96,7 @@ export const Prefix = {
 export const Fund = {
   ID: "_id",
   NAME: "name",
-  new: function(name) {
+  new: function (name) {
     const data = {};
     data[this.NAME] = name;
     return data;
@@ -105,7 +105,7 @@ export const Fund = {
 export const Vendor = {
   ID: "_id",
   NAME: "name",
-  new: function(name) {
+  new: function (name) {
     const vendor = {};
     vendor[this.NAME] = name;
     return vendor;
@@ -116,7 +116,7 @@ export const Currency = {
   NOTE: "note",
   PREFIX: "prefix",
   SYMBOL: "symbol",
-  new: function(note, prefix, symbol) {
+  new: function (note, prefix, symbol) {
     const newCurrency = {};
     newCurrency[this.NOTE] = note;
     newCurrency[this.PREFIX] = prefix;
@@ -291,5 +291,6 @@ export const Record = {
 
 export const Collection = {
   ID: "_id",
-  NAME: "name"
+  NAME: "name",
+  TITLES: "titles"
 };

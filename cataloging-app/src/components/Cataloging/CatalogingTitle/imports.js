@@ -24,7 +24,8 @@ export {
   FormDate,
   FLUID_GO_TO_TAB,
   FormImageUploader,
-  triggerCommands
+  triggerCommands,
+  CreateLinkComponent
 } from "../../System/Page/";
 export {
   getLabel,

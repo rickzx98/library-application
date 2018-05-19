@@ -38,6 +38,7 @@
     "fluid-commons": "^0.8.7",
     "fluid-func": "^0.5.2",
     "font-awesome": "^4.7.0",
+    "lodash.debounce": "^4.0.8",
     "moment": "^2.20.1",
     "node-sass": "^4.9.0",
     "normalize.css": "8.0.0",

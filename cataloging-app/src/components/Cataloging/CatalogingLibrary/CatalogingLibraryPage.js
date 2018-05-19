@@ -1,7 +1,8 @@
-import {CrudPage, getLabel, Library, LibraryLinks} from './imports';
-import {DropdownLibrarian, transformLibrarianEdit, transformLibrarianView} from '../CatalogingLibrarian/';
-import {FormSpecs, TableColumns} from './api/';
-import {PAGE_NAME} from './constants';
+import { CrudPage, Library, LibraryLinks, getLabel } from './imports';
+import { DropdownLibrarian, transformLibrarianEdit, transformLibrarianView } from '../CatalogingLibrarian/';
+import { FormSpecs, TableColumns } from './api/';
+
+import { PAGE_NAME } from './constants';
 
 export const CatalogingLibraryPage = CrudPage({
   pageName: PAGE_NAME,
@@ -60,5 +61,5 @@ export const CatalogingLibraryPage = CrudPage({
       librarian: transformLibrarianEdit(formValue[Library.LIBRARIAN])
     })
   },
-  links: new LibraryLinks([]).getLinks()
+  pageLinks: () => new LibraryLinks("library").getLinks()
 });

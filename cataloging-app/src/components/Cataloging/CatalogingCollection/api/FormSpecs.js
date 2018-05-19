@@ -1,4 +1,5 @@
 import { Collection, getLabel, requireMessage } from '../imports';
+
 export default () => {
   return [
     {
@@ -9,7 +10,14 @@ export default () => {
     {
       field: Collection.NAME,
       label: getLabel('LABEL_NAME'),
-      data: {require: true, requireMessage: requireMessage(Collection.NAME, getLabel('LABEL_VALIDATION_NAME_REQUIRED'))}
+      data: { require: true, requireMessage: requireMessage(Collection.NAME, getLabel('LABEL_VALIDATION_NAME_REQUIRED')) }
+    },
+    {
+      field: Collection.TITLES,
+      label: getLabel('LABEL_TITLES'),
+      data: {
+        default: []
+      }
     }
   ];
 };

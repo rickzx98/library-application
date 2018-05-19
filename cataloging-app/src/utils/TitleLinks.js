@@ -1,6 +1,6 @@
-import {LibraryLinks} from './LibraryLinks';
-import {OptionLinks} from './OptionLinks';
-import {getLabel} from './getLabel';
+import { LibraryLinks } from './LibraryLinks';
+import { OptionLinks } from './OptionLinks';
+import { getLabel } from './getLabel';
 
 export class TitleLinks extends OptionLinks {
   constructor(omit) {

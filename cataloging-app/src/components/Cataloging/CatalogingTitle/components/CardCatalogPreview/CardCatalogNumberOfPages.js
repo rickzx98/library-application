@@ -23,7 +23,7 @@ export class CardCatalogNumberOfPages extends React.Component {
         }
     }
     render() {
-        return (<div className="form-group">
+        return (<div className="form-group adapt-link-theme clearfix">
             <Label label="LABEL_CARDS_TO_PRINT" />
             <input onChange={this.onChange}
                 className="form-control"
