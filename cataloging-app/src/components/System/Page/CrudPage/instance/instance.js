@@ -26,7 +26,7 @@ export default ({
 }) => instance => {
   instance.state = { editable: false, links };
   FluidFunc.create(`${pageName}_${FLUID_TRIGGER_COMMAND}`).onStart(param => {
-    instance.onTriggerCommand(param);
+    return instance.onTriggerCommand(param);
   });
   return {
     componentWillMount: () => {
@@ -65,16 +65,16 @@ export default ({
       FluidForm.clear(pageName);
     },
     commandSearch: (params) => {
-      instance.props.actions.search(params.pageName(),
+      return instance.props.actions.search(params.pageName(),
         params.search("field"),
         params.search("value"),
         params.search("fetchAll"));//fix the transformer
     },
     onTriggerCommand: (params) => {
       if (params.command() === COMMAND_SEARCH_LIST) {
-        instance.commandSearch(params);
+        return instance.commandSearch(params);
       } else if (commands) {
-        commands(params.command(), {
+        return commands(params.command(), {
           state: instance.state,
           props: {
             pageName,

@@ -1,18 +1,19 @@
-import {FormSpecs, TableColumns} from './api/';
-import {PAGE_NAME} from './constants';
-import {CrudPage, getLabel, LibraryLinks, FormInputNumber, LoanType, FormYesOrNO} from './imports';
+import { CrudPage, FormInputNumber, FormYesOrNO, LibraryLinks, LoanType, getLabel } from "./imports";
+import { FormSpecs, TableColumns } from "./api/";
+
+import { PAGE_NAME } from "./constants";
 
 export const CatalogingLoanTypePage = CrudPage({
   pageName: PAGE_NAME,
   FormSpecs,
   TableColumns,
   page: {
-    banner: '/books-header.jpg',
-    label: getLabel('LABEL_LOAN_TYPE'),
-    icon: 'bolt'
+    banner: "/books-header.jpg",
+    label: getLabel("LABEL_LOAN_TYPE"),
+    icon: "bolt"
   },
   formProps: {
-    fieldClass: () => 'col-sm-6 col-md-4',
+    fieldClass: () => "col-sm-6 col-sm-offset-right-6 col-md-4 col-md-offset-right-8",
     fieldComponent: (field) => {
       switch (field) {
         case LoanType.FINE_CYCLE:
@@ -27,5 +28,5 @@ export const CatalogingLoanTypePage = CrudPage({
       }
     }
   },
-  links: new LibraryLinks('loantype').getLinks()
+  pageLinks: () => new LibraryLinks("loantype").getLinks()
 });

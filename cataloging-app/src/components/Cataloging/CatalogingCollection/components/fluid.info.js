@@ -1,0 +1,1 @@
+export const ADD_TITLE = "CatalogingTitles.ADD_TITLE";

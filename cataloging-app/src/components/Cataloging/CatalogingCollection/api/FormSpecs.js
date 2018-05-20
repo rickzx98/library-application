@@ -14,7 +14,8 @@ export default () => {
     },
     {
       field: Collection.TITLES,
-      label: getLabel('LABEL_TITLES')
+      label: getLabel('LABEL_COLLECTION_TITLES'),
+      isVisible: state => state.managed
     }
   ];
 };

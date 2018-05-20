@@ -15,6 +15,13 @@ export const CatalogingCollectionPage = CrudPage({
     icon: "tags"
   },
   formProps: {
+    viewComponent: field => {
+      switch (field) {
+        case Collection.TITLES:
+          return CollectionTitles;
+        default: return false;
+      }
+    },
     fieldComponent: field => {
       switch (field) {
         case Collection.TITLES:
@@ -23,7 +30,14 @@ export const CatalogingCollectionPage = CrudPage({
           return false;
       }
     },
-    fieldClass: () => "col-sm-6 col-sm-offset-right-6 col-md-4 col-md-offset-right-8"
+    fieldClass: (field) => {
+      switch (field) {
+        case Collection.TITLES:
+          return "col-sm-8";
+        default:
+          return "col-sm-6 col-sm-offset-right-6 col-md-4 col-md-offset-right-8";
+      }
+    }
   },
   pageLinks: (page, { editable }) => {
     const links = new LibraryLinks("collection").getLinks();

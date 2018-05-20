@@ -72,7 +72,19 @@ export default {
           ]
         }
       ],
-      loantype: [],
+      loantype: [
+        {
+          _id: '40a98507d59e-4620-a4d5-70095fff4b6d',
+          name: 'Books',
+          loadPeriod: 15,
+          gracePeriod: 1,
+          fineCycle: 1,
+          maxLoanAmount: 5,
+          fineAmount: '0.00',
+          feeAmount: '0.00',
+          perHour: 'yes'
+        }
+      ],
       librarian,
       app: appStore,
       user: [],

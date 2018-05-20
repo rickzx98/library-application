@@ -7,7 +7,7 @@ export { connect } from "react-redux";
 export const PropTypes = pt;
 export const React = r;
 
-export { Collection, Title } from '../../../types/';
+export { Collection, Title, CollectionTitle } from '../../../types/';
 export {
     CreatePage, CreateReduxPage, CrudPage,
     triggerCommands, CreateLinkComponent, LinkSearch

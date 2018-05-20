@@ -1,5 +1,6 @@
-import { getLabel, CrudPage, TitleLinks } from './imports';
+import { CrudPage, TitleLinks, getLabel } from './imports';
 import { FormSpecs, TableColumns } from './api/';
+
 import { PAGE_NAME } from './constants';
 
 export const CatalogingVendorPage = CrudPage({
@@ -14,5 +15,5 @@ export const CatalogingVendorPage = CrudPage({
   formProps: {
     fieldClass: () => 'col-sm-6 col-sm-offset-right-6 col-md-4 col-md-offset-right-8'
   },
-  links: new TitleLinks('vendor').getLinks()
+  pageLinks: () => new TitleLinks('vendor').getLinks()
 });

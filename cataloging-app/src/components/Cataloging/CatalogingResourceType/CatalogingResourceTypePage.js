@@ -1,6 +1,7 @@
+import { CrudPage, TitleLinks, getLabel } from './imports';
 import { FormSpecs, TableColumns } from './api/';
+
 import { PAGE_NAME } from './constants';
-import { CrudPage, getLabel, TitleLinks } from './imports';
 
 export const CatalogingResourceTypePage = CrudPage({
   pageName: PAGE_NAME,
@@ -14,5 +15,5 @@ export const CatalogingResourceTypePage = CrudPage({
   formProps: {
     fieldClass: () => 'col-sm-6 col-md-4'
   },
-  links: new TitleLinks('resourcetype').getLinks()
+  pageLinks: () => new TitleLinks('resourcetype').getLinks()
 });

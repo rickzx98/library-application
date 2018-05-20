@@ -299,3 +299,16 @@ export const LABEL_PROPERTIES = "Properties";
 export const LABEL_PAGES = "Pages";
 export const LABEL_CARDS_TO_PRINT = "# to print";
 export const LABEL_SEARCH = "Search";
+
+//Collection Titles
+export const LABEL_COLLECTION_TITLES = "Collection titles";
+
+// messages 
+//Collection titles 
+export const LABEL_LOADING_collectionTitles_LIST_FAILED = "Failed to fetch collection titles";
+export const LABEL_CREATE_collectionTitles_SUCCESS = "Added to collection";
+export const LABEL_FAILED_TO_CREATE_collectionTitles = "Failed to add to collection titles";
+export const LABEL_UPDATE_collectionTitles_SUCCESS = "Collection has been updated";
+export const LABEL_FAILED_TO_UPDATE_collectionTiles = "Failed to update collection tiles";
+export const LABEL_DELETE_collectionTitles_SUCCESS = "Collection title has been deleted";
+export const LABEL_FAILED_TO_DELETE_collectionTitles = "Failed to delete collection title";

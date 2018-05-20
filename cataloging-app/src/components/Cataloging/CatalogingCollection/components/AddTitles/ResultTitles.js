@@ -1,7 +1,7 @@
 import { FluidTable, PropTypes, React, Title } from "../../imports";
 
 import { PAGE_NAME_TITLE } from "../../constants";
-import TableSpec from "./TitleTableSpec";
+import ResultTitlesColumns from "./ResultTitlesColumns";
 
 export const ResultTitles = ({ pageList, onSelect }) => (<div className="result-titles">
     <FluidTable
@@ -9,7 +9,7 @@ export const ResultTitles = ({ pageList, onSelect }) => (<div className="result-
         fieldKey={Title.ID}
         name={PAGE_NAME_TITLE}
         className="table table-condensed table-hover"
-        columns={TableSpec} value={pageList} />
+        columns={ResultTitlesColumns} value={pageList} />
 </div>);
 ResultTitles.propTypes = {
     onSelect: PropTypes.func.isRequired,
