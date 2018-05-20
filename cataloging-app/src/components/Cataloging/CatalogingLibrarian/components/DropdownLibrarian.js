@@ -1,29 +1,48 @@
-import { FluidForm, FluidApi, getLabel, PropTypes, React , Librarian} from '../imports';
-import { PAGE_NAME } from '../constants';
+import {
+  FieldView,
+  FluidApi,
+  FluidForm,
+  Librarian,
+  PropTypes,
+  React,
+  getLabel,
+  readOnlyWrapper
+} from '../imports';
 
-import { transformLibrarianEdit } from '../api/Transfomer';
+import { PAGE_NAME } from '../constants';
+import { viewTransformer } from './LibrarianTransformer';
 
 export class DropdownLibrarian extends React.Component {
-  state = {
-    loading: false,
-    data: []
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      loading: false,
+      data: []
+    };
+    this.transformer = this._viewTransformer.bind(this);
+  }
+
   componentWillMount() {
     this.refresh();
   }
-  setData = (data) => {
+
+  setData(data) {
     this.setState({ data });
-  };
-  loadingOn = () => {
+  }
+
+  loadingOn() {
     this.setState({ loading: true });
-  };
-  loadingOff = () => {
+  }
+
+  loadingOff() {
     this.setState({ loading: false });
-  };
-  error = (error) => {
+  }
+
+  error(error) {
     this.setState({ error });
-  };
-  refresh = () => {
+  }
+
+  refresh() {
     this.loadingOn();
     FluidApi.storage(PAGE_NAME)
       .then(({ data }) => {
@@ -35,19 +54,30 @@ export class DropdownLibrarian extends React.Component {
         this.loadingOff();
         this.setData([]);
       });
-  };
-  render = () => (<select
-    className="form-control"
-    name={this.props.field.name}
-    value={FluidForm.getValue(this.props.formValue, this.props.field.name, transformLibrarianEdit)}>
-    <option value="">{getLabel('LABEL_SELECT_OPTIONS')}</option>
-    {this.state.data && this.state.data.filter(data => data[Librarian.ACTIVE] === true).map(
-      data => (<option key={data[Librarian.ID]} value={data[Librarian.ID]}>{data[Librarian.NAME]}</option>)
-    )}
-  </select>);
+  }
+
+  _viewTransformer(value) {
+    return viewTransformer(this.state.data, value);
+  }
+
+  render() {
+    return readOnlyWrapper(
+      <FieldView>{FluidForm.getValue(this.props.formValue, this.props.field.name, this.transformer)}</FieldView>, (
+        <select
+          className="form-control"
+          name={this.props.field.name}
+          value={FluidForm.getValue(this.props.formValue, this.props.field.name)}>
+          <option value="">{getLabel('LABEL_SELECT_OPTIONS')}</option>
+          {this.state.data && this.state.data.map(
+            data => (
+              <option key={data[Librarian.ID]} value={data[Librarian.ID]}>{data[Librarian.NAME]}</option>)
+          )}
+        </select>), this.props.readOnly);
+  }
 }
 
 DropdownLibrarian.propTypes = {
   formValue: PropTypes.object,
-  field: PropTypes.object.isRequired
+  field: PropTypes.object.isRequired,
+  readOnly: PropTypes.bool
 };

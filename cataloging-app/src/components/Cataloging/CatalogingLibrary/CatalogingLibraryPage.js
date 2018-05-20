@@ -1,7 +1,7 @@
 import { CreateLinkComponent, CrudPage, Library, LibraryLinks, getLabel, triggerCommands } from './imports';
-import { DropdownLibrarian, transformLibrarianEdit, transformLibrarianView } from '../CatalogingLibrarian/';
 import { FormSpecs, TableColumns } from './api/';
 
+import { DropdownLibrarian } from '../CatalogingLibrarian/';
 import { PAGE_NAME } from './constants';
 
 export const CatalogingLibraryPage = CrudPage({
@@ -48,18 +48,14 @@ export const CatalogingLibraryPage = CrudPage({
           return false;
       }
     },
-    viewValueTransformer: (field) => {
+    viewComponent: (field) => {
       switch (field) {
         case Library.LIBRARIAN:
-          return transformLibrarianView;
+          return DropdownLibrarian;
         default:
           return false;
       }
-    },
-    modelValueTransformer: (formValue) => ({
-      ...formValue,
-      librarian: transformLibrarianEdit(formValue[Library.LIBRARIAN])
-    })
+    }
   },
   pageLinks: (page) => {
     const links = new LibraryLinks("library").getLinks();

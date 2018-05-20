@@ -1,4 +1,6 @@
-import { Librarian } from '../imports';
+import { FluidApi, Librarian } from '../imports';
+
+import { PAGE_NAME } from "../constants";
 
 export const transformActiveField = (value) => {
   switch (value) {
@@ -10,15 +12,20 @@ export const transformActiveField = (value) => {
   }
 };
 
-export const transformLibrarianView = (value) => {
-  if (value) {
-    if (value[Librarian.ID]) {
-      return value[Librarian.NAME];
-    } else {
-      return value;
+export const transformLibrarianView = (value) => new Promise((resolve, reject) => {
+  try {
+    if (!value[Librarian.ID]) {
+      FluidApi.storage(PAGE_NAME).then(({ data }) => {
+        resolve(data().filter(librarian => librarian[Librarian.ID] === value)[0]);
+      }).catch(error => {
+        reject(error);
+      });
     }
+  } catch (error) {
+    reject(error);
   }
-};
+});
+
 export const transformLibrarianEdit = (value) => {
   if (value) {
     if (value[Librarian.ID]) {

@@ -10,7 +10,7 @@ export const Page = CrudPage({
   TableColumns,
   page: {
     banner: '/subject-header.jpg',
-    label: getLabel('LABEL_PREFIX'),
+    label: getLabel('LABEL_CUTTER'),
     icon: 'phone'
   },
   formProps: {
