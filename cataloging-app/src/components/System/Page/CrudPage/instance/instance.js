@@ -1,7 +1,7 @@
+import { COMMAND_SEARCH_LIST, FLUID_TRIGGER_COMMAND } from "../../constants";
 import { FluidForm, FluidFunc, React } from "../../imports";
 
 import { CrudPageBody } from './CrudPageBody';
-import { FLUID_TRIGGER_COMMAND } from "../../constants";
 import createHeaders from './createHeaders';
 import onFormSubmit from './onFormSubmit';
 import refresh from './refresh';
@@ -64,8 +64,16 @@ export default ({
       instance.state = {};
       FluidForm.clear(pageName);
     },
+    commandSearch: (params) => {
+      instance.props.actions.search(params.pageName(),
+        params.search("field"),
+        params.search("value"),
+        params.search("fetchAll"));//fix the transformer
+    },
     onTriggerCommand: (params) => {
-      if (commands) {
+      if (params.command() === COMMAND_SEARCH_LIST) {
+        instance.commandSearch(params);
+      } else if (commands) {
         commands(params.command(), {
           state: instance.state,
           props: {
@@ -73,7 +81,8 @@ export default ({
             actions: instance.props.actions,
             pageForm: instance.props.pageForm,
             pageList: instance.props.pageList
-          }, params
+          },
+          params
         });
       }
     },

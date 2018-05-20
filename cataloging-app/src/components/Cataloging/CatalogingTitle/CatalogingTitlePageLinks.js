@@ -68,7 +68,7 @@ export default (page, { activeKey = 1 }, { id }) => {
         component: CreateLinkComponent("LinkSearch",
           {
             label: getLabel("LABEL_SEARCH_RECORDS"),
-            name: "searchTitle",
+            name: "title",
             pageName: PAGE_NAME,
             fluidLink: triggerCommands(PAGE_NAME)
           })

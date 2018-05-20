@@ -14,10 +14,7 @@ export default () => {
     },
     {
       field: Collection.TITLES,
-      label: getLabel('LABEL_TITLES'),
-      data: {
-        default: []
-      }
+      label: getLabel('LABEL_TITLES')
     }
   ];
 };

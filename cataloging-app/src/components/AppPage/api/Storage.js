@@ -18,6 +18,7 @@ export default {
     return {
       indexcard: [],
       collection: collections,
+      collectionTitles: [],
       library: libraries,
       title: [
         {

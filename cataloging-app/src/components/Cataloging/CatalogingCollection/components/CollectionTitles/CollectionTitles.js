@@ -4,6 +4,7 @@ export class CollectionTitles extends React.Component {
     constructor(props) {
         super(props);
     }
+    _addTitle() { }
     render() {
         return (<div className="collection-titles" />);
     }

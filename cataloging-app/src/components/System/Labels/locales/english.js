@@ -298,3 +298,4 @@ export const LABEL_LARGE = "Large";
 export const LABEL_PROPERTIES = "Properties";
 export const LABEL_PAGES = "Pages";
 export const LABEL_CARDS_TO_PRINT = "# to print";
+export const LABEL_SEARCH = "Search";

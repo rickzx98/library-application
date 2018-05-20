@@ -1,4 +1,4 @@
-import { CrudPage, Library, LibraryLinks, getLabel } from './imports';
+import { CreateLinkComponent, CrudPage, Library, LibraryLinks, getLabel, triggerCommands } from './imports';
 import { DropdownLibrarian, transformLibrarianEdit, transformLibrarianView } from '../CatalogingLibrarian/';
 import { FormSpecs, TableColumns } from './api/';
 
@@ -61,5 +61,19 @@ export const CatalogingLibraryPage = CrudPage({
       librarian: transformLibrarianEdit(formValue[Library.LIBRARIAN])
     })
   },
-  pageLinks: () => new LibraryLinks("library").getLinks()
+  pageLinks: (page) => {
+    const links = new LibraryLinks("library").getLinks();
+    if (page === "list") {
+      links.unshift({
+        name: "searchLibrary",
+        component: CreateLinkComponent("LinkSearch", {
+          pageName: PAGE_NAME,
+          label: getLabel("LABEL_SEARCH_RECORDS"),
+          name: Library.NAME,
+          fluidLink: triggerCommands(PAGE_NAME)
+        })
+      });
+    }
+    return links;
+  }
 });

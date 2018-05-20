@@ -1,5 +1,7 @@
 import { FluidFunc, PropTypes, React } from "../imports";
 
+import { COMMAND_SEARCH_LIST } from "../constants";
+
 export class LinkSearch extends React.Component {
     constructor(props) {
         super(props);
@@ -12,19 +14,24 @@ export class LinkSearch extends React.Component {
     _setValue(value) {
         this.setState({ value });
         if (FluidFunc.exists(this.props.fluidLink)) {
+            const { name, pageName, fetchAll = true } = this.props;
             FluidFunc.start(this.props.fluidLink, {
-                command: "SEARCH_LIST",
-                searchValue: value
+                command: COMMAND_SEARCH_LIST,
+                pageName: pageName,
+                search: {
+                    value,
+                    field: name,
+                    fetchAll
+                }
             });
         }
     }
     render() {
-        const { label, name, pageName } = this.props;
+        const { label, name } = this.props;
         return (<div className="link-search clearfix adapt-link-theme">
             <label className="link-search-label">{label}</label>
             <input onChange={this.onChange}
                 name={name}
-                defaultValue={pageName}
                 value={this.state.value}
                 className="form-control" />
         </div>);
@@ -35,5 +42,6 @@ LinkSearch.propTypes = {
     label: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
     pageName: PropTypes.string.isRequired,
-    fluidLink: PropTypes.string.isRequired
+    fluidLink: PropTypes.string.isRequired,
+    fetchAll: PropTypes.bool
 };

@@ -52,6 +52,48 @@ export const add = pageName => dispatch => {
 export const view = (pageName, id) => dispatch => {
   dispatch(push(`${pageName}/view/${id}`));
 };
+export const search = (pageName, field, value, fetchAll, transformer) => dispatch => {
+  dispatch(AjaxStatusActions.beginAjaxCall());
+  FluidApi.execute("searchData", { pageName, field, value })
+    .then(({ searchData }) => {
+      const data = searchData("data")()[pageName];
+      if ((!value || (value && value.trim().length === 0)) && fetchAll) {
+        dispatch(load(pageName, undefined, transformer));
+      } else {
+        if (transformer) {
+          if (transformer instanceof Promise) {
+            transformer
+              .then(transformedData => {
+                dispatch(setListData(pageName, transformedData));
+                dispatch(AjaxStatusActions.ajaxCallSuccess());
+              })
+              .catch(error => {
+                dispatch(AjaxStatusActions.ajaxCallError(error));
+                dispatch(
+                  NotificationActions.alertDanger(
+                    getLabel(`LABEL_LOADING_${pageName}_LIST_FAILED`)
+                  )
+                );
+              });
+          } else {
+            dispatch(setListData(pageName, transformer(data)));
+            dispatch(AjaxStatusActions.ajaxCallSuccess());
+          }
+        } else {
+          dispatch(setListData(pageName, data));
+          dispatch(AjaxStatusActions.ajaxCallSuccess());
+        }
+      }
+    })
+    .catch(error => {
+      dispatch(AjaxStatusActions.ajaxCallError(error));
+      dispatch(
+        NotificationActions.alertDanger(
+          getLabel(`LABEL_LOADING_${pageName}_LIST_FAILED`)
+        )
+      );
+    });
+};
 export const load = (pageName, parent, transformer) => dispatch => {
   dispatch(AjaxStatusActions.beginAjaxCall());
   FluidApi.execute("getListData", { pageName })

@@ -15,6 +15,9 @@
     .fluid-table-filter-row {
         display: none;
         background: none;
+        &.show-filter {
+          display: block;
+        }
     }
     .fluid-row {
         background: $table-background-color;
