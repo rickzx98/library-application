@@ -39,5 +39,6 @@ export const Title = {
     PLACE_OF_PUBLICATION: "placeOfPublication",
     PUBLIC_NOTE: "publicNote",
     COPIES: "copies",
-    ACCESSIONS: "accessions"
+    ACCESSIONS: "accessions",
+    LOAN_TYPE: "loanType"
 };

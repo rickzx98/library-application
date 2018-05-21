@@ -8,7 +8,6 @@ export {
 } from "./DateFormat";
 export { readOnlyWrapper } from "./readOnly";
 export { textNotEmpty } from "./notEmpty";
-export { sortRecordDateDesc } from "./sortRecordDate";
 export { toReadableText } from "./JsonFormat";
 export { getLabel } from "./getLabel";
 export { ModelValueTransformer } from "./ModelTransformer";

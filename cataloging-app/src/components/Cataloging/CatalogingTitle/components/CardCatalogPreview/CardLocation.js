@@ -1,4 +1,5 @@
-import { React, PropTypes, FluidApi, Library } from "../../imports";
+import { FluidApi, Library, PropTypes, React } from "../../imports";
+
 import { PAGE_LIBRARY } from "../../constants";
 
 export class CardLocation extends React.Component {
@@ -18,12 +19,13 @@ export class CardLocation extends React.Component {
     }
   }
   _refresh() {
-    FluidApi.storage(PAGE_LIBRARY).then(({ data }) => {
-      const value = data().filter(
-        library => library[Library.ID] === this.props.value
-      )[0];
-      this.setState({ value: value ? value[Library.NAME] : "" });
-    });
+    FluidApi.execute("getListData", { pageName: PAGE_LIBRARY })
+      .then(({ getListData }) => {
+        const value = getListData("data")(PAGE_LIBRARY).filter(
+          library => library[Library.ID] === this.props.value
+        )[0];
+        this.setState({ value: value ? value[Library.NAME] : "" });
+      });
   }
   render() {
     return <div className="card-location">{this.state.value}</div>;

@@ -27,9 +27,9 @@ export class DropdownCollection extends React.Component {
     }
     refresh() {
         this.loadingOn();
-        FluidApi.storage(PAGE_NAME)
-            .then(({ data }) => {
-                this.setData(data());
+        FluidApi.execute("getListData", { pageName: PAGE_NAME })
+            .then(({ getListData }) => {
+                this.setData(getListData("data")(PAGE_NAME));
                 this.loadingOff();
             })
             .catch(error => {

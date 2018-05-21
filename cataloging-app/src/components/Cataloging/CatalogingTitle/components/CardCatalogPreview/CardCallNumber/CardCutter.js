@@ -1,4 +1,5 @@
-import { React, PropTypes, FluidApi, Cutter } from "../../../imports";
+import { Cutter, FluidApi, PropTypes, React } from "../../../imports";
+
 import { PAGE_CUTTER } from "../../../constants";
 
 export class CardCutter extends React.Component {
@@ -18,12 +19,13 @@ export class CardCutter extends React.Component {
     }
   }
   _refresh() {
-    FluidApi.storage(PAGE_CUTTER).then(({ data }) => {
-      const value = data().filter(
-        cutter => cutter[Cutter.ID] === this.props.value
-      )[0];
-      this.setState({ value: value ? value[Cutter.VALUE] : "" });
-    });
+    FluidApi.execute("getListData", { pageName: PAGE_CUTTER })
+      .then(({ getListData }) => {
+        const value = getListData("data")(PAGE_CUTTER).filter(
+          cutter => cutter[Cutter.ID] === this.props.value
+        )[0];
+        this.setState({ value: value ? value[Cutter.VALUE] : "" });
+      });
   }
   render() {
     return <div className="card-cutter">{this.state.value}</div>;

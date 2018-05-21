@@ -1,6 +1,7 @@
-import {FieldView, FluidApi, FluidForm, getLabel, PropTypes, React, readOnlyWrapper, ResourceType} from '../imports';
-import {PAGE_NAME} from '../constants';
-import {viewTransformer} from './transformer/ResourceTypeTransformer';
+import { FieldView, FluidApi, FluidForm, PropTypes, React, ResourceType, getLabel, readOnlyWrapper } from '../imports';
+
+import { PAGE_NAME } from '../constants';
+import { viewTransformer } from './transformer/ResourceTypeTransformer';
 
 export class DropdownResourceType extends React.Component {
   constructor(props) {
@@ -17,26 +18,26 @@ export class DropdownResourceType extends React.Component {
   }
 
   setData(data) {
-    this.setState({data});
+    this.setState({ data });
   }
 
   loadingOn() {
-    this.setState({loading: true});
+    this.setState({ loading: true });
   }
 
   loadingOff() {
-    this.setState({loading: false});
+    this.setState({ loading: false });
   }
 
   error(error) {
-    this.setState({error});
+    this.setState({ error });
   }
 
   refresh() {
     this.loadingOn();
-    FluidApi.storage(PAGE_NAME)
-      .then(({data}) => {
-        this.setData(data());
+    FluidApi.execute("getListData", { pageName: PAGE_NAME })
+      .then(({ getListData }) => {
+        this.setData(getListData("data")(PAGE_NAME));
         this.loadingOff();
       })
       .catch(error => {

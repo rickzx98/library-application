@@ -148,8 +148,8 @@ export default () => [
     group: getLabel("LABEL_COPIES")
   }, {
     isVisible: (state) => state && state.managed,
-    field: Title.FORMAT,
-    label: getLabel("LABEL_FORMAT"),
+    field: Title.LOAN_TYPE,
+    label: getLabel("LABEL_LOAN_TYPE"),
     group: getLabel("LABEL_COPIES")
   }, {
     isVisible: (state) => state && state.managed,
